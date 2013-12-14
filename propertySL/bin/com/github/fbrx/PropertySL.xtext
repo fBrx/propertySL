@@ -1,9 +1,0 @@
-grammar com.github.fbrx.PropertySL with org.eclipse.xtext.common.Terminals
-
-generate propertySL "http://www.github.com/fbrx/PropertySL"
-
-Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
