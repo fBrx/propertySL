@@ -9,7 +9,21 @@ Model:
 Package:
 	'package' ID '{'
 		DefaultLocale?
+		
+		Property*
 	'}'
+;
+
+Property:
+	PropertyKey '=' PropertyValue
+;
+
+PropertyKey:
+	'key'
+;
+
+PropertyValue:
+	'value'
 ;
 
 DefaultLocale:
