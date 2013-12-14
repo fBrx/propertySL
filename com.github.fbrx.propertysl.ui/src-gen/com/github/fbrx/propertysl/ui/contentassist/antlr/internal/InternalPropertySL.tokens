@@ -2,6 +2,7 @@ RULE_ID=4
 RULE_STRING=6
 T__16=16
 T__15=15
+T__18=18
 T__17=17
 T__12=12
 T__11=11
@@ -14,8 +15,9 @@ RULE_SL_COMMENT=8
 RULE_ML_COMMENT=7
 '}'=15
 'de'=11
-'='=16
+'='=17
 'en'=12
+'.'=16
 '{'=14
-'DEFAULT_LOCALE'=17
+'DEFAULT_LOCALE'=18
 'package'=13

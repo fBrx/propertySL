@@ -122,12 +122,16 @@ rulePackage returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
         $current.merge(kw);
         newLeafNode(kw, grammarAccess.getPackageAccess().getPackageKeyword_0()); 
     }
-    this_ID_1=RULE_ID    {
-		$current.merge(this_ID_1);
+
+    { 
+        newCompositeNode(grammarAccess.getPackageAccess().getFQNParserRuleCall_1()); 
+    }
+    this_FQN_1=ruleFQN    {
+		$current.merge(this_FQN_1);
     }
 
     { 
-    newLeafNode(this_ID_1, grammarAccess.getPackageAccess().getIDTerminalRuleCall_1()); 
+        afterParserOrEnumRuleCall();
     }
 
 	kw='{' 
@@ -148,10 +152,21 @@ rulePackage returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
     }
 )?(
     { 
-        newCompositeNode(grammarAccess.getPackageAccess().getPropertyParserRuleCall_4()); 
+        newCompositeNode(grammarAccess.getPackageAccess().getPackageParserRuleCall_4()); 
     }
-    this_Property_4=ruleProperty    {
-		$current.merge(this_Property_4);
+    this_Package_4=rulePackage    {
+		$current.merge(this_Package_4);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)*(
+    { 
+        newCompositeNode(grammarAccess.getPackageAccess().getPropertyParserRuleCall_5()); 
+    }
+    this_Property_5=ruleProperty    {
+		$current.merge(this_Property_5);
     }
 
     { 
@@ -161,9 +176,50 @@ rulePackage returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()
 	kw='}' 
     {
         $current.merge(kw);
-        newLeafNode(kw, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_5()); 
+        newLeafNode(kw, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_6()); 
     }
 )
+    ;
+
+
+
+
+
+// Entry rule entryRuleFQN
+entryRuleFQN returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getFQNRule()); } 
+	 iv_ruleFQN=ruleFQN 
+	 { $current=$iv_ruleFQN.current.getText(); }  
+	 EOF 
+;
+
+// Rule FQN
+ruleFQN returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    newLeafNode(this_ID_0, grammarAccess.getFQNAccess().getIDTerminalRuleCall_0()); 
+    }
+(
+	kw='.' 
+    {
+        $current.merge(kw);
+        newLeafNode(kw, grammarAccess.getFQNAccess().getFullStopKeyword_1_0()); 
+    }
+    this_ID_2=RULE_ID    {
+		$current.merge(this_ID_2);
+    }
+
+    { 
+    newLeafNode(this_ID_2, grammarAccess.getFQNAccess().getIDTerminalRuleCall_1_1()); 
+    }
+)*)
     ;
 
 

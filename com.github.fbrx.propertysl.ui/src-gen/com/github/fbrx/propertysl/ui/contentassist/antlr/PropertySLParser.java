@@ -39,6 +39,8 @@ public class PropertySLParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getLOCALEAccess().getAlternatives(), "rule__LOCALE__Alternatives");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
+					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
+					put(grammarAccess.getFQNAccess().getGroup_1(), "rule__FQN__Group_1__0");
 					put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
 					put(grammarAccess.getDefaultLocaleAccess().getGroup(), "rule__DefaultLocale__Group__0");
 					put(grammarAccess.getModelAccess().getPackagesAssignment(), "rule__Model__PackagesAssignment");

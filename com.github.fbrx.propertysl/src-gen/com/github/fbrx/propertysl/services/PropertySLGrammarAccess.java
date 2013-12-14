@@ -38,24 +38,25 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Package");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPackageKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cFQNParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final RuleCall cDefaultLocaleParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cPropertyParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final RuleCall cPackageParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
+		private final RuleCall cPropertyParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Package:
-		//	"package" ID "{" DefaultLocale? Property* "}";
+		//	"package" FQN "{" DefaultLocale? Package* Property* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"package" ID "{" DefaultLocale? Property* "}"
+		//"package" FQN "{" DefaultLocale? Package* Property* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"package"
 		public Keyword getPackageKeyword_0() { return cPackageKeyword_0; }
 
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+		//FQN
+		public RuleCall getFQNParserRuleCall_1() { return cFQNParserRuleCall_1; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
@@ -63,11 +64,42 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		//DefaultLocale?
 		public RuleCall getDefaultLocaleParserRuleCall_3() { return cDefaultLocaleParserRuleCall_3; }
 
+		//Package*
+		public RuleCall getPackageParserRuleCall_4() { return cPackageParserRuleCall_4; }
+
 		//Property*
-		public RuleCall getPropertyParserRuleCall_4() { return cPropertyParserRuleCall_4; }
+		public RuleCall getPropertyParserRuleCall_5() { return cPropertyParserRuleCall_5; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+
+	public class FQNElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FQN");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cFullStopKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//FQN:
+		//	ID ("." ID)*;
+		public ParserRule getRule() { return rule; }
+
+		//ID ("." ID)*
+		public Group getGroup() { return cGroup; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//("." ID)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_1_0() { return cFullStopKeyword_1_0; }
+
+		//ID
+		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
 	}
 
 	public class PropertyElements extends AbstractParserRuleElementFinder {
@@ -165,6 +197,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private ModelElements pModel;
 	private PackageElements pPackage;
+	private FQNElements pFQN;
 	private PropertyElements pProperty;
 	private PropertyKeyElements pPropertyKey;
 	private PropertyValueElements pPropertyValue;
@@ -220,13 +253,23 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Package:
-	//	"package" ID "{" DefaultLocale? Property* "}";
+	//	"package" FQN "{" DefaultLocale? Package* Property* "}";
 	public PackageElements getPackageAccess() {
 		return (pPackage != null) ? pPackage : (pPackage = new PackageElements());
 	}
 	
 	public ParserRule getPackageRule() {
 		return getPackageAccess().getRule();
+	}
+
+	//FQN:
+	//	ID ("." ID)*;
+	public FQNElements getFQNAccess() {
+		return (pFQN != null) ? pFQN : (pFQN = new FQNElements());
+	}
+	
+	public ParserRule getFQNRule() {
+		return getFQNAccess().getRule();
 	}
 
 	//Property:
