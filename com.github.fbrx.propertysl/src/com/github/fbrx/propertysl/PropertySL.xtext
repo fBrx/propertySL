@@ -1,0 +1,35 @@
+grammar com.github.fbrx.propertysl.PropertySL with org.eclipse.xtext.common.Terminals
+
+generate propertySL "http://www.github.com/fbrx/propertysl/PropertySL"
+
+Model:
+	packages += Package*;
+
+Package:
+	'package' ID '{'
+		DefaultLocale?
+		
+		Property*
+	'}'
+;
+
+Property:
+	PropertyKey '=' PropertyValue
+;
+
+PropertyKey:
+	ID
+;
+
+PropertyValue:
+	ID
+;
+
+DefaultLocale:
+	'DEFAULT_LOCALE' '=' LOCALE
+;
+
+LOCALE:
+	'de' | 'en'
+;
+
