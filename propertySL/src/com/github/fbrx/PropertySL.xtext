@@ -8,7 +8,15 @@ Model:
 
 Package:
 	'package' ID '{'
-		
+		DefaultLocale?
 	'}'
+;
+
+DefaultLocale:
+	'DEFAULT_LOCALE' '=' LOCALE
+;
+
+LOCALE:
+	'de' | 'en'
 ;
 
