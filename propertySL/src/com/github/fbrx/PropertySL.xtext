@@ -19,11 +19,11 @@ Property:
 ;
 
 PropertyKey:
-	'key'
+	ID
 ;
 
 PropertyValue:
-	'value'
+	ID
 ;
 
 DefaultLocale:
