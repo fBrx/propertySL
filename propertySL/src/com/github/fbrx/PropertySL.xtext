@@ -1,9 +1,14 @@
-grammar com.github.fbrx.PropertySL with org.eclipse.xtext.common.Terminals
+grammar com.github.fbrx.PropertySL 
+	with org.eclipse.xtext.common.Terminals
 
-generate propertySL "http://www.github.com/fbrx/PropertySL"
+generate propertySL "http://www.github.com/fbrx/propertySL"
 
 Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+	packages += Package*;
+
+Package:
+	'package' ID '{'
+		
+	'}'
+;
+
