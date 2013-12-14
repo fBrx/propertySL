@@ -19,15 +19,25 @@ FQN:
 ;
 
 Property:
-	PropertyKey '=' PropertyValue
+	PropertyKey '=' AbstractPropertyValue
 ;
 
 PropertyKey:
 	ID
 ;
 
-PropertyValue:
+AbstractPropertyValue:
+	SimplePropertyValue | ComplexPropertyValue
+;
+
+SimplePropertyValue:
 	ID
+;
+
+ComplexPropertyValue:
+	'{'
+		(LOCALE ':' ID)+
+	'}'
 ;
 
 DefaultLocale:
