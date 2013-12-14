@@ -6,11 +6,15 @@ Model:
 	packages += Package*;
 
 Package:
-	'package' ID '{'
+	'package' FQN '{'
 		DefaultLocale?
 		
 		Property*
 	'}'
+;
+
+FQN:
+	ID ('.' ID)*
 ;
 
 Property:
