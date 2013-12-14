@@ -9,6 +9,7 @@ Package:
 	'package' FQN '{'
 		DefaultLocale?
 		
+		Package*
 		Property*
 	'}'
 ;
