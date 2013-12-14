@@ -31,12 +31,12 @@ AbstractPropertyValue:
 ;
 
 SimplePropertyValue:
-	ID
+	STRING
 ;
 
 ComplexPropertyValue:
 	'{'
-		(LOCALE ':' ID)+
+		(LOCALE ':' SimplePropertyValue)+
 	'}'
 ;
 

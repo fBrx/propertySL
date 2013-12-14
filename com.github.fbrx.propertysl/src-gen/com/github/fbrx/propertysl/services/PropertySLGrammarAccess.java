@@ -107,13 +107,13 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cPropertyKeyParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cPropertyValueParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final RuleCall cAbstractPropertyValueParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
 		
 		//Property:
-		//	PropertyKey "=" PropertyValue;
+		//	PropertyKey "=" AbstractPropertyValue;
 		public ParserRule getRule() { return rule; }
 
-		//PropertyKey "=" PropertyValue
+		//PropertyKey "=" AbstractPropertyValue
 		public Group getGroup() { return cGroup; }
 
 		//PropertyKey
@@ -122,8 +122,8 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
-		//PropertyValue
-		public RuleCall getPropertyValueParserRuleCall_2() { return cPropertyValueParserRuleCall_2; }
+		//AbstractPropertyValue
+		public RuleCall getAbstractPropertyValueParserRuleCall_2() { return cAbstractPropertyValueParserRuleCall_2; }
 	}
 
 	public class PropertyKeyElements extends AbstractParserRuleElementFinder {
@@ -138,16 +138,72 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getIDTerminalRuleCall() { return cIDTerminalRuleCall; }
 	}
 
-	public class PropertyValueElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertyValue");
-		private final RuleCall cIDTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+	public class AbstractPropertyValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractPropertyValue");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cSimplePropertyValueParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cComplexPropertyValueParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//PropertyValue:
-		//	ID;
+		//AbstractPropertyValue:
+		//	SimplePropertyValue | ComplexPropertyValue;
 		public ParserRule getRule() { return rule; }
 
-		//ID
-		public RuleCall getIDTerminalRuleCall() { return cIDTerminalRuleCall; }
+		//SimplePropertyValue | ComplexPropertyValue
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//SimplePropertyValue
+		public RuleCall getSimplePropertyValueParserRuleCall_0() { return cSimplePropertyValueParserRuleCall_0; }
+
+		//ComplexPropertyValue
+		public RuleCall getComplexPropertyValueParserRuleCall_1() { return cComplexPropertyValueParserRuleCall_1; }
+	}
+
+	public class SimplePropertyValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimplePropertyValue");
+		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//SimplePropertyValue:
+		//	STRING;
+		public ParserRule getRule() { return rule; }
+
+		//STRING
+		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
+	}
+
+	public class ComplexPropertyValueElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ComplexPropertyValue");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final RuleCall cLOCALEParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
+		private final Keyword cColonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final RuleCall cSimplePropertyValueParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//ComplexPropertyValue:
+		//	"{" (LOCALE ":" SimplePropertyValue)+ "}";
+		public ParserRule getRule() { return rule; }
+
+		//"{" (LOCALE ":" SimplePropertyValue)+ "}"
+		public Group getGroup() { return cGroup; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
+
+		//(LOCALE ":" SimplePropertyValue)+
+		public Group getGroup_1() { return cGroup_1; }
+
+		//LOCALE
+		public RuleCall getLOCALEParserRuleCall_1_0() { return cLOCALEParserRuleCall_1_0; }
+
+		//":"
+		public Keyword getColonKeyword_1_1() { return cColonKeyword_1_1; }
+
+		//SimplePropertyValue
+		public RuleCall getSimplePropertyValueParserRuleCall_1_2() { return cSimplePropertyValueParserRuleCall_1_2; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
 	}
 
 	public class DefaultLocaleElements extends AbstractParserRuleElementFinder {
@@ -200,7 +256,9 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	private FQNElements pFQN;
 	private PropertyElements pProperty;
 	private PropertyKeyElements pPropertyKey;
-	private PropertyValueElements pPropertyValue;
+	private AbstractPropertyValueElements pAbstractPropertyValue;
+	private SimplePropertyValueElements pSimplePropertyValue;
+	private ComplexPropertyValueElements pComplexPropertyValue;
 	private DefaultLocaleElements pDefaultLocale;
 	private LOCALEElements pLOCALE;
 	
@@ -273,7 +331,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Property:
-	//	PropertyKey "=" PropertyValue;
+	//	PropertyKey "=" AbstractPropertyValue;
 	public PropertyElements getPropertyAccess() {
 		return (pProperty != null) ? pProperty : (pProperty = new PropertyElements());
 	}
@@ -292,14 +350,34 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		return getPropertyKeyAccess().getRule();
 	}
 
-	//PropertyValue:
-	//	ID;
-	public PropertyValueElements getPropertyValueAccess() {
-		return (pPropertyValue != null) ? pPropertyValue : (pPropertyValue = new PropertyValueElements());
+	//AbstractPropertyValue:
+	//	SimplePropertyValue | ComplexPropertyValue;
+	public AbstractPropertyValueElements getAbstractPropertyValueAccess() {
+		return (pAbstractPropertyValue != null) ? pAbstractPropertyValue : (pAbstractPropertyValue = new AbstractPropertyValueElements());
 	}
 	
-	public ParserRule getPropertyValueRule() {
-		return getPropertyValueAccess().getRule();
+	public ParserRule getAbstractPropertyValueRule() {
+		return getAbstractPropertyValueAccess().getRule();
+	}
+
+	//SimplePropertyValue:
+	//	STRING;
+	public SimplePropertyValueElements getSimplePropertyValueAccess() {
+		return (pSimplePropertyValue != null) ? pSimplePropertyValue : (pSimplePropertyValue = new SimplePropertyValueElements());
+	}
+	
+	public ParserRule getSimplePropertyValueRule() {
+		return getSimplePropertyValueAccess().getRule();
+	}
+
+	//ComplexPropertyValue:
+	//	"{" (LOCALE ":" SimplePropertyValue)+ "}";
+	public ComplexPropertyValueElements getComplexPropertyValueAccess() {
+		return (pComplexPropertyValue != null) ? pComplexPropertyValue : (pComplexPropertyValue = new ComplexPropertyValueElements());
+	}
+	
+	public ParserRule getComplexPropertyValueRule() {
+		return getComplexPropertyValueAccess().getRule();
 	}
 
 	//DefaultLocale:

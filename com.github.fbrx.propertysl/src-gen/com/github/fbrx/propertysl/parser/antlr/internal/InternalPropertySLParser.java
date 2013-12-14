@@ -21,10 +21,15 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPropertySLParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'.'", "'='", "'DEFAULT_LOCALE'", "'de'", "'en'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'.'", "'='", "':'", "'DEFAULT_LOCALE'", "'de'", "'en'"
     };
     public static final int RULE_ID=4;
-    public static final int RULE_STRING=6;
+    public static final int RULE_ANY_OTHER=10;
+    public static final int EOF=-1;
+    public static final int RULE_SL_COMMENT=8;
+    public static final int RULE_ML_COMMENT=7;
+    public static final int T__19=19;
+    public static final int RULE_STRING=5;
     public static final int T__16=16;
     public static final int T__15=15;
     public static final int T__18=18;
@@ -33,12 +38,8 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=5;
+    public static final int RULE_INT=6;
     public static final int RULE_WS=9;
-    public static final int RULE_SL_COMMENT=8;
-    public static final int EOF=-1;
-    public static final int RULE_ML_COMMENT=7;
 
     // delegates
     // delegators
@@ -282,7 +283,7 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==16) ) {
+            if ( (LA2_0==17) ) {
                 alt2=1;
             }
             switch (alt2) {
@@ -564,24 +565,24 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleProperty"
-    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:239:1: ruleProperty returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_PropertyKey_0= rulePropertyKey kw= '=' this_PropertyValue_2= rulePropertyValue ) ;
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:239:1: ruleProperty returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_PropertyKey_0= rulePropertyKey kw= '=' this_AbstractPropertyValue_2= ruleAbstractPropertyValue ) ;
     public final AntlrDatatypeRuleToken ruleProperty() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token kw=null;
         AntlrDatatypeRuleToken this_PropertyKey_0 = null;
 
-        AntlrDatatypeRuleToken this_PropertyValue_2 = null;
+        AntlrDatatypeRuleToken this_AbstractPropertyValue_2 = null;
 
 
          enterRule(); 
             
         try {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:242:28: ( (this_PropertyKey_0= rulePropertyKey kw= '=' this_PropertyValue_2= rulePropertyValue ) )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:243:1: (this_PropertyKey_0= rulePropertyKey kw= '=' this_PropertyValue_2= rulePropertyValue )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:242:28: ( (this_PropertyKey_0= rulePropertyKey kw= '=' this_AbstractPropertyValue_2= ruleAbstractPropertyValue ) )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:243:1: (this_PropertyKey_0= rulePropertyKey kw= '=' this_AbstractPropertyValue_2= ruleAbstractPropertyValue )
             {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:243:1: (this_PropertyKey_0= rulePropertyKey kw= '=' this_PropertyValue_2= rulePropertyValue )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:244:5: this_PropertyKey_0= rulePropertyKey kw= '=' this_PropertyValue_2= rulePropertyValue
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:243:1: (this_PropertyKey_0= rulePropertyKey kw= '=' this_AbstractPropertyValue_2= ruleAbstractPropertyValue )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:244:5: this_PropertyKey_0= rulePropertyKey kw= '=' this_AbstractPropertyValue_2= ruleAbstractPropertyValue
             {
              
                     newCompositeNode(grammarAccess.getPropertyAccess().getPropertyKeyParserRuleCall_0()); 
@@ -603,15 +604,15 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
                     newLeafNode(kw, grammarAccess.getPropertyAccess().getEqualsSignKeyword_1()); 
                 
              
-                    newCompositeNode(grammarAccess.getPropertyAccess().getPropertyValueParserRuleCall_2()); 
+                    newCompositeNode(grammarAccess.getPropertyAccess().getAbstractPropertyValueParserRuleCall_2()); 
                 
-            pushFollow(FOLLOW_rulePropertyValue_in_ruleProperty631);
-            this_PropertyValue_2=rulePropertyValue();
+            pushFollow(FOLLOW_ruleAbstractPropertyValue_in_ruleProperty631);
+            this_AbstractPropertyValue_2=ruleAbstractPropertyValue();
 
             state._fsp--;
 
 
-            		current.merge(this_PropertyValue_2);
+            		current.merge(this_AbstractPropertyValue_2);
                 
              
                     afterParserOrEnumRuleCall();
@@ -709,26 +710,26 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "rulePropertyKey"
 
 
-    // $ANTLR start "entryRulePropertyValue"
-    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:307:1: entryRulePropertyValue returns [String current=null] : iv_rulePropertyValue= rulePropertyValue EOF ;
-    public final String entryRulePropertyValue() throws RecognitionException {
+    // $ANTLR start "entryRuleAbstractPropertyValue"
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:307:1: entryRuleAbstractPropertyValue returns [String current=null] : iv_ruleAbstractPropertyValue= ruleAbstractPropertyValue EOF ;
+    public final String entryRuleAbstractPropertyValue() throws RecognitionException {
         String current = null;
 
-        AntlrDatatypeRuleToken iv_rulePropertyValue = null;
+        AntlrDatatypeRuleToken iv_ruleAbstractPropertyValue = null;
 
 
         try {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:308:2: (iv_rulePropertyValue= rulePropertyValue EOF )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:309:2: iv_rulePropertyValue= rulePropertyValue EOF
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:308:2: (iv_ruleAbstractPropertyValue= ruleAbstractPropertyValue EOF )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:309:2: iv_ruleAbstractPropertyValue= ruleAbstractPropertyValue EOF
             {
-             newCompositeNode(grammarAccess.getPropertyValueRule()); 
-            pushFollow(FOLLOW_rulePropertyValue_in_entryRulePropertyValue772);
-            iv_rulePropertyValue=rulePropertyValue();
+             newCompositeNode(grammarAccess.getAbstractPropertyValueRule()); 
+            pushFollow(FOLLOW_ruleAbstractPropertyValue_in_entryRuleAbstractPropertyValue772);
+            iv_ruleAbstractPropertyValue=ruleAbstractPropertyValue();
 
             state._fsp--;
 
-             current =iv_rulePropertyValue.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRulePropertyValue783); 
+             current =iv_ruleAbstractPropertyValue.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAbstractPropertyValue783); 
 
             }
 
@@ -742,28 +743,157 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "entryRulePropertyValue"
+    // $ANTLR end "entryRuleAbstractPropertyValue"
 
 
-    // $ANTLR start "rulePropertyValue"
-    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:316:1: rulePropertyValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_ID_0= RULE_ID ;
-    public final AntlrDatatypeRuleToken rulePropertyValue() throws RecognitionException {
+    // $ANTLR start "ruleAbstractPropertyValue"
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:316:1: ruleAbstractPropertyValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_SimplePropertyValue_0= ruleSimplePropertyValue | this_ComplexPropertyValue_1= ruleComplexPropertyValue ) ;
+    public final AntlrDatatypeRuleToken ruleAbstractPropertyValue() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
-        Token this_ID_0=null;
+        AntlrDatatypeRuleToken this_SimplePropertyValue_0 = null;
+
+        AntlrDatatypeRuleToken this_ComplexPropertyValue_1 = null;
+
 
          enterRule(); 
             
         try {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:319:28: (this_ID_0= RULE_ID )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:320:5: this_ID_0= RULE_ID
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:319:28: ( (this_SimplePropertyValue_0= ruleSimplePropertyValue | this_ComplexPropertyValue_1= ruleComplexPropertyValue ) )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:320:1: (this_SimplePropertyValue_0= ruleSimplePropertyValue | this_ComplexPropertyValue_1= ruleComplexPropertyValue )
             {
-            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_rulePropertyValue822); 
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:320:1: (this_SimplePropertyValue_0= ruleSimplePropertyValue | this_ComplexPropertyValue_1= ruleComplexPropertyValue )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
 
-            		current.merge(this_ID_0);
+            if ( (LA6_0==RULE_STRING) ) {
+                alt6=1;
+            }
+            else if ( (LA6_0==12) ) {
+                alt6=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+            }
+            switch (alt6) {
+                case 1 :
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:321:5: this_SimplePropertyValue_0= ruleSimplePropertyValue
+                    {
+                     
+                            newCompositeNode(grammarAccess.getAbstractPropertyValueAccess().getSimplePropertyValueParserRuleCall_0()); 
+                        
+                    pushFollow(FOLLOW_ruleSimplePropertyValue_in_ruleAbstractPropertyValue830);
+                    this_SimplePropertyValue_0=ruleSimplePropertyValue();
+
+                    state._fsp--;
+
+
+                    		current.merge(this_SimplePropertyValue_0);
+                        
+                     
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:333:5: this_ComplexPropertyValue_1= ruleComplexPropertyValue
+                    {
+                     
+                            newCompositeNode(grammarAccess.getAbstractPropertyValueAccess().getComplexPropertyValueParserRuleCall_1()); 
+                        
+                    pushFollow(FOLLOW_ruleComplexPropertyValue_in_ruleAbstractPropertyValue863);
+                    this_ComplexPropertyValue_1=ruleComplexPropertyValue();
+
+                    state._fsp--;
+
+
+                    		current.merge(this_ComplexPropertyValue_1);
+                        
+                     
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAbstractPropertyValue"
+
+
+    // $ANTLR start "entryRuleSimplePropertyValue"
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:351:1: entryRuleSimplePropertyValue returns [String current=null] : iv_ruleSimplePropertyValue= ruleSimplePropertyValue EOF ;
+    public final String entryRuleSimplePropertyValue() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleSimplePropertyValue = null;
+
+
+        try {
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:352:2: (iv_ruleSimplePropertyValue= ruleSimplePropertyValue EOF )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:353:2: iv_ruleSimplePropertyValue= ruleSimplePropertyValue EOF
+            {
+             newCompositeNode(grammarAccess.getSimplePropertyValueRule()); 
+            pushFollow(FOLLOW_ruleSimplePropertyValue_in_entryRuleSimplePropertyValue909);
+            iv_ruleSimplePropertyValue=ruleSimplePropertyValue();
+
+            state._fsp--;
+
+             current =iv_ruleSimplePropertyValue.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSimplePropertyValue920); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSimplePropertyValue"
+
+
+    // $ANTLR start "ruleSimplePropertyValue"
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:360:1: ruleSimplePropertyValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : this_STRING_0= RULE_STRING ;
+    public final AntlrDatatypeRuleToken ruleSimplePropertyValue() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_STRING_0=null;
+
+         enterRule(); 
+            
+        try {
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:363:28: (this_STRING_0= RULE_STRING )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:364:5: this_STRING_0= RULE_STRING
+            {
+            this_STRING_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSimplePropertyValue959); 
+
+            		current.merge(this_STRING_0);
                 
              
-                newLeafNode(this_ID_0, grammarAccess.getPropertyValueAccess().getIDTerminalRuleCall()); 
+                newLeafNode(this_STRING_0, grammarAccess.getSimplePropertyValueAccess().getSTRINGTerminalRuleCall()); 
                 
 
             }
@@ -779,11 +909,159 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end "rulePropertyValue"
+    // $ANTLR end "ruleSimplePropertyValue"
+
+
+    // $ANTLR start "entryRuleComplexPropertyValue"
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:379:1: entryRuleComplexPropertyValue returns [String current=null] : iv_ruleComplexPropertyValue= ruleComplexPropertyValue EOF ;
+    public final String entryRuleComplexPropertyValue() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleComplexPropertyValue = null;
+
+
+        try {
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:380:2: (iv_ruleComplexPropertyValue= ruleComplexPropertyValue EOF )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:381:2: iv_ruleComplexPropertyValue= ruleComplexPropertyValue EOF
+            {
+             newCompositeNode(grammarAccess.getComplexPropertyValueRule()); 
+            pushFollow(FOLLOW_ruleComplexPropertyValue_in_entryRuleComplexPropertyValue1004);
+            iv_ruleComplexPropertyValue=ruleComplexPropertyValue();
+
+            state._fsp--;
+
+             current =iv_ruleComplexPropertyValue.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexPropertyValue1015); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleComplexPropertyValue"
+
+
+    // $ANTLR start "ruleComplexPropertyValue"
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:388:1: ruleComplexPropertyValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= '{' (this_LOCALE_1= ruleLOCALE kw= ':' this_SimplePropertyValue_3= ruleSimplePropertyValue )+ kw= '}' ) ;
+    public final AntlrDatatypeRuleToken ruleComplexPropertyValue() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        AntlrDatatypeRuleToken this_LOCALE_1 = null;
+
+        AntlrDatatypeRuleToken this_SimplePropertyValue_3 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:391:28: ( (kw= '{' (this_LOCALE_1= ruleLOCALE kw= ':' this_SimplePropertyValue_3= ruleSimplePropertyValue )+ kw= '}' ) )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:392:1: (kw= '{' (this_LOCALE_1= ruleLOCALE kw= ':' this_SimplePropertyValue_3= ruleSimplePropertyValue )+ kw= '}' )
+            {
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:392:1: (kw= '{' (this_LOCALE_1= ruleLOCALE kw= ':' this_SimplePropertyValue_3= ruleSimplePropertyValue )+ kw= '}' )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:393:2: kw= '{' (this_LOCALE_1= ruleLOCALE kw= ':' this_SimplePropertyValue_3= ruleSimplePropertyValue )+ kw= '}'
+            {
+            kw=(Token)match(input,12,FOLLOW_12_in_ruleComplexPropertyValue1053); 
+
+                    current.merge(kw);
+                    newLeafNode(kw, grammarAccess.getComplexPropertyValueAccess().getLeftCurlyBracketKeyword_0()); 
+                
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:398:1: (this_LOCALE_1= ruleLOCALE kw= ':' this_SimplePropertyValue_3= ruleSimplePropertyValue )+
+            int cnt7=0;
+            loop7:
+            do {
+                int alt7=2;
+                int LA7_0 = input.LA(1);
+
+                if ( ((LA7_0>=18 && LA7_0<=19)) ) {
+                    alt7=1;
+                }
+
+
+                switch (alt7) {
+            	case 1 :
+            	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:399:5: this_LOCALE_1= ruleLOCALE kw= ':' this_SimplePropertyValue_3= ruleSimplePropertyValue
+            	    {
+            	     
+            	            newCompositeNode(grammarAccess.getComplexPropertyValueAccess().getLOCALEParserRuleCall_1_0()); 
+            	        
+            	    pushFollow(FOLLOW_ruleLOCALE_in_ruleComplexPropertyValue1076);
+            	    this_LOCALE_1=ruleLOCALE();
+
+            	    state._fsp--;
+
+
+            	    		current.merge(this_LOCALE_1);
+            	        
+            	     
+            	            afterParserOrEnumRuleCall();
+            	        
+            	    kw=(Token)match(input,16,FOLLOW_16_in_ruleComplexPropertyValue1094); 
+
+            	            current.merge(kw);
+            	            newLeafNode(kw, grammarAccess.getComplexPropertyValueAccess().getColonKeyword_1_1()); 
+            	        
+            	     
+            	            newCompositeNode(grammarAccess.getComplexPropertyValueAccess().getSimplePropertyValueParserRuleCall_1_2()); 
+            	        
+            	    pushFollow(FOLLOW_ruleSimplePropertyValue_in_ruleComplexPropertyValue1116);
+            	    this_SimplePropertyValue_3=ruleSimplePropertyValue();
+
+            	    state._fsp--;
+
+
+            	    		current.merge(this_SimplePropertyValue_3);
+            	        
+            	     
+            	            afterParserOrEnumRuleCall();
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt7 >= 1 ) break loop7;
+                        EarlyExitException eee =
+                            new EarlyExitException(7, input);
+                        throw eee;
+                }
+                cnt7++;
+            } while (true);
+
+            kw=(Token)match(input,13,FOLLOW_13_in_ruleComplexPropertyValue1136); 
+
+                    current.merge(kw);
+                    newLeafNode(kw, grammarAccess.getComplexPropertyValueAccess().getRightCurlyBracketKeyword_2()); 
+                
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleComplexPropertyValue"
 
 
     // $ANTLR start "entryRuleDefaultLocale"
-    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:335:1: entryRuleDefaultLocale returns [String current=null] : iv_ruleDefaultLocale= ruleDefaultLocale EOF ;
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:440:1: entryRuleDefaultLocale returns [String current=null] : iv_ruleDefaultLocale= ruleDefaultLocale EOF ;
     public final String entryRuleDefaultLocale() throws RecognitionException {
         String current = null;
 
@@ -791,17 +1069,17 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:336:2: (iv_ruleDefaultLocale= ruleDefaultLocale EOF )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:337:2: iv_ruleDefaultLocale= ruleDefaultLocale EOF
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:441:2: (iv_ruleDefaultLocale= ruleDefaultLocale EOF )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:442:2: iv_ruleDefaultLocale= ruleDefaultLocale EOF
             {
              newCompositeNode(grammarAccess.getDefaultLocaleRule()); 
-            pushFollow(FOLLOW_ruleDefaultLocale_in_entryRuleDefaultLocale867);
+            pushFollow(FOLLOW_ruleDefaultLocale_in_entryRuleDefaultLocale1177);
             iv_ruleDefaultLocale=ruleDefaultLocale();
 
             state._fsp--;
 
              current =iv_ruleDefaultLocale.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDefaultLocale878); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDefaultLocale1188); 
 
             }
 
@@ -819,7 +1097,7 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDefaultLocale"
-    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:344:1: ruleDefaultLocale returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE ) ;
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:449:1: ruleDefaultLocale returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE ) ;
     public final AntlrDatatypeRuleToken ruleDefaultLocale() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -830,18 +1108,18 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:347:28: ( (kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE ) )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:348:1: (kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:452:28: ( (kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE ) )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:453:1: (kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE )
             {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:348:1: (kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:349:2: kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:453:1: (kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:454:2: kw= 'DEFAULT_LOCALE' kw= '=' this_LOCALE_2= ruleLOCALE
             {
-            kw=(Token)match(input,16,FOLLOW_16_in_ruleDefaultLocale916); 
+            kw=(Token)match(input,17,FOLLOW_17_in_ruleDefaultLocale1226); 
 
                     current.merge(kw);
                     newLeafNode(kw, grammarAccess.getDefaultLocaleAccess().getDEFAULT_LOCALEKeyword_0()); 
                 
-            kw=(Token)match(input,15,FOLLOW_15_in_ruleDefaultLocale929); 
+            kw=(Token)match(input,15,FOLLOW_15_in_ruleDefaultLocale1239); 
 
                     current.merge(kw);
                     newLeafNode(kw, grammarAccess.getDefaultLocaleAccess().getEqualsSignKeyword_1()); 
@@ -849,7 +1127,7 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
              
                     newCompositeNode(grammarAccess.getDefaultLocaleAccess().getLOCALEParserRuleCall_2()); 
                 
-            pushFollow(FOLLOW_ruleLOCALE_in_ruleDefaultLocale951);
+            pushFollow(FOLLOW_ruleLOCALE_in_ruleDefaultLocale1261);
             this_LOCALE_2=ruleLOCALE();
 
             state._fsp--;
@@ -881,7 +1159,7 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLOCALE"
-    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:379:1: entryRuleLOCALE returns [String current=null] : iv_ruleLOCALE= ruleLOCALE EOF ;
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:484:1: entryRuleLOCALE returns [String current=null] : iv_ruleLOCALE= ruleLOCALE EOF ;
     public final String entryRuleLOCALE() throws RecognitionException {
         String current = null;
 
@@ -889,17 +1167,17 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:380:2: (iv_ruleLOCALE= ruleLOCALE EOF )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:381:2: iv_ruleLOCALE= ruleLOCALE EOF
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:485:2: (iv_ruleLOCALE= ruleLOCALE EOF )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:486:2: iv_ruleLOCALE= ruleLOCALE EOF
             {
              newCompositeNode(grammarAccess.getLOCALERule()); 
-            pushFollow(FOLLOW_ruleLOCALE_in_entryRuleLOCALE997);
+            pushFollow(FOLLOW_ruleLOCALE_in_entryRuleLOCALE1307);
             iv_ruleLOCALE=ruleLOCALE();
 
             state._fsp--;
 
              current =iv_ruleLOCALE.getText(); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLOCALE1008); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLOCALE1318); 
 
             }
 
@@ -917,7 +1195,7 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLOCALE"
-    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:388:1: ruleLOCALE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'de' | kw= 'en' ) ;
+    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:493:1: ruleLOCALE returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= 'de' | kw= 'en' ) ;
     public final AntlrDatatypeRuleToken ruleLOCALE() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -926,30 +1204,30 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:391:28: ( (kw= 'de' | kw= 'en' ) )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:392:1: (kw= 'de' | kw= 'en' )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:496:28: ( (kw= 'de' | kw= 'en' ) )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:497:1: (kw= 'de' | kw= 'en' )
             {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:392:1: (kw= 'de' | kw= 'en' )
-            int alt6=2;
-            int LA6_0 = input.LA(1);
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:497:1: (kw= 'de' | kw= 'en' )
+            int alt8=2;
+            int LA8_0 = input.LA(1);
 
-            if ( (LA6_0==17) ) {
-                alt6=1;
+            if ( (LA8_0==18) ) {
+                alt8=1;
             }
-            else if ( (LA6_0==18) ) {
-                alt6=2;
+            else if ( (LA8_0==19) ) {
+                alt8=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
-            switch (alt6) {
+            switch (alt8) {
                 case 1 :
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:393:2: kw= 'de'
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:498:2: kw= 'de'
                     {
-                    kw=(Token)match(input,17,FOLLOW_17_in_ruleLOCALE1046); 
+                    kw=(Token)match(input,18,FOLLOW_18_in_ruleLOCALE1356); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getLOCALEAccess().getDeKeyword_0()); 
@@ -958,9 +1236,9 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:400:2: kw= 'en'
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:505:2: kw= 'en'
                     {
-                    kw=(Token)match(input,18,FOLLOW_18_in_ruleLOCALE1065); 
+                    kw=(Token)match(input,19,FOLLOW_19_in_ruleLOCALE1375); 
 
                             current.merge(kw);
                             newLeafNode(kw, grammarAccess.getLOCALEAccess().getEnKeyword_1()); 
@@ -999,7 +1277,7 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_EOF_in_entryRulePackage178 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_11_in_rulePackage216 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_ruleFQN_in_rulePackage238 = new BitSet(new long[]{0x0000000000001000L});
-    public static final BitSet FOLLOW_12_in_rulePackage256 = new BitSet(new long[]{0x0000000000012810L});
+    public static final BitSet FOLLOW_12_in_rulePackage256 = new BitSet(new long[]{0x0000000000022810L});
     public static final BitSet FOLLOW_ruleDefaultLocale_in_rulePackage279 = new BitSet(new long[]{0x0000000000002810L});
     public static final BitSet FOLLOW_rulePackage_in_rulePackage309 = new BitSet(new long[]{0x0000000000002810L});
     public static final BitSet FOLLOW_ruleProperty_in_rulePackage339 = new BitSet(new long[]{0x0000000000002010L});
@@ -1012,22 +1290,33 @@ public class InternalPropertySLParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleProperty_in_entryRuleProperty533 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleProperty544 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePropertyKey_in_ruleProperty591 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleProperty609 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rulePropertyValue_in_ruleProperty631 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_ruleProperty609 = new BitSet(new long[]{0x0000000000001020L});
+    public static final BitSet FOLLOW_ruleAbstractPropertyValue_in_ruleProperty631 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePropertyKey_in_entryRulePropertyKey677 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulePropertyKey688 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rulePropertyKey727 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyValue_in_entryRulePropertyValue772 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRulePropertyValue783 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rulePropertyValue822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefaultLocale_in_entryRuleDefaultLocale867 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDefaultLocale878 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_ruleDefaultLocale916 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_15_in_ruleDefaultLocale929 = new BitSet(new long[]{0x0000000000060000L});
-    public static final BitSet FOLLOW_ruleLOCALE_in_ruleDefaultLocale951 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLOCALE_in_entryRuleLOCALE997 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLOCALE1008 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_ruleLOCALE1046 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_ruleLOCALE1065 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbstractPropertyValue_in_entryRuleAbstractPropertyValue772 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAbstractPropertyValue783 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimplePropertyValue_in_ruleAbstractPropertyValue830 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexPropertyValue_in_ruleAbstractPropertyValue863 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimplePropertyValue_in_entryRuleSimplePropertyValue909 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSimplePropertyValue920 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleSimplePropertyValue959 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexPropertyValue_in_entryRuleComplexPropertyValue1004 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComplexPropertyValue1015 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_ruleComplexPropertyValue1053 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_ruleLOCALE_in_ruleComplexPropertyValue1076 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleComplexPropertyValue1094 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_ruleSimplePropertyValue_in_ruleComplexPropertyValue1116 = new BitSet(new long[]{0x00000000000C2000L});
+    public static final BitSet FOLLOW_13_in_ruleComplexPropertyValue1136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefaultLocale_in_entryRuleDefaultLocale1177 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDefaultLocale1188 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_ruleDefaultLocale1226 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_15_in_ruleDefaultLocale1239 = new BitSet(new long[]{0x00000000000C0000L});
+    public static final BitSet FOLLOW_ruleLOCALE_in_ruleDefaultLocale1261 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLOCALE_in_entryRuleLOCALE1307 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLOCALE1318 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_ruleLOCALE1356 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_ruleLOCALE1375 = new BitSet(new long[]{0x0000000000000002L});
 
 }

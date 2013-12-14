@@ -37,11 +37,14 @@ public class PropertySLParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getAbstractPropertyValueAccess().getAlternatives(), "rule__AbstractPropertyValue__Alternatives");
 					put(grammarAccess.getLOCALEAccess().getAlternatives(), "rule__LOCALE__Alternatives");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup_1(), "rule__FQN__Group_1__0");
 					put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
+					put(grammarAccess.getComplexPropertyValueAccess().getGroup(), "rule__ComplexPropertyValue__Group__0");
+					put(grammarAccess.getComplexPropertyValueAccess().getGroup_1(), "rule__ComplexPropertyValue__Group_1__0");
 					put(grammarAccess.getDefaultLocaleAccess().getGroup(), "rule__DefaultLocale__Group__0");
 					put(grammarAccess.getModelAccess().getPackagesAssignment(), "rule__Model__PackagesAssignment");
 				}
