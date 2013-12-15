@@ -12,6 +12,7 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.PluginImageHelper
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
 
 /**
  * Provides labels for a EObjects.
@@ -43,6 +44,15 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 	def text(Property prop){
 		if(prop.value instanceof SimplePropertyValue){
 			prop.key + " : " + (prop.value as SimplePropertyValue).value
+
+		}else if(prop.value instanceof ComplexPropertyValue){
+			val items = (prop.value as ComplexPropertyValue).items
+			var languages = ""
+			for(ComplexPropertyValueItem i : items){ 
+				languages = languages + i.lang + ", "
+			}
+			prop.key + " : [" + languages.substring(0, languages.length-2) + "]"
+			
 		}
 	}
 	
