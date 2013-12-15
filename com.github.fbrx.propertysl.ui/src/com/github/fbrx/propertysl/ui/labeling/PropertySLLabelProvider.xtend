@@ -32,7 +32,7 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def text(DefaultLocale dl){
-		'DEFAULT_LOCALE'
+		'DEFAULT_LOCALE' + " : " + dl.lang 
 	}
 	
 	def text(Property prop){
