@@ -57,5 +57,5 @@ DefaultLocale:
 ;
 
 terminal LOCALE:
-	('a'..'z')('a'..'z')
+	('a'..'z')('a'..'z')('_'('A'..'Z')('A'..'Z'))?
 ;

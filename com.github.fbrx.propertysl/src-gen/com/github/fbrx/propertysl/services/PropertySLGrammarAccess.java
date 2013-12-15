@@ -516,7 +516,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal LOCALE:
-	//	"a".."z" "a".."z";
+	//	"a".."z" "a".."z" ("_" "A".."Z" "A".."Z")?;
 	public TerminalRule getLOCALERule() {
 		return (tLOCALE != null) ? tLOCALE : (tLOCALE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "LOCALE"));
 	} 

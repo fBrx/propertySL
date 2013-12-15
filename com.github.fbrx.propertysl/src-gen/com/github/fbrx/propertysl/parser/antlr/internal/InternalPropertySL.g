@@ -667,7 +667,7 @@ ruleDefaultLocale returns [EObject current=null]
 
 
 
-RULE_LOCALE : 'a'..'z' 'a'..'z';
+RULE_LOCALE : 'a'..'z' 'a'..'z' ('_' 'A'..'Z' 'A'..'Z')?;
 
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
