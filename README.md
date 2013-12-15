@@ -16,4 +16,4 @@ The PropertySL was defined by means of the xtext technologiy. Thus there is also
 
 # Licences
 
-Ions for the Eclipse Outline were taken from the [IKONS|http://ikons.piotrkwiatkowski.co.uk/] package
+Ions for the Eclipse Outline were taken from the [IKONS](http://ikons.piotrkwiatkowski.co.uk/ "IKONS") package
