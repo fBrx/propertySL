@@ -6,11 +6,11 @@ Model:
 	packages += Package*;
 
 Package:
-	'package' FQN '{'
-		DefaultLocale?
+	'package' name = FQN '{'
+		defaultLocale = DefaultLocale?
 		
-		Package*
-		Property*
+		packages += Package*
+		properties += Property*
 	'}'
 ;
 
@@ -19,7 +19,7 @@ FQN:
 ;
 
 Property:
-	PropertyKey '=' AbstractPropertyValue
+	key = PropertyKey '=' value = AbstractPropertyValue
 ;
 
 PropertyKey:
@@ -36,12 +36,16 @@ SimplePropertyValue:
 
 ComplexPropertyValue:
 	'{'
-		(LOCALE ':' SimplePropertyValue)+
+		(items += ComplexPropertyValueItem)+
 	'}'
 ;
 
+ComplexPropertyValueItem:
+	(lang = LOCALE ':' value = SimplePropertyValue)
+;
+
 DefaultLocale:
-	'DEFAULT_LOCALE' '=' LOCALE
+	'DEFAULT_LOCALE' '=' lang = LOCALE
 ;
 
 terminal LOCALE:
