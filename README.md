@@ -27,7 +27,7 @@ package com.github.fbrx.propertysl.demo{
 ## Editor support
 
 The PropertySL was defined by means of the [Eclipse Xtext](http://www.eclipse.org/Xtext/) technology. Thus there is also first class (Eclipse based) editor support built-in.
-![PropertySL Editor](https://github.com/fBrx/propertySL/blob/master/editor.png)
+![PropertySL Editor](https://raw.github.com/fBrx/propertySL/master/editor.png)
 
 # Attributions
 
