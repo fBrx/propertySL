@@ -104,13 +104,22 @@ public interface PropertySLPackage extends EPackage
   int PACKAGE__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Supported Locales</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__SUPPORTED_LOCALES = 1;
+
+  /**
    * The feature id for the '<em><b>Default Locale</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__DEFAULT_LOCALE = 1;
+  int PACKAGE__DEFAULT_LOCALE = 2;
 
   /**
    * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -119,7 +128,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__PACKAGES = 2;
+  int PACKAGE__PACKAGES = 3;
 
   /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -128,7 +137,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__PROPERTIES = 3;
+  int PACKAGE__PROPERTIES = 4;
 
   /**
    * The number of structural features of the '<em>Package</em>' class.
@@ -137,7 +146,35 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_FEATURE_COUNT = 4;
+  int PACKAGE_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link com.github.fbrx.propertysl.propertySL.impl.SupportedLocalesImpl <em>Supported Locales</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see com.github.fbrx.propertysl.propertySL.impl.SupportedLocalesImpl
+   * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getSupportedLocales()
+   * @generated
+   */
+  int SUPPORTED_LOCALES = 2;
+
+  /**
+   * The feature id for the '<em><b>Locales</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPPORTED_LOCALES__LOCALES = 0;
+
+  /**
+   * The number of structural features of the '<em>Supported Locales</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SUPPORTED_LOCALES_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link com.github.fbrx.propertysl.propertySL.impl.PropertyImpl <em>Property</em>}' class.
@@ -147,7 +184,7 @@ public interface PropertySLPackage extends EPackage
    * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getProperty()
    * @generated
    */
-  int PROPERTY = 2;
+  int PROPERTY = 3;
 
   /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
@@ -184,7 +221,7 @@ public interface PropertySLPackage extends EPackage
    * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getAbstractPropertyValue()
    * @generated
    */
-  int ABSTRACT_PROPERTY_VALUE = 3;
+  int ABSTRACT_PROPERTY_VALUE = 4;
 
   /**
    * The number of structural features of the '<em>Abstract Property Value</em>' class.
@@ -203,7 +240,7 @@ public interface PropertySLPackage extends EPackage
    * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getSimplePropertyValue()
    * @generated
    */
-  int SIMPLE_PROPERTY_VALUE = 4;
+  int SIMPLE_PROPERTY_VALUE = 5;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -231,7 +268,7 @@ public interface PropertySLPackage extends EPackage
    * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getComplexPropertyValue()
    * @generated
    */
-  int COMPLEX_PROPERTY_VALUE = 5;
+  int COMPLEX_PROPERTY_VALUE = 6;
 
   /**
    * The feature id for the '<em><b>Items</b></em>' containment reference list.
@@ -259,7 +296,7 @@ public interface PropertySLPackage extends EPackage
    * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getComplexPropertyValueItem()
    * @generated
    */
-  int COMPLEX_PROPERTY_VALUE_ITEM = 6;
+  int COMPLEX_PROPERTY_VALUE_ITEM = 7;
 
   /**
    * The feature id for the '<em><b>Lang</b></em>' attribute.
@@ -296,7 +333,7 @@ public interface PropertySLPackage extends EPackage
    * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getDefaultLocale()
    * @generated
    */
-  int DEFAULT_LOCALE = 7;
+  int DEFAULT_LOCALE = 8;
 
   /**
    * The feature id for the '<em><b>Lang</b></em>' attribute.
@@ -360,6 +397,17 @@ public interface PropertySLPackage extends EPackage
   EAttribute getPackage_Name();
 
   /**
+   * Returns the meta object for the containment reference '{@link com.github.fbrx.propertysl.propertySL.Package#getSupportedLocales <em>Supported Locales</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Supported Locales</em>'.
+   * @see com.github.fbrx.propertysl.propertySL.Package#getSupportedLocales()
+   * @see #getPackage()
+   * @generated
+   */
+  EReference getPackage_SupportedLocales();
+
+  /**
    * Returns the meta object for the containment reference '{@link com.github.fbrx.propertysl.propertySL.Package#getDefaultLocale <em>Default Locale</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -391,6 +439,27 @@ public interface PropertySLPackage extends EPackage
    * @generated
    */
   EReference getPackage_Properties();
+
+  /**
+   * Returns the meta object for class '{@link com.github.fbrx.propertysl.propertySL.SupportedLocales <em>Supported Locales</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Supported Locales</em>'.
+   * @see com.github.fbrx.propertysl.propertySL.SupportedLocales
+   * @generated
+   */
+  EClass getSupportedLocales();
+
+  /**
+   * Returns the meta object for the attribute list '{@link com.github.fbrx.propertysl.propertySL.SupportedLocales#getLocales <em>Locales</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Locales</em>'.
+   * @see com.github.fbrx.propertysl.propertySL.SupportedLocales#getLocales()
+   * @see #getSupportedLocales()
+   * @generated
+   */
+  EAttribute getSupportedLocales_Locales();
 
   /**
    * Returns the meta object for class '{@link com.github.fbrx.propertysl.propertySL.Property <em>Property</em>}'.
@@ -589,6 +658,14 @@ public interface PropertySLPackage extends EPackage
     EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
 
     /**
+     * The meta object literal for the '<em><b>Supported Locales</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PACKAGE__SUPPORTED_LOCALES = eINSTANCE.getPackage_SupportedLocales();
+
+    /**
      * The meta object literal for the '<em><b>Default Locale</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -611,6 +688,24 @@ public interface PropertySLPackage extends EPackage
      * @generated
      */
     EReference PACKAGE__PROPERTIES = eINSTANCE.getPackage_Properties();
+
+    /**
+     * The meta object literal for the '{@link com.github.fbrx.propertysl.propertySL.impl.SupportedLocalesImpl <em>Supported Locales</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see com.github.fbrx.propertysl.propertySL.impl.SupportedLocalesImpl
+     * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getSupportedLocales()
+     * @generated
+     */
+    EClass SUPPORTED_LOCALES = eINSTANCE.getSupportedLocales();
+
+    /**
+     * The meta object literal for the '<em><b>Locales</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SUPPORTED_LOCALES__LOCALES = eINSTANCE.getSupportedLocales_Locales();
 
     /**
      * The meta object literal for the '{@link com.github.fbrx.propertysl.propertySL.impl.PropertyImpl <em>Property</em>}' class.

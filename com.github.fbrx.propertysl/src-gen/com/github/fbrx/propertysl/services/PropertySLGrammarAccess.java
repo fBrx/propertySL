@@ -41,20 +41,24 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameFQNParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cDefaultLocaleAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDefaultLocaleDefaultLocaleParserRuleCall_3_0 = (RuleCall)cDefaultLocaleAssignment_3.eContents().get(0);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cPackagesAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cPackagesPackageParserRuleCall_4_0_0 = (RuleCall)cPackagesAssignment_4_0.eContents().get(0);
-		private final Assignment cPropertiesAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cPropertiesPropertyParserRuleCall_4_1_0 = (RuleCall)cPropertiesAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cSupportedLocalesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSupportedLocalesSupportedLocalesParserRuleCall_3_0 = (RuleCall)cSupportedLocalesAssignment_3.eContents().get(0);
+		private final Assignment cDefaultLocaleAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cDefaultLocaleDefaultLocaleParserRuleCall_4_0 = (RuleCall)cDefaultLocaleAssignment_4.eContents().get(0);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Assignment cPackagesAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
+		private final RuleCall cPackagesPackageParserRuleCall_5_0_0 = (RuleCall)cPackagesAssignment_5_0.eContents().get(0);
+		private final Assignment cPropertiesAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
+		private final RuleCall cPropertiesPropertyParserRuleCall_5_1_0 = (RuleCall)cPropertiesAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Package:
-		//	"package" name=FQN "{" defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)* "}";
+		//	"package" name=FQN "{" supportedLocales=SupportedLocales? defaultLocale=DefaultLocale? (packages+=Package |
+		//	properties+=Property)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"package" name=FQN "{" defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)* "}"
+		//"package" name=FQN "{" supportedLocales=SupportedLocales? defaultLocale=DefaultLocale? (packages+=Package |
+		//properties+=Property)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"package"
@@ -69,26 +73,84 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
+		//supportedLocales=SupportedLocales?
+		public Assignment getSupportedLocalesAssignment_3() { return cSupportedLocalesAssignment_3; }
+
+		//SupportedLocales
+		public RuleCall getSupportedLocalesSupportedLocalesParserRuleCall_3_0() { return cSupportedLocalesSupportedLocalesParserRuleCall_3_0; }
+
 		//defaultLocale=DefaultLocale?
-		public Assignment getDefaultLocaleAssignment_3() { return cDefaultLocaleAssignment_3; }
+		public Assignment getDefaultLocaleAssignment_4() { return cDefaultLocaleAssignment_4; }
 
 		//DefaultLocale
-		public RuleCall getDefaultLocaleDefaultLocaleParserRuleCall_3_0() { return cDefaultLocaleDefaultLocaleParserRuleCall_3_0; }
+		public RuleCall getDefaultLocaleDefaultLocaleParserRuleCall_4_0() { return cDefaultLocaleDefaultLocaleParserRuleCall_4_0; }
 
 		//(packages+=Package | properties+=Property)*
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
 		//packages+=Package
-		public Assignment getPackagesAssignment_4_0() { return cPackagesAssignment_4_0; }
+		public Assignment getPackagesAssignment_5_0() { return cPackagesAssignment_5_0; }
 
 		//Package
-		public RuleCall getPackagesPackageParserRuleCall_4_0_0() { return cPackagesPackageParserRuleCall_4_0_0; }
+		public RuleCall getPackagesPackageParserRuleCall_5_0_0() { return cPackagesPackageParserRuleCall_5_0_0; }
 
 		//properties+=Property
-		public Assignment getPropertiesAssignment_4_1() { return cPropertiesAssignment_4_1; }
+		public Assignment getPropertiesAssignment_5_1() { return cPropertiesAssignment_5_1; }
 
 		//Property
-		public RuleCall getPropertiesPropertyParserRuleCall_4_1_0() { return cPropertiesPropertyParserRuleCall_4_1_0; }
+		public RuleCall getPropertiesPropertyParserRuleCall_5_1_0() { return cPropertiesPropertyParserRuleCall_5_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+
+	public class SupportedLocalesElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SupportedLocales");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSUPPORTED_LOCALESKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLocalesAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLocalesLOCALETerminalRuleCall_3_0 = (RuleCall)cLocalesAssignment_3.eContents().get(0);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Keyword cCommaKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
+		private final Assignment cLocalesAssignment_4_1 = (Assignment)cGroup_4.eContents().get(1);
+		private final RuleCall cLocalesLOCALETerminalRuleCall_4_1_0 = (RuleCall)cLocalesAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//SupportedLocales:
+		//	"SUPPORTED_LOCALES" "=" "{" locales+=LOCALE ("," locales+=LOCALE)* "}";
+		public ParserRule getRule() { return rule; }
+
+		//"SUPPORTED_LOCALES" "=" "{" locales+=LOCALE ("," locales+=LOCALE)* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"SUPPORTED_LOCALES"
+		public Keyword getSUPPORTED_LOCALESKeyword_0() { return cSUPPORTED_LOCALESKeyword_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//locales+=LOCALE
+		public Assignment getLocalesAssignment_3() { return cLocalesAssignment_3; }
+
+		//LOCALE
+		public RuleCall getLocalesLOCALETerminalRuleCall_3_0() { return cLocalesLOCALETerminalRuleCall_3_0; }
+
+		//("," locales+=LOCALE)*
+		public Group getGroup_4() { return cGroup_4; }
+
+		//","
+		public Keyword getCommaKeyword_4_0() { return cCommaKeyword_4_0; }
+
+		//locales+=LOCALE
+		public Assignment getLocalesAssignment_4_1() { return cLocalesAssignment_4_1; }
+
+		//LOCALE
+		public RuleCall getLocalesLOCALETerminalRuleCall_4_1_0() { return cLocalesLOCALETerminalRuleCall_4_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
@@ -293,6 +355,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private ModelElements pModel;
 	private PackageElements pPackage;
+	private SupportedLocalesElements pSupportedLocales;
 	private FQNElements pFQN;
 	private PropertyElements pProperty;
 	private PropertyKeyElements pPropertyKey;
@@ -352,13 +415,24 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Package:
-	//	"package" name=FQN "{" defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)* "}";
+	//	"package" name=FQN "{" supportedLocales=SupportedLocales? defaultLocale=DefaultLocale? (packages+=Package |
+	//	properties+=Property)* "}";
 	public PackageElements getPackageAccess() {
 		return (pPackage != null) ? pPackage : (pPackage = new PackageElements());
 	}
 	
 	public ParserRule getPackageRule() {
 		return getPackageAccess().getRule();
+	}
+
+	//SupportedLocales:
+	//	"SUPPORTED_LOCALES" "=" "{" locales+=LOCALE ("," locales+=LOCALE)* "}";
+	public SupportedLocalesElements getSupportedLocalesAccess() {
+		return (pSupportedLocales != null) ? pSupportedLocales : (pSupportedLocales = new SupportedLocalesElements());
+	}
+	
+	public ParserRule getSupportedLocalesRule() {
+		return getSupportedLocalesAccess().getRule();
 	}
 
 	//FQN:

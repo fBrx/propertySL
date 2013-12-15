@@ -10,6 +10,7 @@ import com.github.fbrx.propertysl.propertySL.Model;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
 import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
+import com.github.fbrx.propertysl.propertySL.SupportedLocales;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -93,6 +94,13 @@ public class PropertySLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PropertySLPackage.SUPPORTED_LOCALES:
+      {
+        SupportedLocales supportedLocales = (SupportedLocales)theEObject;
+        T result = caseSupportedLocales(supportedLocales);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case PropertySLPackage.PROPERTY:
       {
         Property property = (Property)theEObject;
@@ -169,6 +177,22 @@ public class PropertySLSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePackage(com.github.fbrx.propertysl.propertySL.Package object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Supported Locales</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Supported Locales</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSupportedLocales(SupportedLocales object)
   {
     return null;
   }

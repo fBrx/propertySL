@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getName <em>Name</em>}</li>
+ *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getSupportedLocales <em>Supported Locales</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getDefaultLocale <em>Default Locale</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getPackages <em>Packages</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getProperties <em>Properties</em>}</li>
@@ -52,6 +53,32 @@ public interface Package extends EObject
    * @generated
    */
   void setName(String value);
+
+  /**
+   * Returns the value of the '<em><b>Supported Locales</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Supported Locales</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Supported Locales</em>' containment reference.
+   * @see #setSupportedLocales(SupportedLocales)
+   * @see com.github.fbrx.propertysl.propertySL.PropertySLPackage#getPackage_SupportedLocales()
+   * @model containment="true"
+   * @generated
+   */
+  SupportedLocales getSupportedLocales();
+
+  /**
+   * Sets the value of the '{@link com.github.fbrx.propertysl.propertySL.Package#getSupportedLocales <em>Supported Locales</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Supported Locales</em>' containment reference.
+   * @see #getSupportedLocales()
+   * @generated
+   */
+  void setSupportedLocales(SupportedLocales value);
 
   /**
    * Returns the value of the '<em><b>Default Locale</b></em>' containment reference.

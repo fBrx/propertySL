@@ -31,4 +31,11 @@
 		<nature>org.eclipse.pde.PluginNature</nature>
 		<nature>org.eclipse.xtext.ui.shared.xtextNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>README.md</name>
+			<type>1</type>
+			<location>D:/data/github/fBrx/propertySL/README.md</location>
+		</link>
+	</linkedResources>
 </projectDescription>

@@ -11,6 +11,7 @@ import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLFactory;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
 import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
+import com.github.fbrx.propertysl.propertySL.SupportedLocales;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -74,6 +75,7 @@ public class PropertySLFactoryImpl extends EFactoryImpl implements PropertySLFac
     {
       case PropertySLPackage.MODEL: return createModel();
       case PropertySLPackage.PACKAGE: return createPackage();
+      case PropertySLPackage.SUPPORTED_LOCALES: return createSupportedLocales();
       case PropertySLPackage.PROPERTY: return createProperty();
       case PropertySLPackage.ABSTRACT_PROPERTY_VALUE: return createAbstractPropertyValue();
       case PropertySLPackage.SIMPLE_PROPERTY_VALUE: return createSimplePropertyValue();
@@ -105,6 +107,17 @@ public class PropertySLFactoryImpl extends EFactoryImpl implements PropertySLFac
   {
     PackageImpl package_ = new PackageImpl();
     return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SupportedLocales createSupportedLocales()
+  {
+    SupportedLocalesImpl supportedLocales = new SupportedLocalesImpl();
+    return supportedLocales;
   }
 
   /**

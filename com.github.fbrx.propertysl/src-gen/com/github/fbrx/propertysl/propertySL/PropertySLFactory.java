@@ -41,6 +41,15 @@ public interface PropertySLFactory extends EFactory
   Package createPackage();
 
   /**
+   * Returns a new object of class '<em>Supported Locales</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Supported Locales</em>'.
+   * @generated
+   */
+  SupportedLocales createSupportedLocales();
+
+  /**
    * Returns a new object of class '<em>Property</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

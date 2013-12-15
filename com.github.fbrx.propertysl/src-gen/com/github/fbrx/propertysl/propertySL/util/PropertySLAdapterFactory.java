@@ -10,6 +10,7 @@ import com.github.fbrx.propertysl.propertySL.Model;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
 import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
+import com.github.fbrx.propertysl.propertySL.SupportedLocales;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -92,6 +93,11 @@ public class PropertySLAdapterFactory extends AdapterFactoryImpl
         return createPackageAdapter();
       }
       @Override
+      public Adapter caseSupportedLocales(SupportedLocales object)
+      {
+        return createSupportedLocalesAdapter();
+      }
+      @Override
       public Adapter caseProperty(Property object)
       {
         return createPropertyAdapter();
@@ -169,6 +175,21 @@ public class PropertySLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.SupportedLocales <em>Supported Locales</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.github.fbrx.propertysl.propertySL.SupportedLocales
+   * @generated
+   */
+  public Adapter createSupportedLocalesAdapter()
   {
     return null;
   }

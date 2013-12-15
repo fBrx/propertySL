@@ -7,10 +7,18 @@ Model:
 
 Package:
 	'package' name = FQN '{'
+		supportedLocales = SupportedLocales?
 		defaultLocale = DefaultLocale?
 		
 		(packages += Package |
 		properties += Property)*
+	'}'
+;
+
+SupportedLocales:
+	'SUPPORTED_LOCALES' '=' '{'
+		locales += LOCALE
+		(',' locales += LOCALE)*
 	'}'
 ;
 

@@ -13,6 +13,7 @@ import org.eclipse.xtext.ui.PluginImageHelper
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
+import com.github.fbrx.propertysl.propertySL.SupportedLocales
 
 /**
  * Provides labels for a EObjects.
@@ -41,6 +42,15 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 		'DEFAULT_LOCALE' + " : " + dl.lang 
 	}
 	
+	def text(SupportedLocales sl){
+			var languages = ""
+			for(String s : sl.locales){ 
+				languages = languages + s + ", "
+			}
+			
+			'SUPPORTED_LOCALES' + " : [" + languages.substring(0, languages.length-2) + "]"
+	}
+	
 	def text(Property prop){
 		if(prop.value instanceof SimplePropertyValue){
 			prop.key + " : " + (prop.value as SimplePropertyValue).value
@@ -57,6 +67,10 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	def image(DefaultLocale dl){
+		return imgHelper.getImage("cog.png");
+	}
+	
+	def image(SupportedLocales sl){
 		return imgHelper.getImage("cog.png");
 	}
 	

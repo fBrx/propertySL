@@ -5,6 +5,7 @@ package com.github.fbrx.propertysl.propertySL.impl;
 import com.github.fbrx.propertysl.propertySL.DefaultLocale;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
+import com.github.fbrx.propertysl.propertySL.SupportedLocales;
 
 import java.util.Collection;
 
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getName <em>Name</em>}</li>
+ *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getSupportedLocales <em>Supported Locales</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getDefaultLocale <em>Default Locale</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getPackages <em>Packages</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getProperties <em>Properties</em>}</li>
@@ -59,6 +61,16 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSupportedLocales() <em>Supported Locales</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSupportedLocales()
+   * @generated
+   * @ordered
+   */
+  protected SupportedLocales supportedLocales;
 
   /**
    * The cached value of the '{@link #getDefaultLocale() <em>Default Locale</em>}' containment reference.
@@ -132,6 +144,54 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
     name = newName;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, PropertySLPackage.PACKAGE__NAME, oldName, name));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SupportedLocales getSupportedLocales()
+  {
+    return supportedLocales;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetSupportedLocales(SupportedLocales newSupportedLocales, NotificationChain msgs)
+  {
+    SupportedLocales oldSupportedLocales = supportedLocales;
+    supportedLocales = newSupportedLocales;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, PropertySLPackage.PACKAGE__SUPPORTED_LOCALES, oldSupportedLocales, newSupportedLocales);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSupportedLocales(SupportedLocales newSupportedLocales)
+  {
+    if (newSupportedLocales != supportedLocales)
+    {
+      NotificationChain msgs = null;
+      if (supportedLocales != null)
+        msgs = ((InternalEObject)supportedLocales).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - PropertySLPackage.PACKAGE__SUPPORTED_LOCALES, null, msgs);
+      if (newSupportedLocales != null)
+        msgs = ((InternalEObject)newSupportedLocales).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - PropertySLPackage.PACKAGE__SUPPORTED_LOCALES, null, msgs);
+      msgs = basicSetSupportedLocales(newSupportedLocales, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, PropertySLPackage.PACKAGE__SUPPORTED_LOCALES, newSupportedLocales, newSupportedLocales));
   }
 
   /**
@@ -220,6 +280,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
   {
     switch (featureID)
     {
+      case PropertySLPackage.PACKAGE__SUPPORTED_LOCALES:
+        return basicSetSupportedLocales(null, msgs);
       case PropertySLPackage.PACKAGE__DEFAULT_LOCALE:
         return basicSetDefaultLocale(null, msgs);
       case PropertySLPackage.PACKAGE__PACKAGES:
@@ -242,6 +304,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
     {
       case PropertySLPackage.PACKAGE__NAME:
         return getName();
+      case PropertySLPackage.PACKAGE__SUPPORTED_LOCALES:
+        return getSupportedLocales();
       case PropertySLPackage.PACKAGE__DEFAULT_LOCALE:
         return getDefaultLocale();
       case PropertySLPackage.PACKAGE__PACKAGES:
@@ -265,6 +329,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
     {
       case PropertySLPackage.PACKAGE__NAME:
         setName((String)newValue);
+        return;
+      case PropertySLPackage.PACKAGE__SUPPORTED_LOCALES:
+        setSupportedLocales((SupportedLocales)newValue);
         return;
       case PropertySLPackage.PACKAGE__DEFAULT_LOCALE:
         setDefaultLocale((DefaultLocale)newValue);
@@ -294,6 +361,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
       case PropertySLPackage.PACKAGE__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case PropertySLPackage.PACKAGE__SUPPORTED_LOCALES:
+        setSupportedLocales((SupportedLocales)null);
+        return;
       case PropertySLPackage.PACKAGE__DEFAULT_LOCALE:
         setDefaultLocale((DefaultLocale)null);
         return;
@@ -319,6 +389,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
     {
       case PropertySLPackage.PACKAGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case PropertySLPackage.PACKAGE__SUPPORTED_LOCALES:
+        return supportedLocales != null;
       case PropertySLPackage.PACKAGE__DEFAULT_LOCALE:
         return defaultLocale != null;
       case PropertySLPackage.PACKAGE__PACKAGES:

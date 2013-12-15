@@ -11,6 +11,7 @@ import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLFactory;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
 import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
+import com.github.fbrx.propertysl.propertySL.SupportedLocales;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -40,6 +41,13 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * @generated
    */
   private EClass packageEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass supportedLocalesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -191,7 +199,7 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackage_DefaultLocale()
+  public EReference getPackage_SupportedLocales()
   {
     return (EReference)packageEClass.getEStructuralFeatures().get(1);
   }
@@ -201,7 +209,7 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackage_Packages()
+  public EReference getPackage_DefaultLocale()
   {
     return (EReference)packageEClass.getEStructuralFeatures().get(2);
   }
@@ -211,9 +219,39 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackage_Properties()
+  public EReference getPackage_Packages()
   {
     return (EReference)packageEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPackage_Properties()
+  {
+    return (EReference)packageEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSupportedLocales()
+  {
+    return supportedLocalesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSupportedLocales_Locales()
+  {
+    return (EAttribute)supportedLocalesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -381,9 +419,13 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
 
     packageEClass = createEClass(PACKAGE);
     createEAttribute(packageEClass, PACKAGE__NAME);
+    createEReference(packageEClass, PACKAGE__SUPPORTED_LOCALES);
     createEReference(packageEClass, PACKAGE__DEFAULT_LOCALE);
     createEReference(packageEClass, PACKAGE__PACKAGES);
     createEReference(packageEClass, PACKAGE__PROPERTIES);
+
+    supportedLocalesEClass = createEClass(SUPPORTED_LOCALES);
+    createEAttribute(supportedLocalesEClass, SUPPORTED_LOCALES__LOCALES);
 
     propertyEClass = createEClass(PROPERTY);
     createEAttribute(propertyEClass, PROPERTY__KEY);
@@ -443,9 +485,13 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
 
     initEClass(packageEClass, com.github.fbrx.propertysl.propertySL.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPackage_SupportedLocales(), this.getSupportedLocales(), null, "supportedLocales", null, 0, 1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_DefaultLocale(), this.getDefaultLocale(), null, "defaultLocale", null, 0, 1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_Packages(), this.getPackage(), null, "packages", null, 0, -1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_Properties(), this.getProperty(), null, "properties", null, 0, -1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(supportedLocalesEClass, SupportedLocales.class, "SupportedLocales", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSupportedLocales_Locales(), ecorePackage.getEString(), "locales", null, 0, -1, SupportedLocales.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProperty_Key(), ecorePackage.getEString(), "key", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

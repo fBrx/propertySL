@@ -145,16 +145,34 @@ rulePackage returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getDefaultLocaleDefaultLocaleParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getSupportedLocalesSupportedLocalesParserRuleCall_3_0()); 
 	    }
-		lv_defaultLocale_3_0=ruleDefaultLocale		{
+		lv_supportedLocales_3_0=ruleSupportedLocales		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getPackageRule());
+	        }
+       		set(
+       			$current, 
+       			"supportedLocales",
+        		lv_supportedLocales_3_0, 
+        		"SupportedLocales");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)?(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPackageAccess().getDefaultLocaleDefaultLocaleParserRuleCall_4_0()); 
+	    }
+		lv_defaultLocale_4_0=ruleDefaultLocale		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		set(
        			$current, 
        			"defaultLocale",
-        		lv_defaultLocale_3_0, 
+        		lv_defaultLocale_4_0, 
         		"DefaultLocale");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -163,16 +181,16 @@ rulePackage returns [EObject current=null]
 )?((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_4_0_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_5_0_0()); 
 	    }
-		lv_packages_4_0=rulePackage		{
+		lv_packages_5_0=rulePackage		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		add(
        			$current, 
        			"packages",
-        		lv_packages_4_0, 
+        		lv_packages_5_0, 
         		"Package");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -182,24 +200,101 @@ rulePackage returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getPropertiesPropertyParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getPropertiesPropertyParserRuleCall_5_1_0()); 
 	    }
-		lv_properties_5_0=ruleProperty		{
+		lv_properties_6_0=ruleProperty		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		add(
        			$current, 
        			"properties",
-        		lv_properties_5_0, 
+        		lv_properties_6_0, 
         		"Property");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
+))*	otherlv_7='}' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_6());
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleSupportedLocales
+entryRuleSupportedLocales returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getSupportedLocalesRule()); }
+	 iv_ruleSupportedLocales=ruleSupportedLocales 
+	 { $current=$iv_ruleSupportedLocales.current; } 
+	 EOF 
+;
+
+// Rule SupportedLocales
+ruleSupportedLocales returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='SUPPORTED_LOCALES' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getSupportedLocalesAccess().getSUPPORTED_LOCALESKeyword_0());
+    }
+	otherlv_1='=' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getSupportedLocalesAccess().getEqualsSignKeyword_1());
+    }
+	otherlv_2='{' 
+    {
+    	newLeafNode(otherlv_2, grammarAccess.getSupportedLocalesAccess().getLeftCurlyBracketKeyword_2());
+    }
+(
+(
+		lv_locales_3_0=RULE_LOCALE
+		{
+			newLeafNode(lv_locales_3_0, grammarAccess.getSupportedLocalesAccess().getLocalesLOCALETerminalRuleCall_3_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSupportedLocalesRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"locales",
+        		lv_locales_3_0, 
+        		"LOCALE");
+	    }
+
+)
+)(	otherlv_4=',' 
+    {
+    	newLeafNode(otherlv_4, grammarAccess.getSupportedLocalesAccess().getCommaKeyword_4_0());
+    }
+(
+(
+		lv_locales_5_0=RULE_LOCALE
+		{
+			newLeafNode(lv_locales_5_0, grammarAccess.getSupportedLocalesAccess().getLocalesLOCALETerminalRuleCall_4_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSupportedLocalesRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"locales",
+        		lv_locales_5_0, 
+        		"LOCALE");
+	    }
+
+)
 ))*	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_6, grammarAccess.getSupportedLocalesAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;

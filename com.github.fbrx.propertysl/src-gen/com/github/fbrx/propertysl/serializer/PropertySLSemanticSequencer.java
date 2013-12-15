@@ -7,6 +7,7 @@ import com.github.fbrx.propertysl.propertySL.Model;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
 import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
+import com.github.fbrx.propertysl.propertySL.SupportedLocales;
 import com.github.fbrx.propertysl.services.PropertySLGrammarAccess;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -74,6 +75,12 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
+			case PropertySLPackage.SUPPORTED_LOCALES:
+				if(context == grammarAccess.getSupportedLocalesRule()) {
+					sequence_SupportedLocales(context, (SupportedLocales) semanticObject); 
+					return; 
+				}
+				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
@@ -133,7 +140,7 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=FQN defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)*)
+	 *     (name=FQN supportedLocales=SupportedLocales? defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)*)
 	 */
 	protected void sequence_Package(EObject context, com.github.fbrx.propertysl.propertySL.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -172,5 +179,14 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getSimplePropertyValueAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (locales+=LOCALE locales+=LOCALE*)
+	 */
+	protected void sequence_SupportedLocales(EObject context, SupportedLocales semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 }
