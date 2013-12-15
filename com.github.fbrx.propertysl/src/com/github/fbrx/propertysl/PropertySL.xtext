@@ -31,7 +31,7 @@ AbstractPropertyValue:
 ;
 
 SimplePropertyValue:
-	STRING
+	value = STRING
 ;
 
 ComplexPropertyValue:
