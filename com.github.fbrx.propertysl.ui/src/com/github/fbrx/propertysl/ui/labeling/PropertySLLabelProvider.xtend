@@ -11,6 +11,7 @@ import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.PluginImageHelper
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
 
 /**
  * Provides labels for a EObjects.
@@ -29,6 +30,10 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 
 	def text(Package pkg){
 		pkg.name
+	}
+	
+	def text(ComplexPropertyValueItem item){
+		item.lang + " : " + item.value.value
 	}
 	
 	def text(DefaultLocale dl){
