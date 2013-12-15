@@ -9,8 +9,8 @@ Package:
 	'package' name = FQN '{'
 		defaultLocale = DefaultLocale?
 		
-		packages += Package*
-		properties += Property*
+		(packages += Package |
+		properties += Property)*
 	'}'
 ;
 
