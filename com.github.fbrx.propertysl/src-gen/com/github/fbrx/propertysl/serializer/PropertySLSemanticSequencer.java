@@ -133,7 +133,7 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=FQN defaultLocale=DefaultLocale? packages+=Package* properties+=Property*)
+	 *     (name=FQN defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)*)
 	 */
 	protected void sequence_Package(EObject context, com.github.fbrx.propertysl.propertySL.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

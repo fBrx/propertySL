@@ -43,17 +43,18 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cDefaultLocaleAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cDefaultLocaleDefaultLocaleParserRuleCall_3_0 = (RuleCall)cDefaultLocaleAssignment_3.eContents().get(0);
-		private final Assignment cPackagesAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final RuleCall cPackagesPackageParserRuleCall_4_0 = (RuleCall)cPackagesAssignment_4.eContents().get(0);
-		private final Assignment cPropertiesAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cPropertiesPropertyParserRuleCall_5_0 = (RuleCall)cPropertiesAssignment_5.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
+		private final Assignment cPackagesAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
+		private final RuleCall cPackagesPackageParserRuleCall_4_0_0 = (RuleCall)cPackagesAssignment_4_0.eContents().get(0);
+		private final Assignment cPropertiesAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
+		private final RuleCall cPropertiesPropertyParserRuleCall_4_1_0 = (RuleCall)cPropertiesAssignment_4_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Package:
-		//	"package" name=FQN "{" defaultLocale=DefaultLocale? packages+=Package* properties+=Property* "}";
+		//	"package" name=FQN "{" defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"package" name=FQN "{" defaultLocale=DefaultLocale? packages+=Package* properties+=Property* "}"
+		//"package" name=FQN "{" defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"package"
@@ -74,20 +75,23 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		//DefaultLocale
 		public RuleCall getDefaultLocaleDefaultLocaleParserRuleCall_3_0() { return cDefaultLocaleDefaultLocaleParserRuleCall_3_0; }
 
-		//packages+=Package*
-		public Assignment getPackagesAssignment_4() { return cPackagesAssignment_4; }
+		//(packages+=Package | properties+=Property)*
+		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+
+		//packages+=Package
+		public Assignment getPackagesAssignment_4_0() { return cPackagesAssignment_4_0; }
 
 		//Package
-		public RuleCall getPackagesPackageParserRuleCall_4_0() { return cPackagesPackageParserRuleCall_4_0; }
+		public RuleCall getPackagesPackageParserRuleCall_4_0_0() { return cPackagesPackageParserRuleCall_4_0_0; }
 
-		//properties+=Property*
-		public Assignment getPropertiesAssignment_5() { return cPropertiesAssignment_5; }
+		//properties+=Property
+		public Assignment getPropertiesAssignment_4_1() { return cPropertiesAssignment_4_1; }
 
 		//Property
-		public RuleCall getPropertiesPropertyParserRuleCall_5_0() { return cPropertiesPropertyParserRuleCall_5_0; }
+		public RuleCall getPropertiesPropertyParserRuleCall_4_1_0() { return cPropertiesPropertyParserRuleCall_4_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class FQNElements extends AbstractParserRuleElementFinder {
@@ -348,7 +352,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Package:
-	//	"package" name=FQN "{" defaultLocale=DefaultLocale? packages+=Package* properties+=Property* "}";
+	//	"package" name=FQN "{" defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)* "}";
 	public PackageElements getPackageAccess() {
 		return (pPackage != null) ? pPackage : (pPackage = new PackageElements());
 	}

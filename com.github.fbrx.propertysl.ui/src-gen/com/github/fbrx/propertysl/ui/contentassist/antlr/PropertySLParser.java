@@ -37,6 +37,7 @@ public class PropertySLParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getPackageAccess().getAlternatives_4(), "rule__Package__Alternatives_4");
 					put(grammarAccess.getAbstractPropertyValueAccess().getAlternatives(), "rule__AbstractPropertyValue__Alternatives");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
@@ -48,8 +49,8 @@ public class PropertySLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getModelAccess().getPackagesAssignment(), "rule__Model__PackagesAssignment");
 					put(grammarAccess.getPackageAccess().getNameAssignment_1(), "rule__Package__NameAssignment_1");
 					put(grammarAccess.getPackageAccess().getDefaultLocaleAssignment_3(), "rule__Package__DefaultLocaleAssignment_3");
-					put(grammarAccess.getPackageAccess().getPackagesAssignment_4(), "rule__Package__PackagesAssignment_4");
-					put(grammarAccess.getPackageAccess().getPropertiesAssignment_5(), "rule__Package__PropertiesAssignment_5");
+					put(grammarAccess.getPackageAccess().getPackagesAssignment_4_0(), "rule__Package__PackagesAssignment_4_0");
+					put(grammarAccess.getPackageAccess().getPropertiesAssignment_4_1(), "rule__Package__PropertiesAssignment_4_1");
 					put(grammarAccess.getPropertyAccess().getKeyAssignment_0(), "rule__Property__KeyAssignment_0");
 					put(grammarAccess.getPropertyAccess().getValueAssignment_2(), "rule__Property__ValueAssignment_2");
 					put(grammarAccess.getSimplePropertyValueAccess().getValueAssignment(), "rule__SimplePropertyValue__ValueAssignment");
