@@ -44,7 +44,6 @@ DefaultLocale:
 	'DEFAULT_LOCALE' '=' LOCALE
 ;
 
-LOCALE:
-	'de' | 'en'
+terminal LOCALE:
+	('a'..'z')('a'..'z')
 ;
-
