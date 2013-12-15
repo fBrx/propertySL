@@ -29,7 +29,7 @@ class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 
 	@Fix(PropertySLValidator.UNDEFINED_LOCALE)
 	def removeComplexPropertyValueItem(Issue issue, IssueResolutionAcceptor ira){
-		ira.accept(issue, 'remove', 'remove locale', 'upcase.png', [element, context |
+		ira.accept(issue, 'remove entry', 'remove entry from list', 'minus.png', [element, context |
 			val cpv = element.eContainer as ComplexPropertyValue
 			cpv.items.remove(element)
 		]) 
@@ -37,7 +37,7 @@ class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 	
 	@Fix(PropertySLValidator.UNDEFINED_LOCALE)
 	def addSupportedLocale(Issue issue, IssueResolutionAcceptor ira){
-		ira.accept(issue, 'add supported locale', 'add entry to supported locales', 'upcase.png', [element, context |
+		ira.accept(issue, 'add supported locale', 'add entry to supported locales', 'plus.png', [element, context |
 			val pkg = element.eContainer.eContainer.eContainer as com.github.fbrx.propertysl.propertySL.Package
 			pkg.supportedLocales.locales.add(issue.data.get(0))
 		]) 
