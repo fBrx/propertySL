@@ -5,8 +5,11 @@ package com.github.fbrx.propertysl.ui.labeling
 
 import com.github.fbrx.propertysl.propertySL.DefaultLocale
 import com.github.fbrx.propertysl.propertySL.Package
+import com.github.fbrx.propertysl.propertySL.Property
+import com.github.fbrx.propertysl.propertySL.SimplePropertyValue
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.ui.PluginImageHelper
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 /**
@@ -17,12 +20,13 @@ import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
+	PluginImageHelper imgHelper
+
+	@Inject
 	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
-	// Labels and icons can be computed like this:
-	
 	def text(Package pkg){
 		pkg.name
 	}
@@ -30,9 +34,27 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 	def text(DefaultLocale dl){
 		'DEFAULT_LOCALE'
 	}
+	
+	def text(Property prop){
+		if(prop.value instanceof SimplePropertyValue){
+			prop.key + " : " + (prop.value as SimplePropertyValue).value
+		}
+	}
+	
+	def image(DefaultLocale dl){
+		return imgHelper.getImage("cog.png");
+	}
+	
+	def image(Package pkg){
+		return imgHelper.getImage("list_2.png");
+	}
+	
+	def image(Property prop){
+		return imgHelper.getImage("pen_1.png");
+	}
 
+ 	override protected handleImageError(Object[] params, Throwable e) {
+		super.handleImageError(params, e)
+	}
 
-//	def image(Greeting ele) {
-//		'Greeting.gif'
-//	}
 }
