@@ -3,7 +3,17 @@
  */
 package com.github.fbrx.propertysl.validation;
 
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
+import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.PropertySLPackage.Literals;
+import com.github.fbrx.propertysl.propertySL.SupportedLocales;
 import com.github.fbrx.propertysl.validation.AbstractPropertySLValidator;
+import com.google.common.base.Objects;
+import java.util.ArrayList;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.validation.Check;
 
 /**
  * Custom validation rules.
@@ -12,4 +22,77 @@ import com.github.fbrx.propertysl.validation.AbstractPropertySLValidator;
  */
 @SuppressWarnings("all")
 public class PropertySLValidator extends AbstractPropertySLValidator {
+  public final static String MISSING_LOCALES = "MISSING_LOCALES";
+  
+  public final static String UNDEFINED_LOCALE = "UNDEFINED_LOCALE";
+  
+  @Check
+  public void checkIfDefaultLocaleIsSupported(final com.github.fbrx.propertysl.propertySL.Package pkg) {
+    DefaultLocale _defaultLocale = pkg.getDefaultLocale();
+    boolean _notEquals = (!Objects.equal(_defaultLocale, null));
+    if (_notEquals) {
+      SupportedLocales _supportedLocales = pkg.getSupportedLocales();
+      boolean _notEquals_1 = (!Objects.equal(_supportedLocales, null));
+      if (_notEquals_1) {
+        SupportedLocales _supportedLocales_1 = pkg.getSupportedLocales();
+        EList<String> _locales = _supportedLocales_1.getLocales();
+        DefaultLocale _defaultLocale_1 = pkg.getDefaultLocale();
+        String _lang = _defaultLocale_1.getLang();
+        boolean _contains = _locales.contains(_lang);
+        boolean _not = (!_contains);
+        if (_not) {
+          this.error("default locale must be one of supported locales", Literals.PACKAGE__DEFAULT_LOCALE);
+        }
+      } else {
+        this.warning("supported locales are not defined", Literals.PACKAGE__DEFAULT_LOCALE);
+      }
+    }
+  }
+  
+  @Check
+  public void checkLocaleOfComplexPropertyValue(final ComplexPropertyValueItem item) {
+    EObject _eContainer = item.eContainer();
+    EObject _eContainer_1 = _eContainer.eContainer();
+    EObject _eContainer_2 = _eContainer_1.eContainer();
+    final com.github.fbrx.propertysl.propertySL.Package pkg = ((com.github.fbrx.propertysl.propertySL.Package) _eContainer_2);
+    SupportedLocales _supportedLocales = pkg.getSupportedLocales();
+    EList<String> _locales = _supportedLocales.getLocales();
+    String _lang = item.getLang();
+    boolean _contains = _locales.contains(_lang);
+    boolean _not = (!_contains);
+    if (_not) {
+      String _lang_1 = item.getLang();
+      String _plus = ("locale is not defined: " + _lang_1);
+      String _lang_2 = item.getLang();
+      this.warning(_plus, Literals.COMPLEX_PROPERTY_VALUE_ITEM__LANG, PropertySLValidator.UNDEFINED_LOCALE, _lang_2);
+    }
+  }
+  
+  @Check
+  public void checkItemsOfComplexPropertyValue(final ComplexPropertyValue prop) {
+    EObject _eContainer = prop.eContainer();
+    EObject _eContainer_1 = _eContainer.eContainer();
+    final com.github.fbrx.propertysl.propertySL.Package pkg = ((com.github.fbrx.propertysl.propertySL.Package) _eContainer_1);
+    ArrayList<String> _arrayList = new ArrayList<String>();
+    ArrayList<String> languages = _arrayList;
+    EList<ComplexPropertyValueItem> _items = prop.getItems();
+    for (final ComplexPropertyValueItem item : _items) {
+      String _lang = item.getLang();
+      languages.add(_lang);
+    }
+    SupportedLocales _supportedLocales = pkg.getSupportedLocales();
+    EList<String> _locales = _supportedLocales.getLocales();
+    ArrayList<String> _arrayList_1 = new ArrayList<String>(_locales);
+    ArrayList<String> tmp = _arrayList_1;
+    tmp.removeAll(languages);
+    int _size = tmp.size();
+    boolean _greaterThan = (_size > 0);
+    if (_greaterThan) {
+      for (final String s : tmp) {
+        String _plus = ("missing locale definition (" + s);
+        String _plus_1 = (_plus + ")");
+        this.error(_plus_1, Literals.COMPLEX_PROPERTY_VALUE__ITEMS, PropertySLValidator.MISSING_LOCALES, s);
+      }
+    }
+  }
 }

@@ -3,16 +3,19 @@
 */
 package com.github.fbrx.propertysl.ui.quickfix
 
-//import org.eclipse.xtext.ui.editor.quickfix.Fix
-//import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
-//import org.eclipse.xtext.validation.Issue
+import com.github.fbrx.propertysl.validation.PropertySLValidator
+import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
+import org.eclipse.xtext.ui.editor.quickfix.Fix
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
+import org.eclipse.xtext.validation.Issue
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
 
 /**
  * Custom quickfixes.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#quickfixes
  */
-class PropertySLQuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider {
+class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 
 //	@Fix(MyDslValidator::INVALID_NAME)
 //	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {
@@ -23,4 +26,20 @@ class PropertySLQuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.De
 //			xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
 //		]
 //	}
+
+	@Fix(PropertySLValidator.UNDEFINED_LOCALE)
+	def removeComplexPropertyValueItem(Issue issue, IssueResolutionAcceptor ira){
+		ira.accept(issue, 'remove', 'remove locale', 'upcase.png', [element, context |
+			val cpv = element.eContainer as ComplexPropertyValue
+			cpv.items.remove(element)
+		]) 
+	}
+	
+	@Fix(PropertySLValidator.UNDEFINED_LOCALE)
+	def addSupportedLocale(Issue issue, IssueResolutionAcceptor ira){
+		ira.accept(issue, 'add supported locale', 'add entry to supported locales', 'upcase.png', [element, context |
+			val pkg = element.eContainer.eContainer.eContainer as com.github.fbrx.propertysl.propertySL.Package
+			pkg.supportedLocales.locales.add(issue.data.get(0))
+		]) 
+	}
 }

@@ -18,6 +18,9 @@ import java.util.ArrayList
 class PropertySLValidator extends AbstractPropertySLValidator {
 
 
+	public static final String MISSING_LOCALES = "MISSING_LOCALES"
+	public static final String UNDEFINED_LOCALE = "UNDEFINED_LOCALE"
+	
 	@Check
 	def checkIfDefaultLocaleIsSupported(Package pkg){
 		if(pkg.defaultLocale != null){
@@ -35,7 +38,7 @@ class PropertySLValidator extends AbstractPropertySLValidator {
 	def checkLocaleOfComplexPropertyValue(ComplexPropertyValueItem item){
 		val pkg = item.eContainer.eContainer.eContainer as Package
 		if(!pkg.supportedLocales.locales.contains(item.lang)){
-			warning("locale is not defined", PropertySLPackage.Literals.COMPLEX_PROPERTY_VALUE_ITEM__LANG)
+			warning("locale is not defined: " + item.lang, PropertySLPackage.Literals.COMPLEX_PROPERTY_VALUE_ITEM__LANG, UNDEFINED_LOCALE, item.lang)
 		}
 	}
 	
@@ -48,8 +51,13 @@ class PropertySLValidator extends AbstractPropertySLValidator {
 			languages.add(item.lang)
 		}
 
-		if(!languages.containsAll(pkg.supportedLocales.locales)){
-			error("all supported locales must be specified", PropertySLPackage.Literals.COMPLEX_PROPERTY_VALUE__ITEMS)
+		var tmp = new ArrayList(pkg.supportedLocales.locales)
+		tmp.removeAll(languages)
+		if(tmp.size > 0){
+			for(String s : tmp){
+				error("missing locale definition (" + s + ")", PropertySLPackage.Literals.COMPLEX_PROPERTY_VALUE__ITEMS, MISSING_LOCALES, s)
+			}
+			
 		}
 	}
 	
