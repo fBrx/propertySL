@@ -57,6 +57,10 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 	def image(Property prop){
 		return imgHelper.getImage("pen_1.png");
 	}
+	
+	def image(ComplexPropertyValueItem item){
+		return imgHelper.getImage("arrow_right.png");
+	}
 
  	override protected handleImageError(Object[] params, Throwable e) {
 		super.handleImageError(params, e)
