@@ -3,9 +3,12 @@
  */
 package com.github.fbrx.propertysl.generator;
 
+import com.google.inject.Inject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 /**
  * Generates code from your model files on save.
@@ -14,6 +17,10 @@ import org.eclipse.xtext.generator.IGenerator;
  */
 @SuppressWarnings("all")
 public class PropertySLGenerator implements IGenerator {
+  @Inject
+  @Extension
+  private IQualifiedNameProvider _iQualifiedNameProvider;
+  
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
   }
 }

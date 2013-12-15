@@ -38,15 +38,25 @@ public class PropertySLParser extends AbstractContentAssistParser {
 				private static final long serialVersionUID = 1L;
 				{
 					put(grammarAccess.getAbstractPropertyValueAccess().getAlternatives(), "rule__AbstractPropertyValue__Alternatives");
-					put(grammarAccess.getLOCALEAccess().getAlternatives(), "rule__LOCALE__Alternatives");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup(), "rule__FQN__Group__0");
 					put(grammarAccess.getFQNAccess().getGroup_1(), "rule__FQN__Group_1__0");
 					put(grammarAccess.getPropertyAccess().getGroup(), "rule__Property__Group__0");
 					put(grammarAccess.getComplexPropertyValueAccess().getGroup(), "rule__ComplexPropertyValue__Group__0");
-					put(grammarAccess.getComplexPropertyValueAccess().getGroup_1(), "rule__ComplexPropertyValue__Group_1__0");
+					put(grammarAccess.getComplexPropertyValueItemAccess().getGroup(), "rule__ComplexPropertyValueItem__Group__0");
 					put(grammarAccess.getDefaultLocaleAccess().getGroup(), "rule__DefaultLocale__Group__0");
 					put(grammarAccess.getModelAccess().getPackagesAssignment(), "rule__Model__PackagesAssignment");
+					put(grammarAccess.getPackageAccess().getNameAssignment_1(), "rule__Package__NameAssignment_1");
+					put(grammarAccess.getPackageAccess().getDefaultLocaleAssignment_3(), "rule__Package__DefaultLocaleAssignment_3");
+					put(grammarAccess.getPackageAccess().getPackagesAssignment_4(), "rule__Package__PackagesAssignment_4");
+					put(grammarAccess.getPackageAccess().getPropertiesAssignment_5(), "rule__Package__PropertiesAssignment_5");
+					put(grammarAccess.getPropertyAccess().getKeyAssignment_0(), "rule__Property__KeyAssignment_0");
+					put(grammarAccess.getPropertyAccess().getValueAssignment_2(), "rule__Property__ValueAssignment_2");
+					put(grammarAccess.getSimplePropertyValueAccess().getValueAssignment(), "rule__SimplePropertyValue__ValueAssignment");
+					put(grammarAccess.getComplexPropertyValueAccess().getItemsAssignment_1(), "rule__ComplexPropertyValue__ItemsAssignment_1");
+					put(grammarAccess.getComplexPropertyValueItemAccess().getLangAssignment_0(), "rule__ComplexPropertyValueItem__LangAssignment_0");
+					put(grammarAccess.getComplexPropertyValueItemAccess().getValueAssignment_2(), "rule__ComplexPropertyValueItem__ValueAssignment_2");
+					put(grammarAccess.getDefaultLocaleAccess().getLangAssignment_2(), "rule__DefaultLocale__LangAssignment_2");
 				}
 			};
 		}

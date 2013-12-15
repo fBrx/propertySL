@@ -2,7 +2,14 @@
  */
 package com.github.fbrx.propertysl.propertySL.util;
 
-import com.github.fbrx.propertysl.propertySL.*;
+import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
+import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.Model;
+import com.github.fbrx.propertysl.propertySL.Property;
+import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
+import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -79,6 +86,57 @@ public class PropertySLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case PropertySLPackage.PACKAGE:
+      {
+        com.github.fbrx.propertysl.propertySL.Package package_ = (com.github.fbrx.propertysl.propertySL.Package)theEObject;
+        T result = casePackage(package_);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PropertySLPackage.PROPERTY:
+      {
+        Property property = (Property)theEObject;
+        T result = caseProperty(property);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PropertySLPackage.ABSTRACT_PROPERTY_VALUE:
+      {
+        AbstractPropertyValue abstractPropertyValue = (AbstractPropertyValue)theEObject;
+        T result = caseAbstractPropertyValue(abstractPropertyValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PropertySLPackage.SIMPLE_PROPERTY_VALUE:
+      {
+        SimplePropertyValue simplePropertyValue = (SimplePropertyValue)theEObject;
+        T result = caseSimplePropertyValue(simplePropertyValue);
+        if (result == null) result = caseAbstractPropertyValue(simplePropertyValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PropertySLPackage.COMPLEX_PROPERTY_VALUE:
+      {
+        ComplexPropertyValue complexPropertyValue = (ComplexPropertyValue)theEObject;
+        T result = caseComplexPropertyValue(complexPropertyValue);
+        if (result == null) result = caseAbstractPropertyValue(complexPropertyValue);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PropertySLPackage.COMPLEX_PROPERTY_VALUE_ITEM:
+      {
+        ComplexPropertyValueItem complexPropertyValueItem = (ComplexPropertyValueItem)theEObject;
+        T result = caseComplexPropertyValueItem(complexPropertyValueItem);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case PropertySLPackage.DEFAULT_LOCALE:
+      {
+        DefaultLocale defaultLocale = (DefaultLocale)theEObject;
+        T result = caseDefaultLocale(defaultLocale);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -95,6 +153,118 @@ public class PropertySLSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Package</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePackage(com.github.fbrx.propertysl.propertySL.Package object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Property</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Property</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseProperty(Property object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Property Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Property Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractPropertyValue(AbstractPropertyValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Simple Property Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Simple Property Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSimplePropertyValue(SimplePropertyValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Complex Property Value</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Complex Property Value</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComplexPropertyValue(ComplexPropertyValue object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Complex Property Value Item</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Complex Property Value Item</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseComplexPropertyValueItem(ComplexPropertyValueItem object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Default Locale</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Default Locale</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDefaultLocale(DefaultLocale object)
   {
     return null;
   }

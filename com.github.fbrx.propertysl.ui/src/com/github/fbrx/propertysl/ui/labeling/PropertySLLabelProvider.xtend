@@ -3,26 +3,35 @@
 */
 package com.github.fbrx.propertysl.ui.labeling
 
+import com.github.fbrx.propertysl.propertySL.DefaultLocale
+import com.github.fbrx.propertysl.propertySL.Package
 import com.google.inject.Inject
+import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
+import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
 
 /**
  * Provides labels for a EObjects.
  * 
  * see http://www.eclipse.org/Xtext/documentation.html#labelProvider
  */
-class PropertySLLabelProvider extends org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider {
+class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 
 	@Inject
-	new(org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider delegate) {
+	new(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
 	}
 
 	// Labels and icons can be computed like this:
 	
-//	def text(Greeting ele) {
-//		'A greeting to ' + ele.name
-//	}
-//
+	def text(Package pkg){
+		pkg.name
+	}
+	
+	def text(DefaultLocale dl){
+		'DEFAULT_LOCALE'
+	}
+
+
 //	def image(Greeting ele) {
 //		'Greeting.gif'
 //	}

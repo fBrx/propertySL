@@ -2,7 +2,14 @@
  */
 package com.github.fbrx.propertysl.propertySL.util;
 
-import com.github.fbrx.propertysl.propertySL.*;
+import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
+import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.Model;
+import com.github.fbrx.propertysl.propertySL.Property;
+import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
+import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -80,6 +87,41 @@ public class PropertySLAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter casePackage(com.github.fbrx.propertysl.propertySL.Package object)
+      {
+        return createPackageAdapter();
+      }
+      @Override
+      public Adapter caseProperty(Property object)
+      {
+        return createPropertyAdapter();
+      }
+      @Override
+      public Adapter caseAbstractPropertyValue(AbstractPropertyValue object)
+      {
+        return createAbstractPropertyValueAdapter();
+      }
+      @Override
+      public Adapter caseSimplePropertyValue(SimplePropertyValue object)
+      {
+        return createSimplePropertyValueAdapter();
+      }
+      @Override
+      public Adapter caseComplexPropertyValue(ComplexPropertyValue object)
+      {
+        return createComplexPropertyValueAdapter();
+      }
+      @Override
+      public Adapter caseComplexPropertyValueItem(ComplexPropertyValueItem object)
+      {
+        return createComplexPropertyValueItemAdapter();
+      }
+      @Override
+      public Adapter caseDefaultLocale(DefaultLocale object)
+      {
+        return createDefaultLocaleAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -112,6 +154,111 @@ public class PropertySLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.Package <em>Package</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.github.fbrx.propertysl.propertySL.Package
+   * @generated
+   */
+  public Adapter createPackageAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.Property <em>Property</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.github.fbrx.propertysl.propertySL.Property
+   * @generated
+   */
+  public Adapter createPropertyAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.AbstractPropertyValue <em>Abstract Property Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.github.fbrx.propertysl.propertySL.AbstractPropertyValue
+   * @generated
+   */
+  public Adapter createAbstractPropertyValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.SimplePropertyValue <em>Simple Property Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.github.fbrx.propertysl.propertySL.SimplePropertyValue
+   * @generated
+   */
+  public Adapter createSimplePropertyValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.ComplexPropertyValue <em>Complex Property Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
+   * @generated
+   */
+  public Adapter createComplexPropertyValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem <em>Complex Property Value Item</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
+   * @generated
+   */
+  public Adapter createComplexPropertyValueItemAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.DefaultLocale <em>Default Locale</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see com.github.fbrx.propertysl.propertySL.DefaultLocale
+   * @generated
+   */
+  public Adapter createDefaultLocaleAdapter()
   {
     return null;
   }

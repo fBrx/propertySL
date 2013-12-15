@@ -3,9 +3,11 @@
  */
 package com.github.fbrx.propertysl.generator
 
+import com.google.inject.Inject
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess
+import org.eclipse.xtext.generator.IGenerator
+import org.eclipse.xtext.naming.IQualifiedNameProvider
 
 /**
  * Generates code from your model files on save.
@@ -14,6 +16,8 @@ import org.eclipse.xtext.generator.IFileSystemAccess
  */
 class PropertySLGenerator implements IGenerator {
 	
+	@Inject extension IQualifiedNameProvider
+	 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 //		fsa.generateFile('greetings.txt', 'People to greet: ' + 
 //			resource.allContents

@@ -32,6 +32,69 @@ public interface PropertySLFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Package</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Package</em>'.
+   * @generated
+   */
+  Package createPackage();
+
+  /**
+   * Returns a new object of class '<em>Property</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Property</em>'.
+   * @generated
+   */
+  Property createProperty();
+
+  /**
+   * Returns a new object of class '<em>Abstract Property Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Property Value</em>'.
+   * @generated
+   */
+  AbstractPropertyValue createAbstractPropertyValue();
+
+  /**
+   * Returns a new object of class '<em>Simple Property Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Simple Property Value</em>'.
+   * @generated
+   */
+  SimplePropertyValue createSimplePropertyValue();
+
+  /**
+   * Returns a new object of class '<em>Complex Property Value</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Complex Property Value</em>'.
+   * @generated
+   */
+  ComplexPropertyValue createComplexPropertyValue();
+
+  /**
+   * Returns a new object of class '<em>Complex Property Value Item</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Complex Property Value Item</em>'.
+   * @generated
+   */
+  ComplexPropertyValueItem createComplexPropertyValueItem();
+
+  /**
+   * Returns a new object of class '<em>Default Locale</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Default Locale</em>'.
+   * @generated
+   */
+  DefaultLocale createDefaultLocale();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

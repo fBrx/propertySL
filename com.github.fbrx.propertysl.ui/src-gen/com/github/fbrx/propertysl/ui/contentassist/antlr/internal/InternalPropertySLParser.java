@@ -22,25 +22,24 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalPropertySLParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'de'", "'en'", "'package'", "'{'", "'}'", "'.'", "'='", "':'", "'DEFAULT_LOCALE'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_LOCALE", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'package'", "'{'", "'}'", "'.'", "'='", "':'", "'DEFAULT_LOCALE'"
     };
     public static final int RULE_ID=4;
-    public static final int RULE_ANY_OTHER=10;
-    public static final int EOF=-1;
-    public static final int RULE_SL_COMMENT=8;
-    public static final int RULE_ML_COMMENT=7;
-    public static final int T__19=19;
     public static final int RULE_STRING=5;
     public static final int T__16=16;
     public static final int T__15=15;
     public static final int T__18=18;
     public static final int T__17=17;
     public static final int T__12=12;
-    public static final int T__11=11;
+    public static final int RULE_LOCALE=6;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_INT=6;
-    public static final int RULE_WS=9;
+    public static final int RULE_ANY_OTHER=11;
+    public static final int RULE_INT=7;
+    public static final int RULE_WS=10;
+    public static final int RULE_SL_COMMENT=9;
+    public static final int EOF=-1;
+    public static final int RULE_ML_COMMENT=8;
 
     // delegates
     // delegators
@@ -129,7 +128,7 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( (LA1_0==13) ) {
+                if ( (LA1_0==12) ) {
                     alt1=1;
                 }
 
@@ -580,21 +579,31 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "ruleSimplePropertyValue"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:237:1: ruleSimplePropertyValue : ( RULE_STRING ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:237:1: ruleSimplePropertyValue : ( ( rule__SimplePropertyValue__ValueAssignment ) ) ;
     public final void ruleSimplePropertyValue() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:241:2: ( ( RULE_STRING ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:242:1: ( RULE_STRING )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:241:2: ( ( ( rule__SimplePropertyValue__ValueAssignment ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:242:1: ( ( rule__SimplePropertyValue__ValueAssignment ) )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:242:1: ( RULE_STRING )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:243:1: RULE_STRING
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:242:1: ( ( rule__SimplePropertyValue__ValueAssignment ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:243:1: ( rule__SimplePropertyValue__ValueAssignment )
             {
-             before(grammarAccess.getSimplePropertyValueAccess().getSTRINGTerminalRuleCall()); 
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleSimplePropertyValue454); 
-             after(grammarAccess.getSimplePropertyValueAccess().getSTRINGTerminalRuleCall()); 
+             before(grammarAccess.getSimplePropertyValueAccess().getValueAssignment()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:244:1: ( rule__SimplePropertyValue__ValueAssignment )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:244:2: rule__SimplePropertyValue__ValueAssignment
+            {
+            pushFollow(FOLLOW_rule__SimplePropertyValue__ValueAssignment_in_ruleSimplePropertyValue454);
+            rule__SimplePropertyValue__ValueAssignment();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getSimplePropertyValueAccess().getValueAssignment()); 
 
             }
 
@@ -624,13 +633,13 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
             // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:258:1: ruleComplexPropertyValue EOF
             {
              before(grammarAccess.getComplexPropertyValueRule()); 
-            pushFollow(FOLLOW_ruleComplexPropertyValue_in_entryRuleComplexPropertyValue480);
+            pushFollow(FOLLOW_ruleComplexPropertyValue_in_entryRuleComplexPropertyValue481);
             ruleComplexPropertyValue();
 
             state._fsp--;
 
              after(grammarAccess.getComplexPropertyValueRule()); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexPropertyValue487); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexPropertyValue488); 
 
             }
 
@@ -663,7 +672,7 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
             // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:272:1: ( rule__ComplexPropertyValue__Group__0 )
             // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:272:2: rule__ComplexPropertyValue__Group__0
             {
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__0_in_ruleComplexPropertyValue513);
+            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__0_in_ruleComplexPropertyValue514);
             rule__ComplexPropertyValue__Group__0();
 
             state._fsp--;
@@ -693,21 +702,98 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "ruleComplexPropertyValue"
 
 
+    // $ANTLR start "entryRuleComplexPropertyValueItem"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:284:1: entryRuleComplexPropertyValueItem : ruleComplexPropertyValueItem EOF ;
+    public final void entryRuleComplexPropertyValueItem() throws RecognitionException {
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:285:1: ( ruleComplexPropertyValueItem EOF )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:286:1: ruleComplexPropertyValueItem EOF
+            {
+             before(grammarAccess.getComplexPropertyValueItemRule()); 
+            pushFollow(FOLLOW_ruleComplexPropertyValueItem_in_entryRuleComplexPropertyValueItem541);
+            ruleComplexPropertyValueItem();
+
+            state._fsp--;
+
+             after(grammarAccess.getComplexPropertyValueItemRule()); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleComplexPropertyValueItem548); 
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleComplexPropertyValueItem"
+
+
+    // $ANTLR start "ruleComplexPropertyValueItem"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:293:1: ruleComplexPropertyValueItem : ( ( rule__ComplexPropertyValueItem__Group__0 ) ) ;
+    public final void ruleComplexPropertyValueItem() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:297:2: ( ( ( rule__ComplexPropertyValueItem__Group__0 ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:298:1: ( ( rule__ComplexPropertyValueItem__Group__0 ) )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:298:1: ( ( rule__ComplexPropertyValueItem__Group__0 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:299:1: ( rule__ComplexPropertyValueItem__Group__0 )
+            {
+             before(grammarAccess.getComplexPropertyValueItemAccess().getGroup()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:300:1: ( rule__ComplexPropertyValueItem__Group__0 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:300:2: rule__ComplexPropertyValueItem__Group__0
+            {
+            pushFollow(FOLLOW_rule__ComplexPropertyValueItem__Group__0_in_ruleComplexPropertyValueItem574);
+            rule__ComplexPropertyValueItem__Group__0();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getComplexPropertyValueItemAccess().getGroup()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleComplexPropertyValueItem"
+
+
     // $ANTLR start "entryRuleDefaultLocale"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:284:1: entryRuleDefaultLocale : ruleDefaultLocale EOF ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:312:1: entryRuleDefaultLocale : ruleDefaultLocale EOF ;
     public final void entryRuleDefaultLocale() throws RecognitionException {
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:285:1: ( ruleDefaultLocale EOF )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:286:1: ruleDefaultLocale EOF
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:313:1: ( ruleDefaultLocale EOF )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:314:1: ruleDefaultLocale EOF
             {
              before(grammarAccess.getDefaultLocaleRule()); 
-            pushFollow(FOLLOW_ruleDefaultLocale_in_entryRuleDefaultLocale540);
+            pushFollow(FOLLOW_ruleDefaultLocale_in_entryRuleDefaultLocale601);
             ruleDefaultLocale();
 
             state._fsp--;
 
              after(grammarAccess.getDefaultLocaleRule()); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDefaultLocale547); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDefaultLocale608); 
 
             }
 
@@ -724,23 +810,23 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "ruleDefaultLocale"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:293:1: ruleDefaultLocale : ( ( rule__DefaultLocale__Group__0 ) ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:321:1: ruleDefaultLocale : ( ( rule__DefaultLocale__Group__0 ) ) ;
     public final void ruleDefaultLocale() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:297:2: ( ( ( rule__DefaultLocale__Group__0 ) ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:298:1: ( ( rule__DefaultLocale__Group__0 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:325:2: ( ( ( rule__DefaultLocale__Group__0 ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:326:1: ( ( rule__DefaultLocale__Group__0 ) )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:298:1: ( ( rule__DefaultLocale__Group__0 ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:299:1: ( rule__DefaultLocale__Group__0 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:326:1: ( ( rule__DefaultLocale__Group__0 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:327:1: ( rule__DefaultLocale__Group__0 )
             {
              before(grammarAccess.getDefaultLocaleAccess().getGroup()); 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:300:1: ( rule__DefaultLocale__Group__0 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:300:2: rule__DefaultLocale__Group__0
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:328:1: ( rule__DefaultLocale__Group__0 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:328:2: rule__DefaultLocale__Group__0
             {
-            pushFollow(FOLLOW_rule__DefaultLocale__Group__0_in_ruleDefaultLocale573);
+            pushFollow(FOLLOW_rule__DefaultLocale__Group__0_in_ruleDefaultLocale634);
             rule__DefaultLocale__Group__0();
 
             state._fsp--;
@@ -770,83 +856,6 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "ruleDefaultLocale"
 
 
-    // $ANTLR start "entryRuleLOCALE"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:312:1: entryRuleLOCALE : ruleLOCALE EOF ;
-    public final void entryRuleLOCALE() throws RecognitionException {
-        try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:313:1: ( ruleLOCALE EOF )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:314:1: ruleLOCALE EOF
-            {
-             before(grammarAccess.getLOCALERule()); 
-            pushFollow(FOLLOW_ruleLOCALE_in_entryRuleLOCALE600);
-            ruleLOCALE();
-
-            state._fsp--;
-
-             after(grammarAccess.getLOCALERule()); 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLOCALE607); 
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end "entryRuleLOCALE"
-
-
-    // $ANTLR start "ruleLOCALE"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:321:1: ruleLOCALE : ( ( rule__LOCALE__Alternatives ) ) ;
-    public final void ruleLOCALE() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:325:2: ( ( ( rule__LOCALE__Alternatives ) ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:326:1: ( ( rule__LOCALE__Alternatives ) )
-            {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:326:1: ( ( rule__LOCALE__Alternatives ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:327:1: ( rule__LOCALE__Alternatives )
-            {
-             before(grammarAccess.getLOCALEAccess().getAlternatives()); 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:328:1: ( rule__LOCALE__Alternatives )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:328:2: rule__LOCALE__Alternatives
-            {
-            pushFollow(FOLLOW_rule__LOCALE__Alternatives_in_ruleLOCALE633);
-            rule__LOCALE__Alternatives();
-
-            state._fsp--;
-
-
-            }
-
-             after(grammarAccess.getLOCALEAccess().getAlternatives()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "ruleLOCALE"
-
-
     // $ANTLR start "rule__AbstractPropertyValue__Alternatives"
     // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:340:1: rule__AbstractPropertyValue__Alternatives : ( ( ruleSimplePropertyValue ) | ( ruleComplexPropertyValue ) );
     public final void rule__AbstractPropertyValue__Alternatives() throws RecognitionException {
@@ -861,7 +870,7 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
             if ( (LA2_0==RULE_STRING) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==14) ) {
+            else if ( (LA2_0==13) ) {
                 alt2=2;
             }
             else {
@@ -878,7 +887,7 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
                     // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:346:1: ruleSimplePropertyValue
                     {
                      before(grammarAccess.getAbstractPropertyValueAccess().getSimplePropertyValueParserRuleCall_0()); 
-                    pushFollow(FOLLOW_ruleSimplePropertyValue_in_rule__AbstractPropertyValue__Alternatives669);
+                    pushFollow(FOLLOW_ruleSimplePropertyValue_in_rule__AbstractPropertyValue__Alternatives670);
                     ruleSimplePropertyValue();
 
                     state._fsp--;
@@ -897,7 +906,7 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
                     // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:352:1: ruleComplexPropertyValue
                     {
                      before(grammarAccess.getAbstractPropertyValueAccess().getComplexPropertyValueParserRuleCall_1()); 
-                    pushFollow(FOLLOW_ruleComplexPropertyValue_in_rule__AbstractPropertyValue__Alternatives686);
+                    pushFollow(FOLLOW_ruleComplexPropertyValue_in_rule__AbstractPropertyValue__Alternatives687);
                     ruleComplexPropertyValue();
 
                     state._fsp--;
@@ -926,93 +935,22 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__AbstractPropertyValue__Alternatives"
 
 
-    // $ANTLR start "rule__LOCALE__Alternatives"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:362:1: rule__LOCALE__Alternatives : ( ( 'de' ) | ( 'en' ) );
-    public final void rule__LOCALE__Alternatives() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:366:1: ( ( 'de' ) | ( 'en' ) )
-            int alt3=2;
-            int LA3_0 = input.LA(1);
-
-            if ( (LA3_0==11) ) {
-                alt3=1;
-            }
-            else if ( (LA3_0==12) ) {
-                alt3=2;
-            }
-            else {
-                NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
-
-                throw nvae;
-            }
-            switch (alt3) {
-                case 1 :
-                    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:367:1: ( 'de' )
-                    {
-                    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:367:1: ( 'de' )
-                    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:368:1: 'de'
-                    {
-                     before(grammarAccess.getLOCALEAccess().getDeKeyword_0()); 
-                    match(input,11,FOLLOW_11_in_rule__LOCALE__Alternatives719); 
-                     after(grammarAccess.getLOCALEAccess().getDeKeyword_0()); 
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:375:6: ( 'en' )
-                    {
-                    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:375:6: ( 'en' )
-                    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:376:1: 'en'
-                    {
-                     before(grammarAccess.getLOCALEAccess().getEnKeyword_1()); 
-                    match(input,12,FOLLOW_12_in_rule__LOCALE__Alternatives739); 
-                     after(grammarAccess.getLOCALEAccess().getEnKeyword_1()); 
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LOCALE__Alternatives"
-
-
     // $ANTLR start "rule__Package__Group__0"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:390:1: rule__Package__Group__0 : rule__Package__Group__0__Impl rule__Package__Group__1 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:364:1: rule__Package__Group__0 : rule__Package__Group__0__Impl rule__Package__Group__1 ;
     public final void rule__Package__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:394:1: ( rule__Package__Group__0__Impl rule__Package__Group__1 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:395:2: rule__Package__Group__0__Impl rule__Package__Group__1
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:368:1: ( rule__Package__Group__0__Impl rule__Package__Group__1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:369:2: rule__Package__Group__0__Impl rule__Package__Group__1
             {
-            pushFollow(FOLLOW_rule__Package__Group__0__Impl_in_rule__Package__Group__0771);
+            pushFollow(FOLLOW_rule__Package__Group__0__Impl_in_rule__Package__Group__0717);
             rule__Package__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Package__Group__1_in_rule__Package__Group__0774);
+            pushFollow(FOLLOW_rule__Package__Group__1_in_rule__Package__Group__0720);
             rule__Package__Group__1();
 
             state._fsp--;
@@ -1036,20 +974,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__0__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:402:1: rule__Package__Group__0__Impl : ( 'package' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:376:1: rule__Package__Group__0__Impl : ( 'package' ) ;
     public final void rule__Package__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:406:1: ( ( 'package' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:407:1: ( 'package' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:380:1: ( ( 'package' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:381:1: ( 'package' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:407:1: ( 'package' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:408:1: 'package'
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:381:1: ( 'package' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:382:1: 'package'
             {
              before(grammarAccess.getPackageAccess().getPackageKeyword_0()); 
-            match(input,13,FOLLOW_13_in_rule__Package__Group__0__Impl802); 
+            match(input,12,FOLLOW_12_in_rule__Package__Group__0__Impl748); 
              after(grammarAccess.getPackageAccess().getPackageKeyword_0()); 
 
             }
@@ -1073,21 +1011,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__1"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:421:1: rule__Package__Group__1 : rule__Package__Group__1__Impl rule__Package__Group__2 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:395:1: rule__Package__Group__1 : rule__Package__Group__1__Impl rule__Package__Group__2 ;
     public final void rule__Package__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:425:1: ( rule__Package__Group__1__Impl rule__Package__Group__2 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:426:2: rule__Package__Group__1__Impl rule__Package__Group__2
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:399:1: ( rule__Package__Group__1__Impl rule__Package__Group__2 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:400:2: rule__Package__Group__1__Impl rule__Package__Group__2
             {
-            pushFollow(FOLLOW_rule__Package__Group__1__Impl_in_rule__Package__Group__1833);
+            pushFollow(FOLLOW_rule__Package__Group__1__Impl_in_rule__Package__Group__1779);
             rule__Package__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Package__Group__2_in_rule__Package__Group__1836);
+            pushFollow(FOLLOW_rule__Package__Group__2_in_rule__Package__Group__1782);
             rule__Package__Group__2();
 
             state._fsp--;
@@ -1111,25 +1049,31 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__1__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:433:1: rule__Package__Group__1__Impl : ( ruleFQN ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:407:1: rule__Package__Group__1__Impl : ( ( rule__Package__NameAssignment_1 ) ) ;
     public final void rule__Package__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:437:1: ( ( ruleFQN ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:438:1: ( ruleFQN )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:411:1: ( ( ( rule__Package__NameAssignment_1 ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:412:1: ( ( rule__Package__NameAssignment_1 ) )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:438:1: ( ruleFQN )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:439:1: ruleFQN
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:412:1: ( ( rule__Package__NameAssignment_1 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:413:1: ( rule__Package__NameAssignment_1 )
             {
-             before(grammarAccess.getPackageAccess().getFQNParserRuleCall_1()); 
-            pushFollow(FOLLOW_ruleFQN_in_rule__Package__Group__1__Impl863);
-            ruleFQN();
+             before(grammarAccess.getPackageAccess().getNameAssignment_1()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:414:1: ( rule__Package__NameAssignment_1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:414:2: rule__Package__NameAssignment_1
+            {
+            pushFollow(FOLLOW_rule__Package__NameAssignment_1_in_rule__Package__Group__1__Impl809);
+            rule__Package__NameAssignment_1();
 
             state._fsp--;
 
-             after(grammarAccess.getPackageAccess().getFQNParserRuleCall_1()); 
+
+            }
+
+             after(grammarAccess.getPackageAccess().getNameAssignment_1()); 
 
             }
 
@@ -1152,21 +1096,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__2"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:450:1: rule__Package__Group__2 : rule__Package__Group__2__Impl rule__Package__Group__3 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:424:1: rule__Package__Group__2 : rule__Package__Group__2__Impl rule__Package__Group__3 ;
     public final void rule__Package__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:454:1: ( rule__Package__Group__2__Impl rule__Package__Group__3 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:455:2: rule__Package__Group__2__Impl rule__Package__Group__3
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:428:1: ( rule__Package__Group__2__Impl rule__Package__Group__3 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:429:2: rule__Package__Group__2__Impl rule__Package__Group__3
             {
-            pushFollow(FOLLOW_rule__Package__Group__2__Impl_in_rule__Package__Group__2892);
+            pushFollow(FOLLOW_rule__Package__Group__2__Impl_in_rule__Package__Group__2839);
             rule__Package__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Package__Group__3_in_rule__Package__Group__2895);
+            pushFollow(FOLLOW_rule__Package__Group__3_in_rule__Package__Group__2842);
             rule__Package__Group__3();
 
             state._fsp--;
@@ -1190,20 +1134,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__2__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:462:1: rule__Package__Group__2__Impl : ( '{' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:436:1: rule__Package__Group__2__Impl : ( '{' ) ;
     public final void rule__Package__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:466:1: ( ( '{' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:467:1: ( '{' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:440:1: ( ( '{' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:441:1: ( '{' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:467:1: ( '{' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:468:1: '{'
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:441:1: ( '{' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:442:1: '{'
             {
              before(grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,14,FOLLOW_14_in_rule__Package__Group__2__Impl923); 
+            match(input,13,FOLLOW_13_in_rule__Package__Group__2__Impl870); 
              after(grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -1227,21 +1171,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__3"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:481:1: rule__Package__Group__3 : rule__Package__Group__3__Impl rule__Package__Group__4 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:455:1: rule__Package__Group__3 : rule__Package__Group__3__Impl rule__Package__Group__4 ;
     public final void rule__Package__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:485:1: ( rule__Package__Group__3__Impl rule__Package__Group__4 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:486:2: rule__Package__Group__3__Impl rule__Package__Group__4
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:459:1: ( rule__Package__Group__3__Impl rule__Package__Group__4 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:460:2: rule__Package__Group__3__Impl rule__Package__Group__4
             {
-            pushFollow(FOLLOW_rule__Package__Group__3__Impl_in_rule__Package__Group__3954);
+            pushFollow(FOLLOW_rule__Package__Group__3__Impl_in_rule__Package__Group__3901);
             rule__Package__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Package__Group__4_in_rule__Package__Group__3957);
+            pushFollow(FOLLOW_rule__Package__Group__4_in_rule__Package__Group__3904);
             rule__Package__Group__4();
 
             state._fsp--;
@@ -1265,32 +1209,32 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__3__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:493:1: rule__Package__Group__3__Impl : ( ( ruleDefaultLocale )? ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:467:1: rule__Package__Group__3__Impl : ( ( rule__Package__DefaultLocaleAssignment_3 )? ) ;
     public final void rule__Package__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:497:1: ( ( ( ruleDefaultLocale )? ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:498:1: ( ( ruleDefaultLocale )? )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:471:1: ( ( ( rule__Package__DefaultLocaleAssignment_3 )? ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:472:1: ( ( rule__Package__DefaultLocaleAssignment_3 )? )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:498:1: ( ( ruleDefaultLocale )? )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:499:1: ( ruleDefaultLocale )?
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:472:1: ( ( rule__Package__DefaultLocaleAssignment_3 )? )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:473:1: ( rule__Package__DefaultLocaleAssignment_3 )?
             {
-             before(grammarAccess.getPackageAccess().getDefaultLocaleParserRuleCall_3()); 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:500:1: ( ruleDefaultLocale )?
-            int alt4=2;
-            int LA4_0 = input.LA(1);
+             before(grammarAccess.getPackageAccess().getDefaultLocaleAssignment_3()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:474:1: ( rule__Package__DefaultLocaleAssignment_3 )?
+            int alt3=2;
+            int LA3_0 = input.LA(1);
 
-            if ( (LA4_0==19) ) {
-                alt4=1;
+            if ( (LA3_0==18) ) {
+                alt3=1;
             }
-            switch (alt4) {
+            switch (alt3) {
                 case 1 :
-                    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:500:3: ruleDefaultLocale
+                    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:474:2: rule__Package__DefaultLocaleAssignment_3
                     {
-                    pushFollow(FOLLOW_ruleDefaultLocale_in_rule__Package__Group__3__Impl985);
-                    ruleDefaultLocale();
+                    pushFollow(FOLLOW_rule__Package__DefaultLocaleAssignment_3_in_rule__Package__Group__3__Impl931);
+                    rule__Package__DefaultLocaleAssignment_3();
 
                     state._fsp--;
 
@@ -1300,7 +1244,7 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
             }
 
-             after(grammarAccess.getPackageAccess().getDefaultLocaleParserRuleCall_3()); 
+             after(grammarAccess.getPackageAccess().getDefaultLocaleAssignment_3()); 
 
             }
 
@@ -1323,21 +1267,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__4"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:510:1: rule__Package__Group__4 : rule__Package__Group__4__Impl rule__Package__Group__5 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:484:1: rule__Package__Group__4 : rule__Package__Group__4__Impl rule__Package__Group__5 ;
     public final void rule__Package__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:514:1: ( rule__Package__Group__4__Impl rule__Package__Group__5 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:515:2: rule__Package__Group__4__Impl rule__Package__Group__5
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:488:1: ( rule__Package__Group__4__Impl rule__Package__Group__5 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:489:2: rule__Package__Group__4__Impl rule__Package__Group__5
             {
-            pushFollow(FOLLOW_rule__Package__Group__4__Impl_in_rule__Package__Group__41016);
+            pushFollow(FOLLOW_rule__Package__Group__4__Impl_in_rule__Package__Group__4962);
             rule__Package__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Package__Group__5_in_rule__Package__Group__41019);
+            pushFollow(FOLLOW_rule__Package__Group__5_in_rule__Package__Group__4965);
             rule__Package__Group__5();
 
             state._fsp--;
@@ -1361,36 +1305,36 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__4__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:522:1: rule__Package__Group__4__Impl : ( ( rulePackage )* ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:496:1: rule__Package__Group__4__Impl : ( ( rule__Package__PackagesAssignment_4 )* ) ;
     public final void rule__Package__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:526:1: ( ( ( rulePackage )* ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:527:1: ( ( rulePackage )* )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:500:1: ( ( ( rule__Package__PackagesAssignment_4 )* ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:501:1: ( ( rule__Package__PackagesAssignment_4 )* )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:527:1: ( ( rulePackage )* )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:528:1: ( rulePackage )*
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:501:1: ( ( rule__Package__PackagesAssignment_4 )* )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:502:1: ( rule__Package__PackagesAssignment_4 )*
             {
-             before(grammarAccess.getPackageAccess().getPackageParserRuleCall_4()); 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:529:1: ( rulePackage )*
-            loop5:
+             before(grammarAccess.getPackageAccess().getPackagesAssignment_4()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:503:1: ( rule__Package__PackagesAssignment_4 )*
+            loop4:
             do {
-                int alt5=2;
-                int LA5_0 = input.LA(1);
+                int alt4=2;
+                int LA4_0 = input.LA(1);
 
-                if ( (LA5_0==13) ) {
-                    alt5=1;
+                if ( (LA4_0==12) ) {
+                    alt4=1;
                 }
 
 
-                switch (alt5) {
+                switch (alt4) {
             	case 1 :
-            	    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:529:3: rulePackage
+            	    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:503:2: rule__Package__PackagesAssignment_4
             	    {
-            	    pushFollow(FOLLOW_rulePackage_in_rule__Package__Group__4__Impl1047);
-            	    rulePackage();
+            	    pushFollow(FOLLOW_rule__Package__PackagesAssignment_4_in_rule__Package__Group__4__Impl992);
+            	    rule__Package__PackagesAssignment_4();
 
             	    state._fsp--;
 
@@ -1399,11 +1343,11 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop5;
+            	    break loop4;
                 }
             } while (true);
 
-             after(grammarAccess.getPackageAccess().getPackageParserRuleCall_4()); 
+             after(grammarAccess.getPackageAccess().getPackagesAssignment_4()); 
 
             }
 
@@ -1426,21 +1370,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__5"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:539:1: rule__Package__Group__5 : rule__Package__Group__5__Impl rule__Package__Group__6 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:513:1: rule__Package__Group__5 : rule__Package__Group__5__Impl rule__Package__Group__6 ;
     public final void rule__Package__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:543:1: ( rule__Package__Group__5__Impl rule__Package__Group__6 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:544:2: rule__Package__Group__5__Impl rule__Package__Group__6
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:517:1: ( rule__Package__Group__5__Impl rule__Package__Group__6 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:518:2: rule__Package__Group__5__Impl rule__Package__Group__6
             {
-            pushFollow(FOLLOW_rule__Package__Group__5__Impl_in_rule__Package__Group__51078);
+            pushFollow(FOLLOW_rule__Package__Group__5__Impl_in_rule__Package__Group__51023);
             rule__Package__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Package__Group__6_in_rule__Package__Group__51081);
+            pushFollow(FOLLOW_rule__Package__Group__6_in_rule__Package__Group__51026);
             rule__Package__Group__6();
 
             state._fsp--;
@@ -1464,36 +1408,36 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__5__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:551:1: rule__Package__Group__5__Impl : ( ( ruleProperty )* ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:525:1: rule__Package__Group__5__Impl : ( ( rule__Package__PropertiesAssignment_5 )* ) ;
     public final void rule__Package__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:555:1: ( ( ( ruleProperty )* ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:556:1: ( ( ruleProperty )* )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:529:1: ( ( ( rule__Package__PropertiesAssignment_5 )* ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:530:1: ( ( rule__Package__PropertiesAssignment_5 )* )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:556:1: ( ( ruleProperty )* )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:557:1: ( ruleProperty )*
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:530:1: ( ( rule__Package__PropertiesAssignment_5 )* )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:531:1: ( rule__Package__PropertiesAssignment_5 )*
             {
-             before(grammarAccess.getPackageAccess().getPropertyParserRuleCall_5()); 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:558:1: ( ruleProperty )*
-            loop6:
+             before(grammarAccess.getPackageAccess().getPropertiesAssignment_5()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:532:1: ( rule__Package__PropertiesAssignment_5 )*
+            loop5:
             do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
+                int alt5=2;
+                int LA5_0 = input.LA(1);
 
-                if ( (LA6_0==RULE_ID) ) {
-                    alt6=1;
+                if ( (LA5_0==RULE_ID) ) {
+                    alt5=1;
                 }
 
 
-                switch (alt6) {
+                switch (alt5) {
             	case 1 :
-            	    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:558:3: ruleProperty
+            	    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:532:2: rule__Package__PropertiesAssignment_5
             	    {
-            	    pushFollow(FOLLOW_ruleProperty_in_rule__Package__Group__5__Impl1109);
-            	    ruleProperty();
+            	    pushFollow(FOLLOW_rule__Package__PropertiesAssignment_5_in_rule__Package__Group__5__Impl1053);
+            	    rule__Package__PropertiesAssignment_5();
 
             	    state._fsp--;
 
@@ -1502,11 +1446,11 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop5;
                 }
             } while (true);
 
-             after(grammarAccess.getPackageAccess().getPropertyParserRuleCall_5()); 
+             after(grammarAccess.getPackageAccess().getPropertiesAssignment_5()); 
 
             }
 
@@ -1529,16 +1473,16 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__6"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:568:1: rule__Package__Group__6 : rule__Package__Group__6__Impl ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:542:1: rule__Package__Group__6 : rule__Package__Group__6__Impl ;
     public final void rule__Package__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:572:1: ( rule__Package__Group__6__Impl )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:573:2: rule__Package__Group__6__Impl
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:546:1: ( rule__Package__Group__6__Impl )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:547:2: rule__Package__Group__6__Impl
             {
-            pushFollow(FOLLOW_rule__Package__Group__6__Impl_in_rule__Package__Group__61140);
+            pushFollow(FOLLOW_rule__Package__Group__6__Impl_in_rule__Package__Group__61084);
             rule__Package__Group__6__Impl();
 
             state._fsp--;
@@ -1562,20 +1506,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Package__Group__6__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:579:1: rule__Package__Group__6__Impl : ( '}' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:553:1: rule__Package__Group__6__Impl : ( '}' ) ;
     public final void rule__Package__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:583:1: ( ( '}' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:584:1: ( '}' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:557:1: ( ( '}' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:558:1: ( '}' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:584:1: ( '}' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:585:1: '}'
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:558:1: ( '}' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:559:1: '}'
             {
              before(grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,15,FOLLOW_15_in_rule__Package__Group__6__Impl1168); 
+            match(input,14,FOLLOW_14_in_rule__Package__Group__6__Impl1112); 
              after(grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -1599,21 +1543,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FQN__Group__0"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:612:1: rule__FQN__Group__0 : rule__FQN__Group__0__Impl rule__FQN__Group__1 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:586:1: rule__FQN__Group__0 : rule__FQN__Group__0__Impl rule__FQN__Group__1 ;
     public final void rule__FQN__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:616:1: ( rule__FQN__Group__0__Impl rule__FQN__Group__1 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:617:2: rule__FQN__Group__0__Impl rule__FQN__Group__1
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:590:1: ( rule__FQN__Group__0__Impl rule__FQN__Group__1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:591:2: rule__FQN__Group__0__Impl rule__FQN__Group__1
             {
-            pushFollow(FOLLOW_rule__FQN__Group__0__Impl_in_rule__FQN__Group__01213);
+            pushFollow(FOLLOW_rule__FQN__Group__0__Impl_in_rule__FQN__Group__01157);
             rule__FQN__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__FQN__Group__1_in_rule__FQN__Group__01216);
+            pushFollow(FOLLOW_rule__FQN__Group__1_in_rule__FQN__Group__01160);
             rule__FQN__Group__1();
 
             state._fsp--;
@@ -1637,20 +1581,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FQN__Group__0__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:624:1: rule__FQN__Group__0__Impl : ( RULE_ID ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:598:1: rule__FQN__Group__0__Impl : ( RULE_ID ) ;
     public final void rule__FQN__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:628:1: ( ( RULE_ID ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:629:1: ( RULE_ID )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:602:1: ( ( RULE_ID ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:603:1: ( RULE_ID )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:629:1: ( RULE_ID )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:630:1: RULE_ID
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:603:1: ( RULE_ID )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:604:1: RULE_ID
             {
              before(grammarAccess.getFQNAccess().getIDTerminalRuleCall_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FQN__Group__0__Impl1243); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FQN__Group__0__Impl1187); 
              after(grammarAccess.getFQNAccess().getIDTerminalRuleCall_0()); 
 
             }
@@ -1674,16 +1618,16 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FQN__Group__1"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:641:1: rule__FQN__Group__1 : rule__FQN__Group__1__Impl ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:615:1: rule__FQN__Group__1 : rule__FQN__Group__1__Impl ;
     public final void rule__FQN__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:645:1: ( rule__FQN__Group__1__Impl )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:646:2: rule__FQN__Group__1__Impl
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:619:1: ( rule__FQN__Group__1__Impl )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:620:2: rule__FQN__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__FQN__Group__1__Impl_in_rule__FQN__Group__11272);
+            pushFollow(FOLLOW_rule__FQN__Group__1__Impl_in_rule__FQN__Group__11216);
             rule__FQN__Group__1__Impl();
 
             state._fsp--;
@@ -1707,35 +1651,35 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FQN__Group__1__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:652:1: rule__FQN__Group__1__Impl : ( ( rule__FQN__Group_1__0 )* ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:626:1: rule__FQN__Group__1__Impl : ( ( rule__FQN__Group_1__0 )* ) ;
     public final void rule__FQN__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:656:1: ( ( ( rule__FQN__Group_1__0 )* ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:657:1: ( ( rule__FQN__Group_1__0 )* )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:630:1: ( ( ( rule__FQN__Group_1__0 )* ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:631:1: ( ( rule__FQN__Group_1__0 )* )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:657:1: ( ( rule__FQN__Group_1__0 )* )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:658:1: ( rule__FQN__Group_1__0 )*
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:631:1: ( ( rule__FQN__Group_1__0 )* )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:632:1: ( rule__FQN__Group_1__0 )*
             {
              before(grammarAccess.getFQNAccess().getGroup_1()); 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:659:1: ( rule__FQN__Group_1__0 )*
-            loop7:
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:633:1: ( rule__FQN__Group_1__0 )*
+            loop6:
             do {
-                int alt7=2;
-                int LA7_0 = input.LA(1);
+                int alt6=2;
+                int LA6_0 = input.LA(1);
 
-                if ( (LA7_0==16) ) {
-                    alt7=1;
+                if ( (LA6_0==15) ) {
+                    alt6=1;
                 }
 
 
-                switch (alt7) {
+                switch (alt6) {
             	case 1 :
-            	    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:659:2: rule__FQN__Group_1__0
+            	    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:633:2: rule__FQN__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_rule__FQN__Group_1__0_in_rule__FQN__Group__1__Impl1299);
+            	    pushFollow(FOLLOW_rule__FQN__Group_1__0_in_rule__FQN__Group__1__Impl1243);
             	    rule__FQN__Group_1__0();
 
             	    state._fsp--;
@@ -1745,7 +1689,7 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop7;
+            	    break loop6;
                 }
             } while (true);
 
@@ -1772,21 +1716,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FQN__Group_1__0"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:673:1: rule__FQN__Group_1__0 : rule__FQN__Group_1__0__Impl rule__FQN__Group_1__1 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:647:1: rule__FQN__Group_1__0 : rule__FQN__Group_1__0__Impl rule__FQN__Group_1__1 ;
     public final void rule__FQN__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:677:1: ( rule__FQN__Group_1__0__Impl rule__FQN__Group_1__1 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:678:2: rule__FQN__Group_1__0__Impl rule__FQN__Group_1__1
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:651:1: ( rule__FQN__Group_1__0__Impl rule__FQN__Group_1__1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:652:2: rule__FQN__Group_1__0__Impl rule__FQN__Group_1__1
             {
-            pushFollow(FOLLOW_rule__FQN__Group_1__0__Impl_in_rule__FQN__Group_1__01334);
+            pushFollow(FOLLOW_rule__FQN__Group_1__0__Impl_in_rule__FQN__Group_1__01278);
             rule__FQN__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__FQN__Group_1__1_in_rule__FQN__Group_1__01337);
+            pushFollow(FOLLOW_rule__FQN__Group_1__1_in_rule__FQN__Group_1__01281);
             rule__FQN__Group_1__1();
 
             state._fsp--;
@@ -1810,20 +1754,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FQN__Group_1__0__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:685:1: rule__FQN__Group_1__0__Impl : ( '.' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:659:1: rule__FQN__Group_1__0__Impl : ( '.' ) ;
     public final void rule__FQN__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:689:1: ( ( '.' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:690:1: ( '.' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:663:1: ( ( '.' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:664:1: ( '.' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:690:1: ( '.' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:691:1: '.'
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:664:1: ( '.' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:665:1: '.'
             {
              before(grammarAccess.getFQNAccess().getFullStopKeyword_1_0()); 
-            match(input,16,FOLLOW_16_in_rule__FQN__Group_1__0__Impl1365); 
+            match(input,15,FOLLOW_15_in_rule__FQN__Group_1__0__Impl1309); 
              after(grammarAccess.getFQNAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -1847,16 +1791,16 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FQN__Group_1__1"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:704:1: rule__FQN__Group_1__1 : rule__FQN__Group_1__1__Impl ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:678:1: rule__FQN__Group_1__1 : rule__FQN__Group_1__1__Impl ;
     public final void rule__FQN__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:708:1: ( rule__FQN__Group_1__1__Impl )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:709:2: rule__FQN__Group_1__1__Impl
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:682:1: ( rule__FQN__Group_1__1__Impl )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:683:2: rule__FQN__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__FQN__Group_1__1__Impl_in_rule__FQN__Group_1__11396);
+            pushFollow(FOLLOW_rule__FQN__Group_1__1__Impl_in_rule__FQN__Group_1__11340);
             rule__FQN__Group_1__1__Impl();
 
             state._fsp--;
@@ -1880,20 +1824,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__FQN__Group_1__1__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:715:1: rule__FQN__Group_1__1__Impl : ( RULE_ID ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:689:1: rule__FQN__Group_1__1__Impl : ( RULE_ID ) ;
     public final void rule__FQN__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:719:1: ( ( RULE_ID ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:720:1: ( RULE_ID )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:693:1: ( ( RULE_ID ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:694:1: ( RULE_ID )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:720:1: ( RULE_ID )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:721:1: RULE_ID
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:694:1: ( RULE_ID )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:695:1: RULE_ID
             {
              before(grammarAccess.getFQNAccess().getIDTerminalRuleCall_1_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FQN__Group_1__1__Impl1423); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__FQN__Group_1__1__Impl1367); 
              after(grammarAccess.getFQNAccess().getIDTerminalRuleCall_1_1()); 
 
             }
@@ -1917,21 +1861,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Property__Group__0"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:736:1: rule__Property__Group__0 : rule__Property__Group__0__Impl rule__Property__Group__1 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:710:1: rule__Property__Group__0 : rule__Property__Group__0__Impl rule__Property__Group__1 ;
     public final void rule__Property__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:740:1: ( rule__Property__Group__0__Impl rule__Property__Group__1 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:741:2: rule__Property__Group__0__Impl rule__Property__Group__1
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:714:1: ( rule__Property__Group__0__Impl rule__Property__Group__1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:715:2: rule__Property__Group__0__Impl rule__Property__Group__1
             {
-            pushFollow(FOLLOW_rule__Property__Group__0__Impl_in_rule__Property__Group__01456);
+            pushFollow(FOLLOW_rule__Property__Group__0__Impl_in_rule__Property__Group__01400);
             rule__Property__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Property__Group__1_in_rule__Property__Group__01459);
+            pushFollow(FOLLOW_rule__Property__Group__1_in_rule__Property__Group__01403);
             rule__Property__Group__1();
 
             state._fsp--;
@@ -1955,25 +1899,31 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Property__Group__0__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:748:1: rule__Property__Group__0__Impl : ( rulePropertyKey ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:722:1: rule__Property__Group__0__Impl : ( ( rule__Property__KeyAssignment_0 ) ) ;
     public final void rule__Property__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:752:1: ( ( rulePropertyKey ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:753:1: ( rulePropertyKey )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:726:1: ( ( ( rule__Property__KeyAssignment_0 ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:727:1: ( ( rule__Property__KeyAssignment_0 ) )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:753:1: ( rulePropertyKey )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:754:1: rulePropertyKey
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:727:1: ( ( rule__Property__KeyAssignment_0 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:728:1: ( rule__Property__KeyAssignment_0 )
             {
-             before(grammarAccess.getPropertyAccess().getPropertyKeyParserRuleCall_0()); 
-            pushFollow(FOLLOW_rulePropertyKey_in_rule__Property__Group__0__Impl1486);
-            rulePropertyKey();
+             before(grammarAccess.getPropertyAccess().getKeyAssignment_0()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:729:1: ( rule__Property__KeyAssignment_0 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:729:2: rule__Property__KeyAssignment_0
+            {
+            pushFollow(FOLLOW_rule__Property__KeyAssignment_0_in_rule__Property__Group__0__Impl1430);
+            rule__Property__KeyAssignment_0();
 
             state._fsp--;
 
-             after(grammarAccess.getPropertyAccess().getPropertyKeyParserRuleCall_0()); 
+
+            }
+
+             after(grammarAccess.getPropertyAccess().getKeyAssignment_0()); 
 
             }
 
@@ -1996,21 +1946,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Property__Group__1"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:765:1: rule__Property__Group__1 : rule__Property__Group__1__Impl rule__Property__Group__2 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:739:1: rule__Property__Group__1 : rule__Property__Group__1__Impl rule__Property__Group__2 ;
     public final void rule__Property__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:769:1: ( rule__Property__Group__1__Impl rule__Property__Group__2 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:770:2: rule__Property__Group__1__Impl rule__Property__Group__2
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:743:1: ( rule__Property__Group__1__Impl rule__Property__Group__2 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:744:2: rule__Property__Group__1__Impl rule__Property__Group__2
             {
-            pushFollow(FOLLOW_rule__Property__Group__1__Impl_in_rule__Property__Group__11515);
+            pushFollow(FOLLOW_rule__Property__Group__1__Impl_in_rule__Property__Group__11460);
             rule__Property__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Property__Group__2_in_rule__Property__Group__11518);
+            pushFollow(FOLLOW_rule__Property__Group__2_in_rule__Property__Group__11463);
             rule__Property__Group__2();
 
             state._fsp--;
@@ -2034,20 +1984,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Property__Group__1__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:777:1: rule__Property__Group__1__Impl : ( '=' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:751:1: rule__Property__Group__1__Impl : ( '=' ) ;
     public final void rule__Property__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:781:1: ( ( '=' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:782:1: ( '=' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:755:1: ( ( '=' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:756:1: ( '=' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:782:1: ( '=' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:783:1: '='
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:756:1: ( '=' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:757:1: '='
             {
              before(grammarAccess.getPropertyAccess().getEqualsSignKeyword_1()); 
-            match(input,17,FOLLOW_17_in_rule__Property__Group__1__Impl1546); 
+            match(input,16,FOLLOW_16_in_rule__Property__Group__1__Impl1491); 
              after(grammarAccess.getPropertyAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -2071,16 +2021,16 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Property__Group__2"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:796:1: rule__Property__Group__2 : rule__Property__Group__2__Impl ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:770:1: rule__Property__Group__2 : rule__Property__Group__2__Impl ;
     public final void rule__Property__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:800:1: ( rule__Property__Group__2__Impl )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:801:2: rule__Property__Group__2__Impl
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:774:1: ( rule__Property__Group__2__Impl )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:775:2: rule__Property__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__Property__Group__2__Impl_in_rule__Property__Group__21577);
+            pushFollow(FOLLOW_rule__Property__Group__2__Impl_in_rule__Property__Group__21522);
             rule__Property__Group__2__Impl();
 
             state._fsp--;
@@ -2104,25 +2054,31 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Property__Group__2__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:807:1: rule__Property__Group__2__Impl : ( ruleAbstractPropertyValue ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:781:1: rule__Property__Group__2__Impl : ( ( rule__Property__ValueAssignment_2 ) ) ;
     public final void rule__Property__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:811:1: ( ( ruleAbstractPropertyValue ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:812:1: ( ruleAbstractPropertyValue )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:785:1: ( ( ( rule__Property__ValueAssignment_2 ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:786:1: ( ( rule__Property__ValueAssignment_2 ) )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:812:1: ( ruleAbstractPropertyValue )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:813:1: ruleAbstractPropertyValue
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:786:1: ( ( rule__Property__ValueAssignment_2 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:787:1: ( rule__Property__ValueAssignment_2 )
             {
-             before(grammarAccess.getPropertyAccess().getAbstractPropertyValueParserRuleCall_2()); 
-            pushFollow(FOLLOW_ruleAbstractPropertyValue_in_rule__Property__Group__2__Impl1604);
-            ruleAbstractPropertyValue();
+             before(grammarAccess.getPropertyAccess().getValueAssignment_2()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:788:1: ( rule__Property__ValueAssignment_2 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:788:2: rule__Property__ValueAssignment_2
+            {
+            pushFollow(FOLLOW_rule__Property__ValueAssignment_2_in_rule__Property__Group__2__Impl1549);
+            rule__Property__ValueAssignment_2();
 
             state._fsp--;
 
-             after(grammarAccess.getPropertyAccess().getAbstractPropertyValueParserRuleCall_2()); 
+
+            }
+
+             after(grammarAccess.getPropertyAccess().getValueAssignment_2()); 
 
             }
 
@@ -2145,21 +2101,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ComplexPropertyValue__Group__0"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:830:1: rule__ComplexPropertyValue__Group__0 : rule__ComplexPropertyValue__Group__0__Impl rule__ComplexPropertyValue__Group__1 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:804:1: rule__ComplexPropertyValue__Group__0 : rule__ComplexPropertyValue__Group__0__Impl rule__ComplexPropertyValue__Group__1 ;
     public final void rule__ComplexPropertyValue__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:834:1: ( rule__ComplexPropertyValue__Group__0__Impl rule__ComplexPropertyValue__Group__1 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:835:2: rule__ComplexPropertyValue__Group__0__Impl rule__ComplexPropertyValue__Group__1
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:808:1: ( rule__ComplexPropertyValue__Group__0__Impl rule__ComplexPropertyValue__Group__1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:809:2: rule__ComplexPropertyValue__Group__0__Impl rule__ComplexPropertyValue__Group__1
             {
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__0__Impl_in_rule__ComplexPropertyValue__Group__01639);
+            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__0__Impl_in_rule__ComplexPropertyValue__Group__01585);
             rule__ComplexPropertyValue__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__1_in_rule__ComplexPropertyValue__Group__01642);
+            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__1_in_rule__ComplexPropertyValue__Group__01588);
             rule__ComplexPropertyValue__Group__1();
 
             state._fsp--;
@@ -2183,20 +2139,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ComplexPropertyValue__Group__0__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:842:1: rule__ComplexPropertyValue__Group__0__Impl : ( '{' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:816:1: rule__ComplexPropertyValue__Group__0__Impl : ( '{' ) ;
     public final void rule__ComplexPropertyValue__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:846:1: ( ( '{' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:847:1: ( '{' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:820:1: ( ( '{' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:821:1: ( '{' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:847:1: ( '{' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:848:1: '{'
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:821:1: ( '{' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:822:1: '{'
             {
              before(grammarAccess.getComplexPropertyValueAccess().getLeftCurlyBracketKeyword_0()); 
-            match(input,14,FOLLOW_14_in_rule__ComplexPropertyValue__Group__0__Impl1670); 
+            match(input,13,FOLLOW_13_in_rule__ComplexPropertyValue__Group__0__Impl1616); 
              after(grammarAccess.getComplexPropertyValueAccess().getLeftCurlyBracketKeyword_0()); 
 
             }
@@ -2220,21 +2176,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ComplexPropertyValue__Group__1"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:861:1: rule__ComplexPropertyValue__Group__1 : rule__ComplexPropertyValue__Group__1__Impl rule__ComplexPropertyValue__Group__2 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:835:1: rule__ComplexPropertyValue__Group__1 : rule__ComplexPropertyValue__Group__1__Impl rule__ComplexPropertyValue__Group__2 ;
     public final void rule__ComplexPropertyValue__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:865:1: ( rule__ComplexPropertyValue__Group__1__Impl rule__ComplexPropertyValue__Group__2 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:866:2: rule__ComplexPropertyValue__Group__1__Impl rule__ComplexPropertyValue__Group__2
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:839:1: ( rule__ComplexPropertyValue__Group__1__Impl rule__ComplexPropertyValue__Group__2 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:840:2: rule__ComplexPropertyValue__Group__1__Impl rule__ComplexPropertyValue__Group__2
             {
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__1__Impl_in_rule__ComplexPropertyValue__Group__11701);
+            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__1__Impl_in_rule__ComplexPropertyValue__Group__11647);
             rule__ComplexPropertyValue__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__2_in_rule__ComplexPropertyValue__Group__11704);
+            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__2_in_rule__ComplexPropertyValue__Group__11650);
             rule__ComplexPropertyValue__Group__2();
 
             state._fsp--;
@@ -2258,58 +2214,58 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ComplexPropertyValue__Group__1__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:873:1: rule__ComplexPropertyValue__Group__1__Impl : ( ( ( rule__ComplexPropertyValue__Group_1__0 ) ) ( ( rule__ComplexPropertyValue__Group_1__0 )* ) ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:847:1: rule__ComplexPropertyValue__Group__1__Impl : ( ( ( rule__ComplexPropertyValue__ItemsAssignment_1 ) ) ( ( rule__ComplexPropertyValue__ItemsAssignment_1 )* ) ) ;
     public final void rule__ComplexPropertyValue__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:877:1: ( ( ( ( rule__ComplexPropertyValue__Group_1__0 ) ) ( ( rule__ComplexPropertyValue__Group_1__0 )* ) ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:878:1: ( ( ( rule__ComplexPropertyValue__Group_1__0 ) ) ( ( rule__ComplexPropertyValue__Group_1__0 )* ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:851:1: ( ( ( ( rule__ComplexPropertyValue__ItemsAssignment_1 ) ) ( ( rule__ComplexPropertyValue__ItemsAssignment_1 )* ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:852:1: ( ( ( rule__ComplexPropertyValue__ItemsAssignment_1 ) ) ( ( rule__ComplexPropertyValue__ItemsAssignment_1 )* ) )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:878:1: ( ( ( rule__ComplexPropertyValue__Group_1__0 ) ) ( ( rule__ComplexPropertyValue__Group_1__0 )* ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:879:1: ( ( rule__ComplexPropertyValue__Group_1__0 ) ) ( ( rule__ComplexPropertyValue__Group_1__0 )* )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:852:1: ( ( ( rule__ComplexPropertyValue__ItemsAssignment_1 ) ) ( ( rule__ComplexPropertyValue__ItemsAssignment_1 )* ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:853:1: ( ( rule__ComplexPropertyValue__ItemsAssignment_1 ) ) ( ( rule__ComplexPropertyValue__ItemsAssignment_1 )* )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:879:1: ( ( rule__ComplexPropertyValue__Group_1__0 ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:880:1: ( rule__ComplexPropertyValue__Group_1__0 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:853:1: ( ( rule__ComplexPropertyValue__ItemsAssignment_1 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:854:1: ( rule__ComplexPropertyValue__ItemsAssignment_1 )
             {
-             before(grammarAccess.getComplexPropertyValueAccess().getGroup_1()); 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:881:1: ( rule__ComplexPropertyValue__Group_1__0 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:881:2: rule__ComplexPropertyValue__Group_1__0
+             before(grammarAccess.getComplexPropertyValueAccess().getItemsAssignment_1()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:855:1: ( rule__ComplexPropertyValue__ItemsAssignment_1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:855:2: rule__ComplexPropertyValue__ItemsAssignment_1
             {
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group_1__0_in_rule__ComplexPropertyValue__Group__1__Impl1733);
-            rule__ComplexPropertyValue__Group_1__0();
+            pushFollow(FOLLOW_rule__ComplexPropertyValue__ItemsAssignment_1_in_rule__ComplexPropertyValue__Group__1__Impl1679);
+            rule__ComplexPropertyValue__ItemsAssignment_1();
 
             state._fsp--;
 
 
             }
 
-             after(grammarAccess.getComplexPropertyValueAccess().getGroup_1()); 
+             after(grammarAccess.getComplexPropertyValueAccess().getItemsAssignment_1()); 
 
             }
 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:884:1: ( ( rule__ComplexPropertyValue__Group_1__0 )* )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:885:1: ( rule__ComplexPropertyValue__Group_1__0 )*
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:858:1: ( ( rule__ComplexPropertyValue__ItemsAssignment_1 )* )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:859:1: ( rule__ComplexPropertyValue__ItemsAssignment_1 )*
             {
-             before(grammarAccess.getComplexPropertyValueAccess().getGroup_1()); 
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:886:1: ( rule__ComplexPropertyValue__Group_1__0 )*
-            loop8:
+             before(grammarAccess.getComplexPropertyValueAccess().getItemsAssignment_1()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:860:1: ( rule__ComplexPropertyValue__ItemsAssignment_1 )*
+            loop7:
             do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+                int alt7=2;
+                int LA7_0 = input.LA(1);
 
-                if ( ((LA8_0>=11 && LA8_0<=12)) ) {
-                    alt8=1;
+                if ( (LA7_0==RULE_LOCALE) ) {
+                    alt7=1;
                 }
 
 
-                switch (alt8) {
+                switch (alt7) {
             	case 1 :
-            	    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:886:2: rule__ComplexPropertyValue__Group_1__0
+            	    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:860:2: rule__ComplexPropertyValue__ItemsAssignment_1
             	    {
-            	    pushFollow(FOLLOW_rule__ComplexPropertyValue__Group_1__0_in_rule__ComplexPropertyValue__Group__1__Impl1745);
-            	    rule__ComplexPropertyValue__Group_1__0();
+            	    pushFollow(FOLLOW_rule__ComplexPropertyValue__ItemsAssignment_1_in_rule__ComplexPropertyValue__Group__1__Impl1691);
+            	    rule__ComplexPropertyValue__ItemsAssignment_1();
 
             	    state._fsp--;
 
@@ -2318,11 +2274,11 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
             	    break;
 
             	default :
-            	    break loop8;
+            	    break loop7;
                 }
             } while (true);
 
-             after(grammarAccess.getComplexPropertyValueAccess().getGroup_1()); 
+             after(grammarAccess.getComplexPropertyValueAccess().getItemsAssignment_1()); 
 
             }
 
@@ -2348,16 +2304,16 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ComplexPropertyValue__Group__2"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:897:1: rule__ComplexPropertyValue__Group__2 : rule__ComplexPropertyValue__Group__2__Impl ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:871:1: rule__ComplexPropertyValue__Group__2 : rule__ComplexPropertyValue__Group__2__Impl ;
     public final void rule__ComplexPropertyValue__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:901:1: ( rule__ComplexPropertyValue__Group__2__Impl )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:902:2: rule__ComplexPropertyValue__Group__2__Impl
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:875:1: ( rule__ComplexPropertyValue__Group__2__Impl )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:876:2: rule__ComplexPropertyValue__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__2__Impl_in_rule__ComplexPropertyValue__Group__21778);
+            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group__2__Impl_in_rule__ComplexPropertyValue__Group__21724);
             rule__ComplexPropertyValue__Group__2__Impl();
 
             state._fsp--;
@@ -2381,20 +2337,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__ComplexPropertyValue__Group__2__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:908:1: rule__ComplexPropertyValue__Group__2__Impl : ( '}' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:882:1: rule__ComplexPropertyValue__Group__2__Impl : ( '}' ) ;
     public final void rule__ComplexPropertyValue__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:912:1: ( ( '}' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:913:1: ( '}' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:886:1: ( ( '}' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:887:1: ( '}' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:913:1: ( '}' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:914:1: '}'
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:887:1: ( '}' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:888:1: '}'
             {
              before(grammarAccess.getComplexPropertyValueAccess().getRightCurlyBracketKeyword_2()); 
-            match(input,15,FOLLOW_15_in_rule__ComplexPropertyValue__Group__2__Impl1806); 
+            match(input,14,FOLLOW_14_in_rule__ComplexPropertyValue__Group__2__Impl1752); 
              after(grammarAccess.getComplexPropertyValueAccess().getRightCurlyBracketKeyword_2()); 
 
             }
@@ -2417,23 +2373,23 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
     // $ANTLR end "rule__ComplexPropertyValue__Group__2__Impl"
 
 
-    // $ANTLR start "rule__ComplexPropertyValue__Group_1__0"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:933:1: rule__ComplexPropertyValue__Group_1__0 : rule__ComplexPropertyValue__Group_1__0__Impl rule__ComplexPropertyValue__Group_1__1 ;
-    public final void rule__ComplexPropertyValue__Group_1__0() throws RecognitionException {
+    // $ANTLR start "rule__ComplexPropertyValueItem__Group__0"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:907:1: rule__ComplexPropertyValueItem__Group__0 : rule__ComplexPropertyValueItem__Group__0__Impl rule__ComplexPropertyValueItem__Group__1 ;
+    public final void rule__ComplexPropertyValueItem__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:937:1: ( rule__ComplexPropertyValue__Group_1__0__Impl rule__ComplexPropertyValue__Group_1__1 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:938:2: rule__ComplexPropertyValue__Group_1__0__Impl rule__ComplexPropertyValue__Group_1__1
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:911:1: ( rule__ComplexPropertyValueItem__Group__0__Impl rule__ComplexPropertyValueItem__Group__1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:912:2: rule__ComplexPropertyValueItem__Group__0__Impl rule__ComplexPropertyValueItem__Group__1
             {
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group_1__0__Impl_in_rule__ComplexPropertyValue__Group_1__01843);
-            rule__ComplexPropertyValue__Group_1__0__Impl();
+            pushFollow(FOLLOW_rule__ComplexPropertyValueItem__Group__0__Impl_in_rule__ComplexPropertyValueItem__Group__01789);
+            rule__ComplexPropertyValueItem__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group_1__1_in_rule__ComplexPropertyValue__Group_1__01846);
-            rule__ComplexPropertyValue__Group_1__1();
+            pushFollow(FOLLOW_rule__ComplexPropertyValueItem__Group__1_in_rule__ComplexPropertyValueItem__Group__01792);
+            rule__ComplexPropertyValueItem__Group__1();
 
             state._fsp--;
 
@@ -2452,29 +2408,35 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ComplexPropertyValue__Group_1__0"
+    // $ANTLR end "rule__ComplexPropertyValueItem__Group__0"
 
 
-    // $ANTLR start "rule__ComplexPropertyValue__Group_1__0__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:945:1: rule__ComplexPropertyValue__Group_1__0__Impl : ( ruleLOCALE ) ;
-    public final void rule__ComplexPropertyValue__Group_1__0__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ComplexPropertyValueItem__Group__0__Impl"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:919:1: rule__ComplexPropertyValueItem__Group__0__Impl : ( ( rule__ComplexPropertyValueItem__LangAssignment_0 ) ) ;
+    public final void rule__ComplexPropertyValueItem__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:949:1: ( ( ruleLOCALE ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:950:1: ( ruleLOCALE )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:923:1: ( ( ( rule__ComplexPropertyValueItem__LangAssignment_0 ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:924:1: ( ( rule__ComplexPropertyValueItem__LangAssignment_0 ) )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:950:1: ( ruleLOCALE )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:951:1: ruleLOCALE
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:924:1: ( ( rule__ComplexPropertyValueItem__LangAssignment_0 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:925:1: ( rule__ComplexPropertyValueItem__LangAssignment_0 )
             {
-             before(grammarAccess.getComplexPropertyValueAccess().getLOCALEParserRuleCall_1_0()); 
-            pushFollow(FOLLOW_ruleLOCALE_in_rule__ComplexPropertyValue__Group_1__0__Impl1873);
-            ruleLOCALE();
+             before(grammarAccess.getComplexPropertyValueItemAccess().getLangAssignment_0()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:926:1: ( rule__ComplexPropertyValueItem__LangAssignment_0 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:926:2: rule__ComplexPropertyValueItem__LangAssignment_0
+            {
+            pushFollow(FOLLOW_rule__ComplexPropertyValueItem__LangAssignment_0_in_rule__ComplexPropertyValueItem__Group__0__Impl1819);
+            rule__ComplexPropertyValueItem__LangAssignment_0();
 
             state._fsp--;
 
-             after(grammarAccess.getComplexPropertyValueAccess().getLOCALEParserRuleCall_1_0()); 
+
+            }
+
+             after(grammarAccess.getComplexPropertyValueItemAccess().getLangAssignment_0()); 
 
             }
 
@@ -2493,96 +2455,26 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ComplexPropertyValue__Group_1__0__Impl"
+    // $ANTLR end "rule__ComplexPropertyValueItem__Group__0__Impl"
 
 
-    // $ANTLR start "rule__ComplexPropertyValue__Group_1__1"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:962:1: rule__ComplexPropertyValue__Group_1__1 : rule__ComplexPropertyValue__Group_1__1__Impl rule__ComplexPropertyValue__Group_1__2 ;
-    public final void rule__ComplexPropertyValue__Group_1__1() throws RecognitionException {
+    // $ANTLR start "rule__ComplexPropertyValueItem__Group__1"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:936:1: rule__ComplexPropertyValueItem__Group__1 : rule__ComplexPropertyValueItem__Group__1__Impl rule__ComplexPropertyValueItem__Group__2 ;
+    public final void rule__ComplexPropertyValueItem__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:966:1: ( rule__ComplexPropertyValue__Group_1__1__Impl rule__ComplexPropertyValue__Group_1__2 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:967:2: rule__ComplexPropertyValue__Group_1__1__Impl rule__ComplexPropertyValue__Group_1__2
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:940:1: ( rule__ComplexPropertyValueItem__Group__1__Impl rule__ComplexPropertyValueItem__Group__2 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:941:2: rule__ComplexPropertyValueItem__Group__1__Impl rule__ComplexPropertyValueItem__Group__2
             {
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group_1__1__Impl_in_rule__ComplexPropertyValue__Group_1__11902);
-            rule__ComplexPropertyValue__Group_1__1__Impl();
+            pushFollow(FOLLOW_rule__ComplexPropertyValueItem__Group__1__Impl_in_rule__ComplexPropertyValueItem__Group__11849);
+            rule__ComplexPropertyValueItem__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group_1__2_in_rule__ComplexPropertyValue__Group_1__11905);
-            rule__ComplexPropertyValue__Group_1__2();
-
-            state._fsp--;
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ComplexPropertyValue__Group_1__1"
-
-
-    // $ANTLR start "rule__ComplexPropertyValue__Group_1__1__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:974:1: rule__ComplexPropertyValue__Group_1__1__Impl : ( ':' ) ;
-    public final void rule__ComplexPropertyValue__Group_1__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:978:1: ( ( ':' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:979:1: ( ':' )
-            {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:979:1: ( ':' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:980:1: ':'
-            {
-             before(grammarAccess.getComplexPropertyValueAccess().getColonKeyword_1_1()); 
-            match(input,18,FOLLOW_18_in_rule__ComplexPropertyValue__Group_1__1__Impl1933); 
-             after(grammarAccess.getComplexPropertyValueAccess().getColonKeyword_1_1()); 
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__ComplexPropertyValue__Group_1__1__Impl"
-
-
-    // $ANTLR start "rule__ComplexPropertyValue__Group_1__2"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:993:1: rule__ComplexPropertyValue__Group_1__2 : rule__ComplexPropertyValue__Group_1__2__Impl ;
-    public final void rule__ComplexPropertyValue__Group_1__2() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:997:1: ( rule__ComplexPropertyValue__Group_1__2__Impl )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:998:2: rule__ComplexPropertyValue__Group_1__2__Impl
-            {
-            pushFollow(FOLLOW_rule__ComplexPropertyValue__Group_1__2__Impl_in_rule__ComplexPropertyValue__Group_1__21964);
-            rule__ComplexPropertyValue__Group_1__2__Impl();
+            pushFollow(FOLLOW_rule__ComplexPropertyValueItem__Group__2_in_rule__ComplexPropertyValueItem__Group__11852);
+            rule__ComplexPropertyValueItem__Group__2();
 
             state._fsp--;
 
@@ -2601,29 +2493,25 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ComplexPropertyValue__Group_1__2"
+    // $ANTLR end "rule__ComplexPropertyValueItem__Group__1"
 
 
-    // $ANTLR start "rule__ComplexPropertyValue__Group_1__2__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1004:1: rule__ComplexPropertyValue__Group_1__2__Impl : ( ruleSimplePropertyValue ) ;
-    public final void rule__ComplexPropertyValue__Group_1__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__ComplexPropertyValueItem__Group__1__Impl"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:948:1: rule__ComplexPropertyValueItem__Group__1__Impl : ( ':' ) ;
+    public final void rule__ComplexPropertyValueItem__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1008:1: ( ( ruleSimplePropertyValue ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1009:1: ( ruleSimplePropertyValue )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:952:1: ( ( ':' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:953:1: ( ':' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1009:1: ( ruleSimplePropertyValue )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1010:1: ruleSimplePropertyValue
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:953:1: ( ':' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:954:1: ':'
             {
-             before(grammarAccess.getComplexPropertyValueAccess().getSimplePropertyValueParserRuleCall_1_2()); 
-            pushFollow(FOLLOW_ruleSimplePropertyValue_in_rule__ComplexPropertyValue__Group_1__2__Impl1991);
-            ruleSimplePropertyValue();
-
-            state._fsp--;
-
-             after(grammarAccess.getComplexPropertyValueAccess().getSimplePropertyValueParserRuleCall_1_2()); 
+             before(grammarAccess.getComplexPropertyValueItemAccess().getColonKeyword_1()); 
+            match(input,17,FOLLOW_17_in_rule__ComplexPropertyValueItem__Group__1__Impl1880); 
+             after(grammarAccess.getComplexPropertyValueItemAccess().getColonKeyword_1()); 
 
             }
 
@@ -2642,25 +2530,105 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
         }
         return ;
     }
-    // $ANTLR end "rule__ComplexPropertyValue__Group_1__2__Impl"
+    // $ANTLR end "rule__ComplexPropertyValueItem__Group__1__Impl"
+
+
+    // $ANTLR start "rule__ComplexPropertyValueItem__Group__2"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:967:1: rule__ComplexPropertyValueItem__Group__2 : rule__ComplexPropertyValueItem__Group__2__Impl ;
+    public final void rule__ComplexPropertyValueItem__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:971:1: ( rule__ComplexPropertyValueItem__Group__2__Impl )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:972:2: rule__ComplexPropertyValueItem__Group__2__Impl
+            {
+            pushFollow(FOLLOW_rule__ComplexPropertyValueItem__Group__2__Impl_in_rule__ComplexPropertyValueItem__Group__21911);
+            rule__ComplexPropertyValueItem__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ComplexPropertyValueItem__Group__2"
+
+
+    // $ANTLR start "rule__ComplexPropertyValueItem__Group__2__Impl"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:978:1: rule__ComplexPropertyValueItem__Group__2__Impl : ( ( rule__ComplexPropertyValueItem__ValueAssignment_2 ) ) ;
+    public final void rule__ComplexPropertyValueItem__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:982:1: ( ( ( rule__ComplexPropertyValueItem__ValueAssignment_2 ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:983:1: ( ( rule__ComplexPropertyValueItem__ValueAssignment_2 ) )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:983:1: ( ( rule__ComplexPropertyValueItem__ValueAssignment_2 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:984:1: ( rule__ComplexPropertyValueItem__ValueAssignment_2 )
+            {
+             before(grammarAccess.getComplexPropertyValueItemAccess().getValueAssignment_2()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:985:1: ( rule__ComplexPropertyValueItem__ValueAssignment_2 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:985:2: rule__ComplexPropertyValueItem__ValueAssignment_2
+            {
+            pushFollow(FOLLOW_rule__ComplexPropertyValueItem__ValueAssignment_2_in_rule__ComplexPropertyValueItem__Group__2__Impl1938);
+            rule__ComplexPropertyValueItem__ValueAssignment_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getComplexPropertyValueItemAccess().getValueAssignment_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ComplexPropertyValueItem__Group__2__Impl"
 
 
     // $ANTLR start "rule__DefaultLocale__Group__0"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1027:1: rule__DefaultLocale__Group__0 : rule__DefaultLocale__Group__0__Impl rule__DefaultLocale__Group__1 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1001:1: rule__DefaultLocale__Group__0 : rule__DefaultLocale__Group__0__Impl rule__DefaultLocale__Group__1 ;
     public final void rule__DefaultLocale__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1031:1: ( rule__DefaultLocale__Group__0__Impl rule__DefaultLocale__Group__1 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1032:2: rule__DefaultLocale__Group__0__Impl rule__DefaultLocale__Group__1
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1005:1: ( rule__DefaultLocale__Group__0__Impl rule__DefaultLocale__Group__1 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1006:2: rule__DefaultLocale__Group__0__Impl rule__DefaultLocale__Group__1
             {
-            pushFollow(FOLLOW_rule__DefaultLocale__Group__0__Impl_in_rule__DefaultLocale__Group__02026);
+            pushFollow(FOLLOW_rule__DefaultLocale__Group__0__Impl_in_rule__DefaultLocale__Group__01974);
             rule__DefaultLocale__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__DefaultLocale__Group__1_in_rule__DefaultLocale__Group__02029);
+            pushFollow(FOLLOW_rule__DefaultLocale__Group__1_in_rule__DefaultLocale__Group__01977);
             rule__DefaultLocale__Group__1();
 
             state._fsp--;
@@ -2684,20 +2652,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefaultLocale__Group__0__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1039:1: rule__DefaultLocale__Group__0__Impl : ( 'DEFAULT_LOCALE' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1013:1: rule__DefaultLocale__Group__0__Impl : ( 'DEFAULT_LOCALE' ) ;
     public final void rule__DefaultLocale__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1043:1: ( ( 'DEFAULT_LOCALE' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1044:1: ( 'DEFAULT_LOCALE' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1017:1: ( ( 'DEFAULT_LOCALE' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1018:1: ( 'DEFAULT_LOCALE' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1044:1: ( 'DEFAULT_LOCALE' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1045:1: 'DEFAULT_LOCALE'
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1018:1: ( 'DEFAULT_LOCALE' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1019:1: 'DEFAULT_LOCALE'
             {
              before(grammarAccess.getDefaultLocaleAccess().getDEFAULT_LOCALEKeyword_0()); 
-            match(input,19,FOLLOW_19_in_rule__DefaultLocale__Group__0__Impl2057); 
+            match(input,18,FOLLOW_18_in_rule__DefaultLocale__Group__0__Impl2005); 
              after(grammarAccess.getDefaultLocaleAccess().getDEFAULT_LOCALEKeyword_0()); 
 
             }
@@ -2721,21 +2689,21 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefaultLocale__Group__1"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1058:1: rule__DefaultLocale__Group__1 : rule__DefaultLocale__Group__1__Impl rule__DefaultLocale__Group__2 ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1032:1: rule__DefaultLocale__Group__1 : rule__DefaultLocale__Group__1__Impl rule__DefaultLocale__Group__2 ;
     public final void rule__DefaultLocale__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1062:1: ( rule__DefaultLocale__Group__1__Impl rule__DefaultLocale__Group__2 )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1063:2: rule__DefaultLocale__Group__1__Impl rule__DefaultLocale__Group__2
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1036:1: ( rule__DefaultLocale__Group__1__Impl rule__DefaultLocale__Group__2 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1037:2: rule__DefaultLocale__Group__1__Impl rule__DefaultLocale__Group__2
             {
-            pushFollow(FOLLOW_rule__DefaultLocale__Group__1__Impl_in_rule__DefaultLocale__Group__12088);
+            pushFollow(FOLLOW_rule__DefaultLocale__Group__1__Impl_in_rule__DefaultLocale__Group__12036);
             rule__DefaultLocale__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__DefaultLocale__Group__2_in_rule__DefaultLocale__Group__12091);
+            pushFollow(FOLLOW_rule__DefaultLocale__Group__2_in_rule__DefaultLocale__Group__12039);
             rule__DefaultLocale__Group__2();
 
             state._fsp--;
@@ -2759,20 +2727,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefaultLocale__Group__1__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1070:1: rule__DefaultLocale__Group__1__Impl : ( '=' ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1044:1: rule__DefaultLocale__Group__1__Impl : ( '=' ) ;
     public final void rule__DefaultLocale__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1074:1: ( ( '=' ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1075:1: ( '=' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1048:1: ( ( '=' ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1049:1: ( '=' )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1075:1: ( '=' )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1076:1: '='
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1049:1: ( '=' )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1050:1: '='
             {
              before(grammarAccess.getDefaultLocaleAccess().getEqualsSignKeyword_1()); 
-            match(input,17,FOLLOW_17_in_rule__DefaultLocale__Group__1__Impl2119); 
+            match(input,16,FOLLOW_16_in_rule__DefaultLocale__Group__1__Impl2067); 
              after(grammarAccess.getDefaultLocaleAccess().getEqualsSignKeyword_1()); 
 
             }
@@ -2796,16 +2764,16 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefaultLocale__Group__2"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1089:1: rule__DefaultLocale__Group__2 : rule__DefaultLocale__Group__2__Impl ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1063:1: rule__DefaultLocale__Group__2 : rule__DefaultLocale__Group__2__Impl ;
     public final void rule__DefaultLocale__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1093:1: ( rule__DefaultLocale__Group__2__Impl )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1094:2: rule__DefaultLocale__Group__2__Impl
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1067:1: ( rule__DefaultLocale__Group__2__Impl )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1068:2: rule__DefaultLocale__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__DefaultLocale__Group__2__Impl_in_rule__DefaultLocale__Group__22150);
+            pushFollow(FOLLOW_rule__DefaultLocale__Group__2__Impl_in_rule__DefaultLocale__Group__22098);
             rule__DefaultLocale__Group__2__Impl();
 
             state._fsp--;
@@ -2829,25 +2797,31 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__DefaultLocale__Group__2__Impl"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1100:1: rule__DefaultLocale__Group__2__Impl : ( ruleLOCALE ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1074:1: rule__DefaultLocale__Group__2__Impl : ( ( rule__DefaultLocale__LangAssignment_2 ) ) ;
     public final void rule__DefaultLocale__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1104:1: ( ( ruleLOCALE ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1105:1: ( ruleLOCALE )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1078:1: ( ( ( rule__DefaultLocale__LangAssignment_2 ) ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1079:1: ( ( rule__DefaultLocale__LangAssignment_2 ) )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1105:1: ( ruleLOCALE )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1106:1: ruleLOCALE
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1079:1: ( ( rule__DefaultLocale__LangAssignment_2 ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1080:1: ( rule__DefaultLocale__LangAssignment_2 )
             {
-             before(grammarAccess.getDefaultLocaleAccess().getLOCALEParserRuleCall_2()); 
-            pushFollow(FOLLOW_ruleLOCALE_in_rule__DefaultLocale__Group__2__Impl2177);
-            ruleLOCALE();
+             before(grammarAccess.getDefaultLocaleAccess().getLangAssignment_2()); 
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1081:1: ( rule__DefaultLocale__LangAssignment_2 )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1081:2: rule__DefaultLocale__LangAssignment_2
+            {
+            pushFollow(FOLLOW_rule__DefaultLocale__LangAssignment_2_in_rule__DefaultLocale__Group__2__Impl2125);
+            rule__DefaultLocale__LangAssignment_2();
 
             state._fsp--;
 
-             after(grammarAccess.getDefaultLocaleAccess().getLOCALEParserRuleCall_2()); 
+
+            }
+
+             after(grammarAccess.getDefaultLocaleAccess().getLangAssignment_2()); 
 
             }
 
@@ -2870,20 +2844,20 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
 
     // $ANTLR start "rule__Model__PackagesAssignment"
-    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1124:1: rule__Model__PackagesAssignment : ( rulePackage ) ;
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1098:1: rule__Model__PackagesAssignment : ( rulePackage ) ;
     public final void rule__Model__PackagesAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1128:1: ( ( rulePackage ) )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1129:1: ( rulePackage )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1102:1: ( ( rulePackage ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1103:1: ( rulePackage )
             {
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1129:1: ( rulePackage )
-            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1130:1: rulePackage
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1103:1: ( rulePackage )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1104:1: rulePackage
             {
              before(grammarAccess.getModelAccess().getPackagesPackageParserRuleCall_0()); 
-            pushFollow(FOLLOW_rulePackage_in_rule__Model__PackagesAssignment2217);
+            pushFollow(FOLLOW_rulePackage_in_rule__Model__PackagesAssignment2166);
             rulePackage();
 
             state._fsp--;
@@ -2909,6 +2883,445 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
     }
     // $ANTLR end "rule__Model__PackagesAssignment"
 
+
+    // $ANTLR start "rule__Package__NameAssignment_1"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1113:1: rule__Package__NameAssignment_1 : ( ruleFQN ) ;
+    public final void rule__Package__NameAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1117:1: ( ( ruleFQN ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1118:1: ( ruleFQN )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1118:1: ( ruleFQN )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1119:1: ruleFQN
+            {
+             before(grammarAccess.getPackageAccess().getNameFQNParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_ruleFQN_in_rule__Package__NameAssignment_12197);
+            ruleFQN();
+
+            state._fsp--;
+
+             after(grammarAccess.getPackageAccess().getNameFQNParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Package__NameAssignment_1"
+
+
+    // $ANTLR start "rule__Package__DefaultLocaleAssignment_3"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1128:1: rule__Package__DefaultLocaleAssignment_3 : ( ruleDefaultLocale ) ;
+    public final void rule__Package__DefaultLocaleAssignment_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1132:1: ( ( ruleDefaultLocale ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1133:1: ( ruleDefaultLocale )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1133:1: ( ruleDefaultLocale )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1134:1: ruleDefaultLocale
+            {
+             before(grammarAccess.getPackageAccess().getDefaultLocaleDefaultLocaleParserRuleCall_3_0()); 
+            pushFollow(FOLLOW_ruleDefaultLocale_in_rule__Package__DefaultLocaleAssignment_32228);
+            ruleDefaultLocale();
+
+            state._fsp--;
+
+             after(grammarAccess.getPackageAccess().getDefaultLocaleDefaultLocaleParserRuleCall_3_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Package__DefaultLocaleAssignment_3"
+
+
+    // $ANTLR start "rule__Package__PackagesAssignment_4"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1143:1: rule__Package__PackagesAssignment_4 : ( rulePackage ) ;
+    public final void rule__Package__PackagesAssignment_4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1147:1: ( ( rulePackage ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1148:1: ( rulePackage )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1148:1: ( rulePackage )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1149:1: rulePackage
+            {
+             before(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_4_0()); 
+            pushFollow(FOLLOW_rulePackage_in_rule__Package__PackagesAssignment_42259);
+            rulePackage();
+
+            state._fsp--;
+
+             after(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_4_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Package__PackagesAssignment_4"
+
+
+    // $ANTLR start "rule__Package__PropertiesAssignment_5"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1158:1: rule__Package__PropertiesAssignment_5 : ( ruleProperty ) ;
+    public final void rule__Package__PropertiesAssignment_5() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1162:1: ( ( ruleProperty ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1163:1: ( ruleProperty )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1163:1: ( ruleProperty )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1164:1: ruleProperty
+            {
+             before(grammarAccess.getPackageAccess().getPropertiesPropertyParserRuleCall_5_0()); 
+            pushFollow(FOLLOW_ruleProperty_in_rule__Package__PropertiesAssignment_52290);
+            ruleProperty();
+
+            state._fsp--;
+
+             after(grammarAccess.getPackageAccess().getPropertiesPropertyParserRuleCall_5_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Package__PropertiesAssignment_5"
+
+
+    // $ANTLR start "rule__Property__KeyAssignment_0"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1173:1: rule__Property__KeyAssignment_0 : ( rulePropertyKey ) ;
+    public final void rule__Property__KeyAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1177:1: ( ( rulePropertyKey ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1178:1: ( rulePropertyKey )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1178:1: ( rulePropertyKey )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1179:1: rulePropertyKey
+            {
+             before(grammarAccess.getPropertyAccess().getKeyPropertyKeyParserRuleCall_0_0()); 
+            pushFollow(FOLLOW_rulePropertyKey_in_rule__Property__KeyAssignment_02321);
+            rulePropertyKey();
+
+            state._fsp--;
+
+             after(grammarAccess.getPropertyAccess().getKeyPropertyKeyParserRuleCall_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Property__KeyAssignment_0"
+
+
+    // $ANTLR start "rule__Property__ValueAssignment_2"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1188:1: rule__Property__ValueAssignment_2 : ( ruleAbstractPropertyValue ) ;
+    public final void rule__Property__ValueAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1192:1: ( ( ruleAbstractPropertyValue ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1193:1: ( ruleAbstractPropertyValue )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1193:1: ( ruleAbstractPropertyValue )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1194:1: ruleAbstractPropertyValue
+            {
+             before(grammarAccess.getPropertyAccess().getValueAbstractPropertyValueParserRuleCall_2_0()); 
+            pushFollow(FOLLOW_ruleAbstractPropertyValue_in_rule__Property__ValueAssignment_22352);
+            ruleAbstractPropertyValue();
+
+            state._fsp--;
+
+             after(grammarAccess.getPropertyAccess().getValueAbstractPropertyValueParserRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Property__ValueAssignment_2"
+
+
+    // $ANTLR start "rule__SimplePropertyValue__ValueAssignment"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1203:1: rule__SimplePropertyValue__ValueAssignment : ( RULE_STRING ) ;
+    public final void rule__SimplePropertyValue__ValueAssignment() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1207:1: ( ( RULE_STRING ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1208:1: ( RULE_STRING )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1208:1: ( RULE_STRING )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1209:1: RULE_STRING
+            {
+             before(grammarAccess.getSimplePropertyValueAccess().getValueSTRINGTerminalRuleCall_0()); 
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__SimplePropertyValue__ValueAssignment2383); 
+             after(grammarAccess.getSimplePropertyValueAccess().getValueSTRINGTerminalRuleCall_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__SimplePropertyValue__ValueAssignment"
+
+
+    // $ANTLR start "rule__ComplexPropertyValue__ItemsAssignment_1"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1218:1: rule__ComplexPropertyValue__ItemsAssignment_1 : ( ruleComplexPropertyValueItem ) ;
+    public final void rule__ComplexPropertyValue__ItemsAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1222:1: ( ( ruleComplexPropertyValueItem ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1223:1: ( ruleComplexPropertyValueItem )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1223:1: ( ruleComplexPropertyValueItem )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1224:1: ruleComplexPropertyValueItem
+            {
+             before(grammarAccess.getComplexPropertyValueAccess().getItemsComplexPropertyValueItemParserRuleCall_1_0()); 
+            pushFollow(FOLLOW_ruleComplexPropertyValueItem_in_rule__ComplexPropertyValue__ItemsAssignment_12414);
+            ruleComplexPropertyValueItem();
+
+            state._fsp--;
+
+             after(grammarAccess.getComplexPropertyValueAccess().getItemsComplexPropertyValueItemParserRuleCall_1_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ComplexPropertyValue__ItemsAssignment_1"
+
+
+    // $ANTLR start "rule__ComplexPropertyValueItem__LangAssignment_0"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1233:1: rule__ComplexPropertyValueItem__LangAssignment_0 : ( RULE_LOCALE ) ;
+    public final void rule__ComplexPropertyValueItem__LangAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1237:1: ( ( RULE_LOCALE ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1238:1: ( RULE_LOCALE )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1238:1: ( RULE_LOCALE )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1239:1: RULE_LOCALE
+            {
+             before(grammarAccess.getComplexPropertyValueItemAccess().getLangLOCALETerminalRuleCall_0_0()); 
+            match(input,RULE_LOCALE,FOLLOW_RULE_LOCALE_in_rule__ComplexPropertyValueItem__LangAssignment_02445); 
+             after(grammarAccess.getComplexPropertyValueItemAccess().getLangLOCALETerminalRuleCall_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ComplexPropertyValueItem__LangAssignment_0"
+
+
+    // $ANTLR start "rule__ComplexPropertyValueItem__ValueAssignment_2"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1248:1: rule__ComplexPropertyValueItem__ValueAssignment_2 : ( ruleSimplePropertyValue ) ;
+    public final void rule__ComplexPropertyValueItem__ValueAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1252:1: ( ( ruleSimplePropertyValue ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1253:1: ( ruleSimplePropertyValue )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1253:1: ( ruleSimplePropertyValue )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1254:1: ruleSimplePropertyValue
+            {
+             before(grammarAccess.getComplexPropertyValueItemAccess().getValueSimplePropertyValueParserRuleCall_2_0()); 
+            pushFollow(FOLLOW_ruleSimplePropertyValue_in_rule__ComplexPropertyValueItem__ValueAssignment_22476);
+            ruleSimplePropertyValue();
+
+            state._fsp--;
+
+             after(grammarAccess.getComplexPropertyValueItemAccess().getValueSimplePropertyValueParserRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__ComplexPropertyValueItem__ValueAssignment_2"
+
+
+    // $ANTLR start "rule__DefaultLocale__LangAssignment_2"
+    // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1263:1: rule__DefaultLocale__LangAssignment_2 : ( RULE_LOCALE ) ;
+    public final void rule__DefaultLocale__LangAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1267:1: ( ( RULE_LOCALE ) )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1268:1: ( RULE_LOCALE )
+            {
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1268:1: ( RULE_LOCALE )
+            // ../com.github.fbrx.propertysl.ui/src-gen/com/github/fbrx/propertysl/ui/contentassist/antlr/internal/InternalPropertySL.g:1269:1: RULE_LOCALE
+            {
+             before(grammarAccess.getDefaultLocaleAccess().getLangLOCALETerminalRuleCall_2_0()); 
+            match(input,RULE_LOCALE,FOLLOW_RULE_LOCALE_in_rule__DefaultLocale__LangAssignment_22507); 
+             after(grammarAccess.getDefaultLocaleAccess().getLangLOCALETerminalRuleCall_2_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__DefaultLocale__LangAssignment_2"
+
     // Delegated rules
 
 
@@ -2916,7 +3329,7 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
 
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel61 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleModel68 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Model__PackagesAssignment_in_ruleModel94 = new BitSet(new long[]{0x0000000000002002L});
+    public static final BitSet FOLLOW_rule__Model__PackagesAssignment_in_ruleModel94 = new BitSet(new long[]{0x0000000000001002L});
     public static final BitSet FOLLOW_rulePackage_in_entryRulePackage122 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulePackage129 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Package__Group__0_in_rulePackage155 = new BitSet(new long[]{0x0000000000000002L});
@@ -2934,83 +3347,92 @@ public class InternalPropertySLParser extends AbstractInternalContentAssistParse
     public static final BitSet FOLLOW_rule__AbstractPropertyValue__Alternatives_in_ruleAbstractPropertyValue394 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSimplePropertyValue_in_entryRuleSimplePropertyValue421 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSimplePropertyValue428 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleSimplePropertyValue454 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComplexPropertyValue_in_entryRuleComplexPropertyValue480 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleComplexPropertyValue487 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__0_in_ruleComplexPropertyValue513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefaultLocale_in_entryRuleDefaultLocale540 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDefaultLocale547 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DefaultLocale__Group__0_in_ruleDefaultLocale573 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLOCALE_in_entryRuleLOCALE600 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLOCALE607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__LOCALE__Alternatives_in_ruleLOCALE633 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimplePropertyValue_in_rule__AbstractPropertyValue__Alternatives669 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleComplexPropertyValue_in_rule__AbstractPropertyValue__Alternatives686 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__LOCALE__Alternatives719 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__LOCALE__Alternatives739 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Package__Group__0__Impl_in_rule__Package__Group__0771 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Package__Group__1_in_rule__Package__Group__0774 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Package__Group__0__Impl802 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Package__Group__1__Impl_in_rule__Package__Group__1833 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_rule__Package__Group__2_in_rule__Package__Group__1836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleFQN_in_rule__Package__Group__1__Impl863 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Package__Group__2__Impl_in_rule__Package__Group__2892 = new BitSet(new long[]{0x0000000000082000L});
-    public static final BitSet FOLLOW_rule__Package__Group__3_in_rule__Package__Group__2895 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Package__Group__2__Impl923 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Package__Group__3__Impl_in_rule__Package__Group__3954 = new BitSet(new long[]{0x0000000000082000L});
-    public static final BitSet FOLLOW_rule__Package__Group__4_in_rule__Package__Group__3957 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDefaultLocale_in_rule__Package__Group__3__Impl985 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Package__Group__4__Impl_in_rule__Package__Group__41016 = new BitSet(new long[]{0x0000000000008010L});
-    public static final BitSet FOLLOW_rule__Package__Group__5_in_rule__Package__Group__41019 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePackage_in_rule__Package__Group__4__Impl1047 = new BitSet(new long[]{0x0000000000002002L});
-    public static final BitSet FOLLOW_rule__Package__Group__5__Impl_in_rule__Package__Group__51078 = new BitSet(new long[]{0x0000000000008010L});
-    public static final BitSet FOLLOW_rule__Package__Group__6_in_rule__Package__Group__51081 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleProperty_in_rule__Package__Group__5__Impl1109 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_rule__Package__Group__6__Impl_in_rule__Package__Group__61140 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__Package__Group__6__Impl1168 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FQN__Group__0__Impl_in_rule__FQN__Group__01213 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__FQN__Group__1_in_rule__FQN__Group__01216 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__FQN__Group__0__Impl1243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FQN__Group__1__Impl_in_rule__FQN__Group__11272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FQN__Group_1__0_in_rule__FQN__Group__1__Impl1299 = new BitSet(new long[]{0x0000000000010002L});
-    public static final BitSet FOLLOW_rule__FQN__Group_1__0__Impl_in_rule__FQN__Group_1__01334 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__FQN__Group_1__1_in_rule__FQN__Group_1__01337 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__FQN__Group_1__0__Impl1365 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__FQN__Group_1__1__Impl_in_rule__FQN__Group_1__11396 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__FQN__Group_1__1__Impl1423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Property__Group__0__Impl_in_rule__Property__Group__01456 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__Property__Group__1_in_rule__Property__Group__01459 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePropertyKey_in_rule__Property__Group__0__Impl1486 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Property__Group__1__Impl_in_rule__Property__Group__11515 = new BitSet(new long[]{0x0000000000004020L});
-    public static final BitSet FOLLOW_rule__Property__Group__2_in_rule__Property__Group__11518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__Property__Group__1__Impl1546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Property__Group__2__Impl_in_rule__Property__Group__21577 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAbstractPropertyValue_in_rule__Property__Group__2__Impl1604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__0__Impl_in_rule__ComplexPropertyValue__Group__01639 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__1_in_rule__ComplexPropertyValue__Group__01642 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__ComplexPropertyValue__Group__0__Impl1670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__1__Impl_in_rule__ComplexPropertyValue__Group__11701 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__2_in_rule__ComplexPropertyValue__Group__11704 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group_1__0_in_rule__ComplexPropertyValue__Group__1__Impl1733 = new BitSet(new long[]{0x0000000000001802L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group_1__0_in_rule__ComplexPropertyValue__Group__1__Impl1745 = new BitSet(new long[]{0x0000000000001802L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__2__Impl_in_rule__ComplexPropertyValue__Group__21778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__ComplexPropertyValue__Group__2__Impl1806 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group_1__0__Impl_in_rule__ComplexPropertyValue__Group_1__01843 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group_1__1_in_rule__ComplexPropertyValue__Group_1__01846 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLOCALE_in_rule__ComplexPropertyValue__Group_1__0__Impl1873 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group_1__1__Impl_in_rule__ComplexPropertyValue__Group_1__11902 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group_1__2_in_rule__ComplexPropertyValue__Group_1__11905 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__ComplexPropertyValue__Group_1__1__Impl1933 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group_1__2__Impl_in_rule__ComplexPropertyValue__Group_1__21964 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSimplePropertyValue_in_rule__ComplexPropertyValue__Group_1__2__Impl1991 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DefaultLocale__Group__0__Impl_in_rule__DefaultLocale__Group__02026 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_rule__DefaultLocale__Group__1_in_rule__DefaultLocale__Group__02029 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__DefaultLocale__Group__0__Impl2057 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DefaultLocale__Group__1__Impl_in_rule__DefaultLocale__Group__12088 = new BitSet(new long[]{0x0000000000001800L});
-    public static final BitSet FOLLOW_rule__DefaultLocale__Group__2_in_rule__DefaultLocale__Group__12091 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__DefaultLocale__Group__1__Impl2119 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DefaultLocale__Group__2__Impl_in_rule__DefaultLocale__Group__22150 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLOCALE_in_rule__DefaultLocale__Group__2__Impl2177 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePackage_in_rule__Model__PackagesAssignment2217 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SimplePropertyValue__ValueAssignment_in_ruleSimplePropertyValue454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexPropertyValue_in_entryRuleComplexPropertyValue481 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComplexPropertyValue488 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__0_in_ruleComplexPropertyValue514 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexPropertyValueItem_in_entryRuleComplexPropertyValueItem541 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleComplexPropertyValueItem548 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValueItem__Group__0_in_ruleComplexPropertyValueItem574 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefaultLocale_in_entryRuleDefaultLocale601 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDefaultLocale608 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DefaultLocale__Group__0_in_ruleDefaultLocale634 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimplePropertyValue_in_rule__AbstractPropertyValue__Alternatives670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexPropertyValue_in_rule__AbstractPropertyValue__Alternatives687 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__Group__0__Impl_in_rule__Package__Group__0717 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Package__Group__1_in_rule__Package__Group__0720 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_rule__Package__Group__0__Impl748 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__Group__1__Impl_in_rule__Package__Group__1779 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Package__Group__2_in_rule__Package__Group__1782 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__NameAssignment_1_in_rule__Package__Group__1__Impl809 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__Group__2__Impl_in_rule__Package__Group__2839 = new BitSet(new long[]{0x0000000000045010L});
+    public static final BitSet FOLLOW_rule__Package__Group__3_in_rule__Package__Group__2842 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Package__Group__2__Impl870 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__Group__3__Impl_in_rule__Package__Group__3901 = new BitSet(new long[]{0x0000000000045010L});
+    public static final BitSet FOLLOW_rule__Package__Group__4_in_rule__Package__Group__3904 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__DefaultLocaleAssignment_3_in_rule__Package__Group__3__Impl931 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__Group__4__Impl_in_rule__Package__Group__4962 = new BitSet(new long[]{0x0000000000045010L});
+    public static final BitSet FOLLOW_rule__Package__Group__5_in_rule__Package__Group__4965 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__PackagesAssignment_4_in_rule__Package__Group__4__Impl992 = new BitSet(new long[]{0x0000000000001002L});
+    public static final BitSet FOLLOW_rule__Package__Group__5__Impl_in_rule__Package__Group__51023 = new BitSet(new long[]{0x0000000000045010L});
+    public static final BitSet FOLLOW_rule__Package__Group__6_in_rule__Package__Group__51026 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Package__PropertiesAssignment_5_in_rule__Package__Group__5__Impl1053 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_rule__Package__Group__6__Impl_in_rule__Package__Group__61084 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Package__Group__6__Impl1112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FQN__Group__0__Impl_in_rule__FQN__Group__01157 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_rule__FQN__Group__1_in_rule__FQN__Group__01160 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__FQN__Group__0__Impl1187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FQN__Group__1__Impl_in_rule__FQN__Group__11216 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FQN__Group_1__0_in_rule__FQN__Group__1__Impl1243 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_rule__FQN__Group_1__0__Impl_in_rule__FQN__Group_1__01278 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__FQN__Group_1__1_in_rule__FQN__Group_1__01281 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__FQN__Group_1__0__Impl1309 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__FQN__Group_1__1__Impl_in_rule__FQN__Group_1__11340 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__FQN__Group_1__1__Impl1367 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Property__Group__0__Impl_in_rule__Property__Group__01400 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__Property__Group__1_in_rule__Property__Group__01403 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Property__KeyAssignment_0_in_rule__Property__Group__0__Impl1430 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Property__Group__1__Impl_in_rule__Property__Group__11460 = new BitSet(new long[]{0x0000000000002020L});
+    public static final BitSet FOLLOW_rule__Property__Group__2_in_rule__Property__Group__11463 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__Property__Group__1__Impl1491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Property__Group__2__Impl_in_rule__Property__Group__21522 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Property__ValueAssignment_2_in_rule__Property__Group__2__Impl1549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__0__Impl_in_rule__ComplexPropertyValue__Group__01585 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__1_in_rule__ComplexPropertyValue__Group__01588 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__ComplexPropertyValue__Group__0__Impl1616 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__1__Impl_in_rule__ComplexPropertyValue__Group__11647 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__2_in_rule__ComplexPropertyValue__Group__11650 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValue__ItemsAssignment_1_in_rule__ComplexPropertyValue__Group__1__Impl1679 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValue__ItemsAssignment_1_in_rule__ComplexPropertyValue__Group__1__Impl1691 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValue__Group__2__Impl_in_rule__ComplexPropertyValue__Group__21724 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__ComplexPropertyValue__Group__2__Impl1752 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValueItem__Group__0__Impl_in_rule__ComplexPropertyValueItem__Group__01789 = new BitSet(new long[]{0x0000000000020000L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValueItem__Group__1_in_rule__ComplexPropertyValueItem__Group__01792 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValueItem__LangAssignment_0_in_rule__ComplexPropertyValueItem__Group__0__Impl1819 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValueItem__Group__1__Impl_in_rule__ComplexPropertyValueItem__Group__11849 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValueItem__Group__2_in_rule__ComplexPropertyValueItem__Group__11852 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__ComplexPropertyValueItem__Group__1__Impl1880 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValueItem__Group__2__Impl_in_rule__ComplexPropertyValueItem__Group__21911 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__ComplexPropertyValueItem__ValueAssignment_2_in_rule__ComplexPropertyValueItem__Group__2__Impl1938 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DefaultLocale__Group__0__Impl_in_rule__DefaultLocale__Group__01974 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__DefaultLocale__Group__1_in_rule__DefaultLocale__Group__01977 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__DefaultLocale__Group__0__Impl2005 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DefaultLocale__Group__1__Impl_in_rule__DefaultLocale__Group__12036 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_rule__DefaultLocale__Group__2_in_rule__DefaultLocale__Group__12039 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__DefaultLocale__Group__1__Impl2067 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DefaultLocale__Group__2__Impl_in_rule__DefaultLocale__Group__22098 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DefaultLocale__LangAssignment_2_in_rule__DefaultLocale__Group__2__Impl2125 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePackage_in_rule__Model__PackagesAssignment2166 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleFQN_in_rule__Package__NameAssignment_12197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDefaultLocale_in_rule__Package__DefaultLocaleAssignment_32228 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePackage_in_rule__Package__PackagesAssignment_42259 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleProperty_in_rule__Package__PropertiesAssignment_52290 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePropertyKey_in_rule__Property__KeyAssignment_02321 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbstractPropertyValue_in_rule__Property__ValueAssignment_22352 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__SimplePropertyValue__ValueAssignment2383 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleComplexPropertyValueItem_in_rule__ComplexPropertyValue__ItemsAssignment_12414 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LOCALE_in_rule__ComplexPropertyValueItem__LangAssignment_02445 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSimplePropertyValue_in_rule__ComplexPropertyValueItem__ValueAssignment_22476 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_LOCALE_in_rule__DefaultLocale__LangAssignment_22507 = new BitSet(new long[]{0x0000000000000002L});
 
 }

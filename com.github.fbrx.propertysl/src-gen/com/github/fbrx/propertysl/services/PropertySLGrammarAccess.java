@@ -38,37 +38,53 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Package");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cPackageKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cFQNParserRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameFQNParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final RuleCall cDefaultLocaleParserRuleCall_3 = (RuleCall)cGroup.eContents().get(3);
-		private final RuleCall cPackageParserRuleCall_4 = (RuleCall)cGroup.eContents().get(4);
-		private final RuleCall cPropertyParserRuleCall_5 = (RuleCall)cGroup.eContents().get(5);
+		private final Assignment cDefaultLocaleAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cDefaultLocaleDefaultLocaleParserRuleCall_3_0 = (RuleCall)cDefaultLocaleAssignment_3.eContents().get(0);
+		private final Assignment cPackagesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cPackagesPackageParserRuleCall_4_0 = (RuleCall)cPackagesAssignment_4.eContents().get(0);
+		private final Assignment cPropertiesAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cPropertiesPropertyParserRuleCall_5_0 = (RuleCall)cPropertiesAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Package:
-		//	"package" FQN "{" DefaultLocale? Package* Property* "}";
+		//	"package" name=FQN "{" defaultLocale=DefaultLocale? packages+=Package* properties+=Property* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"package" FQN "{" DefaultLocale? Package* Property* "}"
+		//"package" name=FQN "{" defaultLocale=DefaultLocale? packages+=Package* properties+=Property* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"package"
 		public Keyword getPackageKeyword_0() { return cPackageKeyword_0; }
 
+		//name=FQN
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
 		//FQN
-		public RuleCall getFQNParserRuleCall_1() { return cFQNParserRuleCall_1; }
+		public RuleCall getNameFQNParserRuleCall_1_0() { return cNameFQNParserRuleCall_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
 
-		//DefaultLocale?
-		public RuleCall getDefaultLocaleParserRuleCall_3() { return cDefaultLocaleParserRuleCall_3; }
+		//defaultLocale=DefaultLocale?
+		public Assignment getDefaultLocaleAssignment_3() { return cDefaultLocaleAssignment_3; }
 
-		//Package*
-		public RuleCall getPackageParserRuleCall_4() { return cPackageParserRuleCall_4; }
+		//DefaultLocale
+		public RuleCall getDefaultLocaleDefaultLocaleParserRuleCall_3_0() { return cDefaultLocaleDefaultLocaleParserRuleCall_3_0; }
 
-		//Property*
-		public RuleCall getPropertyParserRuleCall_5() { return cPropertyParserRuleCall_5; }
+		//packages+=Package*
+		public Assignment getPackagesAssignment_4() { return cPackagesAssignment_4; }
+
+		//Package
+		public RuleCall getPackagesPackageParserRuleCall_4_0() { return cPackagesPackageParserRuleCall_4_0; }
+
+		//properties+=Property*
+		public Assignment getPropertiesAssignment_5() { return cPropertiesAssignment_5; }
+
+		//Property
+		public RuleCall getPropertiesPropertyParserRuleCall_5_0() { return cPropertiesPropertyParserRuleCall_5_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
@@ -105,25 +121,33 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	public class PropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Property");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cPropertyKeyParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cKeyPropertyKeyParserRuleCall_0_0 = (RuleCall)cKeyAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cAbstractPropertyValueParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueAbstractPropertyValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Property:
-		//	PropertyKey "=" AbstractPropertyValue;
+		//	key=PropertyKey "=" value=AbstractPropertyValue;
 		public ParserRule getRule() { return rule; }
 
-		//PropertyKey "=" AbstractPropertyValue
+		//key=PropertyKey "=" value=AbstractPropertyValue
 		public Group getGroup() { return cGroup; }
 
+		//key=PropertyKey
+		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+
 		//PropertyKey
-		public RuleCall getPropertyKeyParserRuleCall_0() { return cPropertyKeyParserRuleCall_0; }
+		public RuleCall getKeyPropertyKeyParserRuleCall_0_0() { return cKeyPropertyKeyParserRuleCall_0_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
+		//value=AbstractPropertyValue
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
 		//AbstractPropertyValue
-		public RuleCall getAbstractPropertyValueParserRuleCall_2() { return cAbstractPropertyValueParserRuleCall_2; }
+		public RuleCall getValueAbstractPropertyValueParserRuleCall_2_0() { return cValueAbstractPropertyValueParserRuleCall_2_0; }
 	}
 
 	public class PropertyKeyElements extends AbstractParserRuleElementFinder {
@@ -160,50 +184,78 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class SimplePropertyValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SimplePropertyValue");
-		private final RuleCall cSTRINGTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		//SimplePropertyValue:
-		//	STRING;
+		//	value=STRING;
 		public ParserRule getRule() { return rule; }
 
+		//value=STRING
+		public Assignment getValueAssignment() { return cValueAssignment; }
+
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall() { return cSTRINGTerminalRuleCall; }
+		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
 	}
 
 	public class ComplexPropertyValueElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ComplexPropertyValue");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final RuleCall cLOCALEParserRuleCall_1_0 = (RuleCall)cGroup_1.eContents().get(0);
-		private final Keyword cColonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
-		private final RuleCall cSimplePropertyValueParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
+		private final Assignment cItemsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cItemsComplexPropertyValueItemParserRuleCall_1_0 = (RuleCall)cItemsAssignment_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//ComplexPropertyValue:
-		//	"{" (LOCALE ":" SimplePropertyValue)+ "}";
+		//	"{" items+=ComplexPropertyValueItem+ "}";
 		public ParserRule getRule() { return rule; }
 
-		//"{" (LOCALE ":" SimplePropertyValue)+ "}"
+		//"{" items+=ComplexPropertyValueItem+ "}"
 		public Group getGroup() { return cGroup; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_0() { return cLeftCurlyBracketKeyword_0; }
 
-		//(LOCALE ":" SimplePropertyValue)+
-		public Group getGroup_1() { return cGroup_1; }
+		//items+=ComplexPropertyValueItem+
+		public Assignment getItemsAssignment_1() { return cItemsAssignment_1; }
 
-		//LOCALE
-		public RuleCall getLOCALEParserRuleCall_1_0() { return cLOCALEParserRuleCall_1_0; }
-
-		//":"
-		public Keyword getColonKeyword_1_1() { return cColonKeyword_1_1; }
-
-		//SimplePropertyValue
-		public RuleCall getSimplePropertyValueParserRuleCall_1_2() { return cSimplePropertyValueParserRuleCall_1_2; }
+		//ComplexPropertyValueItem
+		public RuleCall getItemsComplexPropertyValueItemParserRuleCall_1_0() { return cItemsComplexPropertyValueItemParserRuleCall_1_0; }
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_2() { return cRightCurlyBracketKeyword_2; }
+	}
+
+	public class ComplexPropertyValueItemElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ComplexPropertyValueItem");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cLangAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cLangLOCALETerminalRuleCall_0_0 = (RuleCall)cLangAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSimplePropertyValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		
+		//ComplexPropertyValueItem:
+		//	lang=LOCALE ":" value=SimplePropertyValue;
+		public ParserRule getRule() { return rule; }
+
+		//lang=LOCALE ":" value=SimplePropertyValue
+		public Group getGroup() { return cGroup; }
+
+		//lang=LOCALE
+		public Assignment getLangAssignment_0() { return cLangAssignment_0; }
+
+		//LOCALE
+		public RuleCall getLangLOCALETerminalRuleCall_0_0() { return cLangLOCALETerminalRuleCall_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+
+		//value=SimplePropertyValue
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+
+		//SimplePropertyValue
+		public RuleCall getValueSimplePropertyValueParserRuleCall_2_0() { return cValueSimplePropertyValueParserRuleCall_2_0; }
 	}
 
 	public class DefaultLocaleElements extends AbstractParserRuleElementFinder {
@@ -211,13 +263,14 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cDEFAULT_LOCALEKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final RuleCall cLOCALEParserRuleCall_2 = (RuleCall)cGroup.eContents().get(2);
+		private final Assignment cLangAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cLangLOCALETerminalRuleCall_2_0 = (RuleCall)cLangAssignment_2.eContents().get(0);
 		
 		//DefaultLocale:
-		//	"DEFAULT_LOCALE" "=" LOCALE;
+		//	"DEFAULT_LOCALE" "=" lang=LOCALE;
 		public ParserRule getRule() { return rule; }
 
-		//"DEFAULT_LOCALE" "=" LOCALE
+		//"DEFAULT_LOCALE" "=" lang=LOCALE
 		public Group getGroup() { return cGroup; }
 
 		//"DEFAULT_LOCALE"
@@ -226,28 +279,11 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
+		//lang=LOCALE
+		public Assignment getLangAssignment_2() { return cLangAssignment_2; }
+
 		//LOCALE
-		public RuleCall getLOCALEParserRuleCall_2() { return cLOCALEParserRuleCall_2; }
-	}
-
-	public class LOCALEElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LOCALE");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final Keyword cDeKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cEnKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		
-		//LOCALE:
-		//	"de" | "en";
-		public ParserRule getRule() { return rule; }
-
-		//"de" | "en"
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//"de"
-		public Keyword getDeKeyword_0() { return cDeKeyword_0; }
-
-		//"en"
-		public Keyword getEnKeyword_1() { return cEnKeyword_1; }
+		public RuleCall getLangLOCALETerminalRuleCall_2_0() { return cLangLOCALETerminalRuleCall_2_0; }
 	}
 	
 	
@@ -259,8 +295,9 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	private AbstractPropertyValueElements pAbstractPropertyValue;
 	private SimplePropertyValueElements pSimplePropertyValue;
 	private ComplexPropertyValueElements pComplexPropertyValue;
+	private ComplexPropertyValueItemElements pComplexPropertyValueItem;
 	private DefaultLocaleElements pDefaultLocale;
-	private LOCALEElements pLOCALE;
+	private TerminalRule tLOCALE;
 	
 	private final Grammar grammar;
 
@@ -311,7 +348,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Package:
-	//	"package" FQN "{" DefaultLocale? Package* Property* "}";
+	//	"package" name=FQN "{" defaultLocale=DefaultLocale? packages+=Package* properties+=Property* "}";
 	public PackageElements getPackageAccess() {
 		return (pPackage != null) ? pPackage : (pPackage = new PackageElements());
 	}
@@ -331,7 +368,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Property:
-	//	PropertyKey "=" AbstractPropertyValue;
+	//	key=PropertyKey "=" value=AbstractPropertyValue;
 	public PropertyElements getPropertyAccess() {
 		return (pProperty != null) ? pProperty : (pProperty = new PropertyElements());
 	}
@@ -361,7 +398,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimplePropertyValue:
-	//	STRING;
+	//	value=STRING;
 	public SimplePropertyValueElements getSimplePropertyValueAccess() {
 		return (pSimplePropertyValue != null) ? pSimplePropertyValue : (pSimplePropertyValue = new SimplePropertyValueElements());
 	}
@@ -371,7 +408,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ComplexPropertyValue:
-	//	"{" (LOCALE ":" SimplePropertyValue)+ "}";
+	//	"{" items+=ComplexPropertyValueItem+ "}";
 	public ComplexPropertyValueElements getComplexPropertyValueAccess() {
 		return (pComplexPropertyValue != null) ? pComplexPropertyValue : (pComplexPropertyValue = new ComplexPropertyValueElements());
 	}
@@ -380,8 +417,18 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		return getComplexPropertyValueAccess().getRule();
 	}
 
+	//ComplexPropertyValueItem:
+	//	lang=LOCALE ":" value=SimplePropertyValue;
+	public ComplexPropertyValueItemElements getComplexPropertyValueItemAccess() {
+		return (pComplexPropertyValueItem != null) ? pComplexPropertyValueItem : (pComplexPropertyValueItem = new ComplexPropertyValueItemElements());
+	}
+	
+	public ParserRule getComplexPropertyValueItemRule() {
+		return getComplexPropertyValueItemAccess().getRule();
+	}
+
 	//DefaultLocale:
-	//	"DEFAULT_LOCALE" "=" LOCALE;
+	//	"DEFAULT_LOCALE" "=" lang=LOCALE;
 	public DefaultLocaleElements getDefaultLocaleAccess() {
 		return (pDefaultLocale != null) ? pDefaultLocale : (pDefaultLocale = new DefaultLocaleElements());
 	}
@@ -390,15 +437,11 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 		return getDefaultLocaleAccess().getRule();
 	}
 
-	//LOCALE:
-	//	"de" | "en";
-	public LOCALEElements getLOCALEAccess() {
-		return (pLOCALE != null) ? pLOCALE : (pLOCALE = new LOCALEElements());
-	}
-	
-	public ParserRule getLOCALERule() {
-		return getLOCALEAccess().getRule();
-	}
+	//terminal LOCALE:
+	//	"a".."z" "a".."z";
+	public TerminalRule getLOCALERule() {
+		return (tLOCALE != null) ? tLOCALE : (tLOCALE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "LOCALE"));
+	} 
 
 	//terminal ID:
 	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;

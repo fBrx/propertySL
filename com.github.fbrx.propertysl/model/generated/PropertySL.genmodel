@@ -8,7 +8,31 @@
   <genPackages prefix="PropertySL" basePackage="com.github.fbrx.propertysl" disposableProviderFactory="true"
       fileExtensions="psl" ecorePackage="PropertySL.ecore#/">
     <genClasses ecoreClass="PropertySL.ecore#//Model">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//Model/packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Model/packages"/>
+    </genClasses>
+    <genClasses ecoreClass="PropertySL.ecore#//Package">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//Package/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Package/defaultLocale"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Package/packages"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Package/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="PropertySL.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//Property/key"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PropertySL.ecore#//AbstractPropertyValue"/>
+    <genClasses ecoreClass="PropertySL.ecore#//SimplePropertyValue">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//SimplePropertyValue/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PropertySL.ecore#//ComplexPropertyValue">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//ComplexPropertyValue/items"/>
+    </genClasses>
+    <genClasses ecoreClass="PropertySL.ecore#//ComplexPropertyValueItem">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//ComplexPropertyValueItem/lang"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//ComplexPropertyValueItem/value"/>
+    </genClasses>
+    <genClasses ecoreClass="PropertySL.ecore#//DefaultLocale">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//DefaultLocale/lang"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

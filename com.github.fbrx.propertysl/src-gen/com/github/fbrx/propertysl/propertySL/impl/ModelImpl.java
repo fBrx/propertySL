@@ -7,13 +7,17 @@ import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EDataTypeEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,14 +35,14 @@ import org.eclipse.emf.ecore.util.EDataTypeEList;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getPackages() <em>Packages</em>}' attribute list.
+   * The cached value of the '{@link #getPackages() <em>Packages</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPackages()
    * @generated
    * @ordered
    */
-  protected EList<String> packages;
+  protected EList<com.github.fbrx.propertysl.propertySL.Package> packages;
 
   /**
    * <!-- begin-user-doc -->
@@ -66,13 +70,29 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<String> getPackages()
+  public EList<com.github.fbrx.propertysl.propertySL.Package> getPackages()
   {
     if (packages == null)
     {
-      packages = new EDataTypeEList<String>(String.class, this, PropertySLPackage.MODEL__PACKAGES);
+      packages = new EObjectContainmentEList<com.github.fbrx.propertysl.propertySL.Package>(com.github.fbrx.propertysl.propertySL.Package.class, this, PropertySLPackage.MODEL__PACKAGES);
     }
     return packages;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case PropertySLPackage.MODEL__PACKAGES:
+        return ((InternalEList<?>)getPackages()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -104,7 +124,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
     {
       case PropertySLPackage.MODEL__PACKAGES:
         getPackages().clear();
-        getPackages().addAll((Collection<? extends String>)newValue);
+        getPackages().addAll((Collection<? extends com.github.fbrx.propertysl.propertySL.Package>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,23 +161,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
         return packages != null && !packages.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (packages: ");
-    result.append(packages);
-    result.append(')');
-    return result.toString();
   }
 
 } //ModelImpl

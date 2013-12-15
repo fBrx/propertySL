@@ -2,7 +2,15 @@
  */
 package com.github.fbrx.propertysl.propertySL.impl;
 
-import com.github.fbrx.propertysl.propertySL.*;
+import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
+import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.Model;
+import com.github.fbrx.propertysl.propertySL.Property;
+import com.github.fbrx.propertysl.propertySL.PropertySLFactory;
+import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
+import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -65,6 +73,13 @@ public class PropertySLFactoryImpl extends EFactoryImpl implements PropertySLFac
     switch (eClass.getClassifierID())
     {
       case PropertySLPackage.MODEL: return createModel();
+      case PropertySLPackage.PACKAGE: return createPackage();
+      case PropertySLPackage.PROPERTY: return createProperty();
+      case PropertySLPackage.ABSTRACT_PROPERTY_VALUE: return createAbstractPropertyValue();
+      case PropertySLPackage.SIMPLE_PROPERTY_VALUE: return createSimplePropertyValue();
+      case PropertySLPackage.COMPLEX_PROPERTY_VALUE: return createComplexPropertyValue();
+      case PropertySLPackage.COMPLEX_PROPERTY_VALUE_ITEM: return createComplexPropertyValueItem();
+      case PropertySLPackage.DEFAULT_LOCALE: return createDefaultLocale();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -79,6 +94,83 @@ public class PropertySLFactoryImpl extends EFactoryImpl implements PropertySLFac
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public com.github.fbrx.propertysl.propertySL.Package createPackage()
+  {
+    PackageImpl package_ = new PackageImpl();
+    return package_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Property createProperty()
+  {
+    PropertyImpl property = new PropertyImpl();
+    return property;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractPropertyValue createAbstractPropertyValue()
+  {
+    AbstractPropertyValueImpl abstractPropertyValue = new AbstractPropertyValueImpl();
+    return abstractPropertyValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SimplePropertyValue createSimplePropertyValue()
+  {
+    SimplePropertyValueImpl simplePropertyValue = new SimplePropertyValueImpl();
+    return simplePropertyValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ComplexPropertyValue createComplexPropertyValue()
+  {
+    ComplexPropertyValueImpl complexPropertyValue = new ComplexPropertyValueImpl();
+    return complexPropertyValue;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ComplexPropertyValueItem createComplexPropertyValueItem()
+  {
+    ComplexPropertyValueItemImpl complexPropertyValueItem = new ComplexPropertyValueItemImpl();
+    return complexPropertyValueItem;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DefaultLocale createDefaultLocale()
+  {
+    DefaultLocaleImpl defaultLocale = new DefaultLocaleImpl();
+    return defaultLocale;
   }
 
   /**
