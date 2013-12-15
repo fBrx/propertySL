@@ -3,11 +3,23 @@
 */
 package com.github.fbrx.propertysl.ui.outline
 
+import com.github.fbrx.propertysl.propertySL.Model
+import com.github.fbrx.propertysl.propertySL.Package
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
+import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
+
 /**
  * Customization of the default outline structure.
  *
  * see http://www.eclipse.org/Xtext/documentation.html#outline
  */
-class PropertySLOutlineTreeProvider extends org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider {
-	
+class PropertySLOutlineTreeProvider extends DefaultOutlineTreeProvider {
+
+	override protected _createChildren(DocumentRootNode parentNode, EObject model) {
+		for(Package pkg : (model as Model).packages){
+			createNode(parentNode, pkg);
+		}
+	}
+
 }
