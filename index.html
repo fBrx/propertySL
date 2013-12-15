@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>propertySL by fBrx</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/fBrx/propertySL">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/fBrx/propertySL/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/fBrx/propertySL/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>propertySL</h1>
+          <p>domain specific languages for editing properties</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/fBrx">fBrx</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h1>
+
+<p>This repository contains a domain specific language for editing java property files and multi-language resource bundles. The project started initially as a sample project for exploring domain specific languages and the <a href="http://www.eclipse.org/Xtext/">Eclipse Xtext</a> technology.</p>
+
+<h1>
+<a name="propertysl" class="anchor" href="#propertysl"><span class="octicon octicon-link"></span></a>PropertySL</h1>
+
+<p>The defined DSL - PropertySL - let's you define properties and resource bundles in a concise way. It has support for namespaces, nesting and internationalization. The syntax is pretty straight forward to read and lets you define everything you need in one file.</p>
+
+<h2>
+<a name="syntax" class="anchor" href="#syntax"><span class="octicon octicon-link"></span></a>Syntax</h2>
+
+<div class="highlight highlight-java"><pre><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">github</span><span class="o">.</span><span class="na">fbrx</span><span class="o">.</span><span class="na">propertysl</span><span class="o">.</span><span class="na">demo</span><span class="o">{</span>
+    <span class="n">DEFAULT_LOCALE</span> <span class="o">=</span> <span class="n">en</span>
+
+    <span class="kn">package</span> <span class="n">subpackage</span> <span class="o">{</span>
+        <span class="n">simpleProp</span> <span class="o">=</span> <span class="s">"Howdy, partner!"</span>
+    <span class="o">}</span>
+
+    <span class="n">complexProp</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="n">de</span> <span class="o">:</span> <span class="s">"Hallo, Welt!"</span>
+        <span class="n">en</span> <span class="o">:</span> <span class="s">"Hello, world!"</span>
+        <span class="n">es</span> <span class="o">:</span> <span class="s">"Hola, mundo!"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+<h2>
+<a name="editor-support" class="anchor" href="#editor-support"><span class="octicon octicon-link"></span></a>Editor support</h2>
+
+<p>The PropertySL was defined by means of the <a href="http://www.eclipse.org/Xtext/">Eclipse Xtext</a> technology. Thus there is also first class (Eclipse based) editor support built-in.
+<img src="editor.png" alt="PropertySL Editor"></p>
+
+<h1>
+<a name="attributions" class="anchor" href="#attributions"><span class="octicon octicon-link"></span></a>Attributions</h1>
+
+<ul>
+<li>Icons for the Eclipse Outline were taken from the <a href="http://ikons.piotrkwiatkowski.co.uk/" title="IKONS">IKONS</a> package by <a href="http://www.piotrkwiatkowski.co.uk/">Piotr Kwiatkowski</a>
+</li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
