@@ -3,11 +3,15 @@
 */
 package com.github.fbrx.propertysl.ui.outline
 
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
 import com.github.fbrx.propertysl.propertySL.Model
 import com.github.fbrx.propertysl.propertySL.Package
-import org.eclipse.emf.ecore.EObject
+import com.github.fbrx.propertysl.propertySL.Property
+import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
+import com.github.fbrx.propertysl.propertySL.SimplePropertyValue
 
 /**
  * Customization of the default outline structure.
@@ -16,10 +20,31 @@ import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
  */
 class PropertySLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
-	override protected _createChildren(DocumentRootNode parentNode, EObject model) {
-		for(Package pkg : (model as Model).packages){
+	def _createChildren(DocumentRootNode parentNode, Model model) {
+		for(Package pkg : model.packages){
 			createNode(parentNode, pkg);
 		}
+	}
+	
+	def _createChildren(IOutlineNode parentNode, Property prop) {
+		if(prop.value instanceof ComplexPropertyValue){
+			val cProp = (prop.value as ComplexPropertyValue)
+			for(ComplexPropertyValueItem item : cProp.items){
+				createNode(parentNode, item);
+			}
+			
+		}
+	}
+	
+	def protected _isLeaf(ComplexPropertyValueItem valueItem) {
+		true
+	}
+	
+	def protected _isLeaf(Property prop) {
+		if(prop.value instanceof SimplePropertyValue)
+			true
+		else
+			false
 	}
 
 }
