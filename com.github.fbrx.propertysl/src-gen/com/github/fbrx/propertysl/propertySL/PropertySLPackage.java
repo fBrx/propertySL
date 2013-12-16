@@ -113,22 +113,13 @@ public interface PropertySLPackage extends EPackage
   int PACKAGE__SUPPORTED_LOCALES = 1;
 
   /**
-   * The feature id for the '<em><b>Default Locale</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PACKAGE__DEFAULT_LOCALE = 2;
-
-  /**
    * The feature id for the '<em><b>Packages</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__PACKAGES = 3;
+  int PACKAGE__PACKAGES = 2;
 
   /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -137,7 +128,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__PROPERTIES = 4;
+  int PACKAGE__PROPERTIES = 3;
 
   /**
    * The number of structural features of the '<em>Package</em>' class.
@@ -146,7 +137,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_FEATURE_COUNT = 5;
+  int PACKAGE_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link com.github.fbrx.propertysl.propertySL.impl.SupportedLocalesImpl <em>Supported Locales</em>}' class.
@@ -159,7 +150,7 @@ public interface PropertySLPackage extends EPackage
   int SUPPORTED_LOCALES = 2;
 
   /**
-   * The feature id for the '<em><b>Locales</b></em>' attribute list.
+   * The feature id for the '<em><b>Locales</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -326,14 +317,23 @@ public interface PropertySLPackage extends EPackage
   int COMPLEX_PROPERTY_VALUE_ITEM_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link com.github.fbrx.propertysl.propertySL.impl.DefaultLocaleImpl <em>Default Locale</em>}' class.
+   * The meta object id for the '{@link com.github.fbrx.propertysl.propertySL.impl.DefaultableLocaleImpl <em>Defaultable Locale</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see com.github.fbrx.propertysl.propertySL.impl.DefaultLocaleImpl
-   * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getDefaultLocale()
+   * @see com.github.fbrx.propertysl.propertySL.impl.DefaultableLocaleImpl
+   * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getDefaultableLocale()
    * @generated
    */
-  int DEFAULT_LOCALE = 8;
+  int DEFAULTABLE_LOCALE = 8;
+
+  /**
+   * The feature id for the '<em><b>Is Default</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DEFAULTABLE_LOCALE__IS_DEFAULT = 0;
 
   /**
    * The feature id for the '<em><b>Lang</b></em>' attribute.
@@ -342,16 +342,16 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DEFAULT_LOCALE__LANG = 0;
+  int DEFAULTABLE_LOCALE__LANG = 1;
 
   /**
-   * The number of structural features of the '<em>Default Locale</em>' class.
+   * The number of structural features of the '<em>Defaultable Locale</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DEFAULT_LOCALE_FEATURE_COUNT = 1;
+  int DEFAULTABLE_LOCALE_FEATURE_COUNT = 2;
 
 
   /**
@@ -408,17 +408,6 @@ public interface PropertySLPackage extends EPackage
   EReference getPackage_SupportedLocales();
 
   /**
-   * Returns the meta object for the containment reference '{@link com.github.fbrx.propertysl.propertySL.Package#getDefaultLocale <em>Default Locale</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Default Locale</em>'.
-   * @see com.github.fbrx.propertysl.propertySL.Package#getDefaultLocale()
-   * @see #getPackage()
-   * @generated
-   */
-  EReference getPackage_DefaultLocale();
-
-  /**
    * Returns the meta object for the containment reference list '{@link com.github.fbrx.propertysl.propertySL.Package#getPackages <em>Packages</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -451,15 +440,15 @@ public interface PropertySLPackage extends EPackage
   EClass getSupportedLocales();
 
   /**
-   * Returns the meta object for the attribute list '{@link com.github.fbrx.propertysl.propertySL.SupportedLocales#getLocales <em>Locales</em>}'.
+   * Returns the meta object for the containment reference list '{@link com.github.fbrx.propertysl.propertySL.SupportedLocales#getLocales <em>Locales</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute list '<em>Locales</em>'.
+   * @return the meta object for the containment reference list '<em>Locales</em>'.
    * @see com.github.fbrx.propertysl.propertySL.SupportedLocales#getLocales()
    * @see #getSupportedLocales()
    * @generated
    */
-  EAttribute getSupportedLocales_Locales();
+  EReference getSupportedLocales_Locales();
 
   /**
    * Returns the meta object for class '{@link com.github.fbrx.propertysl.propertySL.Property <em>Property</em>}'.
@@ -578,25 +567,36 @@ public interface PropertySLPackage extends EPackage
   EReference getComplexPropertyValueItem_Value();
 
   /**
-   * Returns the meta object for class '{@link com.github.fbrx.propertysl.propertySL.DefaultLocale <em>Default Locale</em>}'.
+   * Returns the meta object for class '{@link com.github.fbrx.propertysl.propertySL.DefaultableLocale <em>Defaultable Locale</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Default Locale</em>'.
-   * @see com.github.fbrx.propertysl.propertySL.DefaultLocale
+   * @return the meta object for class '<em>Defaultable Locale</em>'.
+   * @see com.github.fbrx.propertysl.propertySL.DefaultableLocale
    * @generated
    */
-  EClass getDefaultLocale();
+  EClass getDefaultableLocale();
 
   /**
-   * Returns the meta object for the attribute '{@link com.github.fbrx.propertysl.propertySL.DefaultLocale#getLang <em>Lang</em>}'.
+   * Returns the meta object for the attribute '{@link com.github.fbrx.propertysl.propertySL.DefaultableLocale#isIsDefault <em>Is Default</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Is Default</em>'.
+   * @see com.github.fbrx.propertysl.propertySL.DefaultableLocale#isIsDefault()
+   * @see #getDefaultableLocale()
+   * @generated
+   */
+  EAttribute getDefaultableLocale_IsDefault();
+
+  /**
+   * Returns the meta object for the attribute '{@link com.github.fbrx.propertysl.propertySL.DefaultableLocale#getLang <em>Lang</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Lang</em>'.
-   * @see com.github.fbrx.propertysl.propertySL.DefaultLocale#getLang()
-   * @see #getDefaultLocale()
+   * @see com.github.fbrx.propertysl.propertySL.DefaultableLocale#getLang()
+   * @see #getDefaultableLocale()
    * @generated
    */
-  EAttribute getDefaultLocale_Lang();
+  EAttribute getDefaultableLocale_Lang();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -666,14 +666,6 @@ public interface PropertySLPackage extends EPackage
     EReference PACKAGE__SUPPORTED_LOCALES = eINSTANCE.getPackage_SupportedLocales();
 
     /**
-     * The meta object literal for the '<em><b>Default Locale</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference PACKAGE__DEFAULT_LOCALE = eINSTANCE.getPackage_DefaultLocale();
-
-    /**
      * The meta object literal for the '<em><b>Packages</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -700,12 +692,12 @@ public interface PropertySLPackage extends EPackage
     EClass SUPPORTED_LOCALES = eINSTANCE.getSupportedLocales();
 
     /**
-     * The meta object literal for the '<em><b>Locales</b></em>' attribute list feature.
+     * The meta object literal for the '<em><b>Locales</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SUPPORTED_LOCALES__LOCALES = eINSTANCE.getSupportedLocales_Locales();
+    EReference SUPPORTED_LOCALES__LOCALES = eINSTANCE.getSupportedLocales_Locales();
 
     /**
      * The meta object literal for the '{@link com.github.fbrx.propertysl.propertySL.impl.PropertyImpl <em>Property</em>}' class.
@@ -806,14 +798,22 @@ public interface PropertySLPackage extends EPackage
     EReference COMPLEX_PROPERTY_VALUE_ITEM__VALUE = eINSTANCE.getComplexPropertyValueItem_Value();
 
     /**
-     * The meta object literal for the '{@link com.github.fbrx.propertysl.propertySL.impl.DefaultLocaleImpl <em>Default Locale</em>}' class.
+     * The meta object literal for the '{@link com.github.fbrx.propertysl.propertySL.impl.DefaultableLocaleImpl <em>Defaultable Locale</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see com.github.fbrx.propertysl.propertySL.impl.DefaultLocaleImpl
-     * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getDefaultLocale()
+     * @see com.github.fbrx.propertysl.propertySL.impl.DefaultableLocaleImpl
+     * @see com.github.fbrx.propertysl.propertySL.impl.PropertySLPackageImpl#getDefaultableLocale()
      * @generated
      */
-    EClass DEFAULT_LOCALE = eINSTANCE.getDefaultLocale();
+    EClass DEFAULTABLE_LOCALE = eINSTANCE.getDefaultableLocale();
+
+    /**
+     * The meta object literal for the '<em><b>Is Default</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DEFAULTABLE_LOCALE__IS_DEFAULT = eINSTANCE.getDefaultableLocale_IsDefault();
 
     /**
      * The meta object literal for the '<em><b>Lang</b></em>' attribute feature.
@@ -821,7 +821,7 @@ public interface PropertySLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DEFAULT_LOCALE__LANG = eINSTANCE.getDefaultLocale_Lang();
+    EAttribute DEFAULTABLE_LOCALE__LANG = eINSTANCE.getDefaultableLocale_Lang();
 
   }
 

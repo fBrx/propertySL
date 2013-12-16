@@ -10,16 +10,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="supportedLocales" eType="#//SupportedLocales"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="defaultLocale" eType="#//DefaultLocale"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="packages" upperBound="-1"
         eType="#//Package" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
         eType="#//Property" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SupportedLocales">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="locales" unique="false"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locales" upperBound="-1"
+        eType="#//DefaultableLocale" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Property">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="key" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -39,7 +37,8 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//SimplePropertyValue"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="DefaultLocale">
+  <eClassifiers xsi:type="ecore:EClass" name="DefaultableLocale">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDefault" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

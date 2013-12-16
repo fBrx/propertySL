@@ -12,15 +12,15 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalPropertySLLexer extends Lexer {
-    public static final int RULE_ID=5;
-    public static final int RULE_LOCALE=4;
+    public static final int RULE_ID=4;
+    public static final int RULE_LOCALE=6;
     public static final int RULE_ANY_OTHER=11;
     public static final int T__20=20;
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=9;
     public static final int RULE_ML_COMMENT=8;
     public static final int T__19=19;
-    public static final int RULE_STRING=6;
+    public static final int RULE_STRING=5;
     public static final int T__16=16;
     public static final int T__15=15;
     public static final int T__18=18;
@@ -211,10 +211,10 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:19:7: ( 'DEFAULT_LOCALE' )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:19:9: 'DEFAULT_LOCALE'
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:19:7: ( 'default' )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:19:9: 'default'
             {
-            match("DEFAULT_LOCALE"); 
+            match("default"); 
 
 
             }
@@ -232,12 +232,12 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = RULE_LOCALE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:670:13: ( 'a' .. 'z' 'a' .. 'z' ( '_' 'A' .. 'Z' 'A' .. 'Z' )? )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:670:15: 'a' .. 'z' 'a' .. 'z' ( '_' 'A' .. 'Z' 'A' .. 'Z' )?
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:659:13: ( 'a' .. 'z' 'a' .. 'z' ( '_' 'A' .. 'Z' 'A' .. 'Z' )? )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:659:15: 'a' .. 'z' 'a' .. 'z' ( '_' 'A' .. 'Z' 'A' .. 'Z' )?
             {
             matchRange('a','z'); 
             matchRange('a','z'); 
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:670:33: ( '_' 'A' .. 'Z' 'A' .. 'Z' )?
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:659:33: ( '_' 'A' .. 'Z' 'A' .. 'Z' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -246,7 +246,7 @@ public class InternalPropertySLLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:670:34: '_' 'A' .. 'Z' 'A' .. 'Z'
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:659:34: '_' 'A' .. 'Z' 'A' .. 'Z'
                     {
                     match('_'); 
                     matchRange('A','Z'); 
@@ -273,10 +273,10 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:672:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:672:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:661:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:661:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:672:11: ( '^' )?
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:661:11: ( '^' )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -285,7 +285,7 @@ public class InternalPropertySLLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:672:11: '^'
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:661:11: '^'
                     {
                     match('^'); 
 
@@ -303,7 +303,7 @@ public class InternalPropertySLLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:672:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:661:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop3:
             do {
                 int alt3=2;
@@ -352,10 +352,10 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:674:10: ( ( '0' .. '9' )+ )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:674:12: ( '0' .. '9' )+
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:663:10: ( ( '0' .. '9' )+ )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:663:12: ( '0' .. '9' )+
             {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:674:12: ( '0' .. '9' )+
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:663:12: ( '0' .. '9' )+
             int cnt4=0;
             loop4:
             do {
@@ -369,7 +369,7 @@ public class InternalPropertySLLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:674:13: '0' .. '9'
+            	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:663:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -401,10 +401,10 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -422,10 +422,10 @@ public class InternalPropertySLLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -441,7 +441,7 @@ public class InternalPropertySLLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -457,7 +457,7 @@ public class InternalPropertySLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -482,10 +482,10 @@ public class InternalPropertySLLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop6:
                     do {
                         int alt6=3;
@@ -501,7 +501,7 @@ public class InternalPropertySLLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -517,7 +517,7 @@ public class InternalPropertySLLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:676:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:665:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -560,12 +560,12 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:678:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:678:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:667:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:667:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:678:24: ( options {greedy=false; } : . )*
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:667:24: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -590,7 +590,7 @@ public class InternalPropertySLLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:678:52: .
+            	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:667:52: .
             	    {
             	    matchAny(); 
 
@@ -620,12 +620,12 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:680:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:680:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:669:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:669:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:680:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:669:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -638,7 +638,7 @@ public class InternalPropertySLLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:680:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:669:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -658,7 +658,7 @@ public class InternalPropertySLLexer extends Lexer {
                 }
             } while (true);
 
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:680:40: ( ( '\\r' )? '\\n' )?
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:669:40: ( ( '\\r' )? '\\n' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -667,9 +667,9 @@ public class InternalPropertySLLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:680:41: ( '\\r' )? '\\n'
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:669:41: ( '\\r' )? '\\n'
                     {
-                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:680:41: ( '\\r' )?
+                    // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:669:41: ( '\\r' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -678,7 +678,7 @@ public class InternalPropertySLLexer extends Lexer {
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:680:41: '\\r'
+                            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:669:41: '\\r'
                             {
                             match('\r'); 
 
@@ -710,10 +710,10 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:682:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:682:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:671:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:671:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:682:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:671:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt12=0;
             loop12:
             do {
@@ -767,8 +767,8 @@ public class InternalPropertySLLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:684:16: ( . )
-            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:684:18: .
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:673:16: ( . )
+            // ../com.github.fbrx.propertysl/src-gen/com/github/fbrx/propertysl/parser/antlr/internal/InternalPropertySL.g:673:18: .
             {
             matchAny(); 
 
@@ -915,35 +915,33 @@ public class InternalPropertySLLexer extends Lexer {
     protected DFA13 dfa13 = new DFA13(this);
     static final String DFA13_eotS =
         "\1\uffff\1\25\2\uffff\1\25\4\uffff\2\25\1\22\2\uffff\3\22\2\uffff"+
-        "\2\44\3\uffff\1\25\4\uffff\1\25\5\uffff\1\25\1\uffff\10\25\1\44"+
-        "\5\25\1\66\2\25\1\uffff\15\25\1\106\1\25\1\uffff\1\25\1\111\1\uffff";
+        "\2\44\3\uffff\1\25\4\uffff\1\44\5\uffff\1\25\1\uffff\10\25\1\44"+
+        "\5\25\1\66\1\25\1\70\1\uffff\1\25\1\uffff\10\25\1\102\1\uffff";
     static final String DFA13_eofS =
-        "\112\uffff";
+        "\103\uffff";
     static final String DFA13_minS =
-        "\1\0\1\141\2\uffff\1\125\4\uffff\1\105\1\141\1\101\2\uffff\2\0"+
-        "\1\52\2\uffff\2\60\3\uffff\1\120\4\uffff\1\106\5\uffff\1\153\1\uffff"+
-        "\1\101\1\120\1\101\1\141\1\101\1\117\1\125\1\147\1\60\1\122\1\114"+
-        "\1\145\2\124\1\60\1\105\1\137\1\uffff\1\104\1\114\1\137\1\117\1"+
-        "\114\1\103\1\117\1\101\1\103\1\114\1\101\1\105\1\114\1\60\1\105"+
-        "\1\uffff\1\123\1\60\1\uffff";
+        "\1\0\1\141\2\uffff\1\125\4\uffff\2\141\1\101\2\uffff\2\0\1\52\2"+
+        "\uffff\2\60\3\uffff\1\120\4\uffff\1\60\5\uffff\1\153\1\uffff\1\101"+
+        "\1\120\2\141\1\101\1\117\1\165\1\147\1\60\1\122\1\154\1\145\1\124"+
+        "\1\164\1\60\1\105\1\60\1\uffff\1\104\1\uffff\1\137\1\114\1\117\1"+
+        "\103\1\101\1\114\1\105\1\123\1\60\1\uffff";
     static final String DFA13_maxS =
-        "\1\uffff\1\172\2\uffff\1\125\4\uffff\1\105\2\172\2\uffff\2\uffff"+
-        "\1\57\2\uffff\2\172\3\uffff\1\120\4\uffff\1\106\5\uffff\1\153\1"+
-        "\uffff\1\132\1\120\1\101\1\141\1\132\1\117\1\125\1\147\1\172\1\122"+
-        "\1\114\1\145\2\124\1\172\1\105\1\137\1\uffff\1\104\1\114\1\137\1"+
-        "\117\1\114\1\103\1\117\1\101\1\103\1\114\1\101\1\105\1\114\1\172"+
-        "\1\105\1\uffff\1\123\1\172\1\uffff";
+        "\1\uffff\1\172\2\uffff\1\125\4\uffff\3\172\2\uffff\2\uffff\1\57"+
+        "\2\uffff\2\172\3\uffff\1\120\4\uffff\1\172\5\uffff\1\153\1\uffff"+
+        "\1\132\1\120\2\141\1\132\1\117\1\165\1\147\1\172\1\122\1\154\1\145"+
+        "\1\124\1\164\1\172\1\105\1\172\1\uffff\1\104\1\uffff\1\137\1\114"+
+        "\1\117\1\103\1\101\1\114\1\105\1\123\1\172\1\uffff";
     static final String DFA13_acceptS =
         "\2\uffff\1\2\1\3\1\uffff\1\5\1\6\1\7\1\10\3\uffff\1\13\1\14\3\uffff"+
         "\1\20\1\21\2\uffff\1\13\1\2\1\3\1\uffff\1\5\1\6\1\7\1\10\1\uffff"+
-        "\1\14\1\15\1\16\1\17\1\20\1\uffff\1\12\21\uffff\1\1\17\uffff\1\11"+
-        "\2\uffff\1\4";
+        "\1\14\1\15\1\16\1\17\1\20\1\uffff\1\12\21\uffff\1\1\1\uffff\1\11"+
+        "\11\uffff\1\4";
     static final String DFA13_specialS =
-        "\1\2\15\uffff\1\0\1\1\72\uffff}>";
+        "\1\2\15\uffff\1\0\1\1\63\uffff}>";
     static final String[] DFA13_transitionS = {
             "\11\22\2\21\2\22\1\21\22\22\1\21\1\22\1\16\4\22\1\17\4\22\1"+
-            "\6\1\22\1\7\1\20\12\15\1\10\2\22\1\5\3\22\3\14\1\11\16\14\1"+
-            "\4\7\14\3\22\1\13\1\14\1\22\17\12\1\1\12\12\1\2\1\22\1\3\uff82"+
+            "\6\1\22\1\7\1\20\12\15\1\10\2\22\1\5\3\22\22\14\1\4\7\14\3\22"+
+            "\1\13\1\14\1\22\3\12\1\11\13\12\1\1\12\12\1\2\1\22\1\3\uff82"+
             "\22",
             "\1\23\31\24",
             "",
@@ -953,7 +951,7 @@ public class InternalPropertySLLexer extends Lexer {
             "",
             "",
             "",
-            "\1\35",
+            "\4\24\1\35\25\24",
             "\32\24",
             "\32\25\4\uffff\1\25\1\uffff\32\25",
             "",
@@ -973,7 +971,7 @@ public class InternalPropertySLLexer extends Lexer {
             "",
             "",
             "",
-            "\1\47",
+            "\12\25\7\uffff\32\25\4\uffff\1\45\1\uffff\5\25\1\47\24\25",
             "",
             "",
             "",
@@ -997,9 +995,10 @@ public class InternalPropertySLLexer extends Lexer {
             "\1\65",
             "\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
             "\1\67",
-            "\1\70",
+            "\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
             "",
             "\1\71",
+            "",
             "\1\72",
             "\1\73",
             "\1\74",
@@ -1008,14 +1007,6 @@ public class InternalPropertySLLexer extends Lexer {
             "\1\77",
             "\1\100",
             "\1\101",
-            "\1\102",
-            "\1\103",
-            "\1\104",
-            "\1\105",
-            "\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
-            "\1\107",
-            "",
-            "\1\110",
             "\12\25\7\uffff\32\25\4\uffff\1\25\1\uffff\32\25",
             ""
     };
@@ -1096,13 +1087,13 @@ public class InternalPropertySLLexer extends Lexer {
 
                         else if ( (LA13_0==':') ) {s = 8;}
 
-                        else if ( (LA13_0=='D') ) {s = 9;}
+                        else if ( (LA13_0=='d') ) {s = 9;}
 
-                        else if ( ((LA13_0>='a' && LA13_0<='o')||(LA13_0>='q' && LA13_0<='z')) ) {s = 10;}
+                        else if ( ((LA13_0>='a' && LA13_0<='c')||(LA13_0>='e' && LA13_0<='o')||(LA13_0>='q' && LA13_0<='z')) ) {s = 10;}
 
                         else if ( (LA13_0=='^') ) {s = 11;}
 
-                        else if ( ((LA13_0>='A' && LA13_0<='C')||(LA13_0>='E' && LA13_0<='R')||(LA13_0>='T' && LA13_0<='Z')||LA13_0=='_') ) {s = 12;}
+                        else if ( ((LA13_0>='A' && LA13_0<='R')||(LA13_0>='T' && LA13_0<='Z')||LA13_0=='_') ) {s = 12;}
 
                         else if ( ((LA13_0>='0' && LA13_0<='9')) ) {s = 13;}
 

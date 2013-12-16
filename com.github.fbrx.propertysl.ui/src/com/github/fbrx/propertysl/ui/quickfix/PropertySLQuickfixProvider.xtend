@@ -3,12 +3,12 @@
 */
 package com.github.fbrx.propertysl.ui.quickfix
 
-import com.github.fbrx.propertysl.validation.PropertySLValidator
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
 import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 import org.eclipse.xtext.validation.Issue
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
+import com.github.fbrx.propertysl.validation.PropertySLValidator
 
 /**
  * Custom quickfixes.
@@ -17,7 +17,7 @@ import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
  */
 class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 
-	@Fix(PropertySLValidator.UNDEFINED_LOCALE)
+	@Fix(PropertySLValidator.LOCALE_NOT_SUPPORTED)
 	def removeComplexPropertyValueItem(Issue issue, IssueResolutionAcceptor ira){
 		ira.accept(issue, 'remove entry', 'remove entry from list', 'minus.png', [element, context |
 			val cpv = element.eContainer as ComplexPropertyValue
@@ -25,11 +25,11 @@ class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 		]) 
 	}
 	
-	@Fix(PropertySLValidator.UNDEFINED_LOCALE)
+	@Fix(PropertySLValidator.LOCALE_NOT_SUPPORTED)
 	def addSupportedLocale(Issue issue, IssueResolutionAcceptor ira){
 		ira.accept(issue, 'add supported locale', 'add entry to supported locales', 'plus.png', [element, context |
 			val pkg = element.eContainer.eContainer.eContainer as com.github.fbrx.propertysl.propertySL.Package
-			pkg.supportedLocales.locales.add(issue.data.get(0))
+//			pkg.supportedLocales.locales.add(issue.data.get(0))
 		]) 
 	}
 }

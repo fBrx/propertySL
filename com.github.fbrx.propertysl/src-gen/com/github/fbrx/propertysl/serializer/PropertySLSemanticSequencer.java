@@ -2,7 +2,7 @@ package com.github.fbrx.propertysl.serializer;
 
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
-import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale;
 import com.github.fbrx.propertysl.propertySL.Model;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
@@ -44,9 +44,9 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 					return; 
 				}
 				else break;
-			case PropertySLPackage.DEFAULT_LOCALE:
-				if(context == grammarAccess.getDefaultLocaleRule()) {
-					sequence_DefaultLocale(context, (DefaultLocale) semanticObject); 
+			case PropertySLPackage.DEFAULTABLE_LOCALE:
+				if(context == grammarAccess.getDefaultableLocaleRule()) {
+					sequence_DefaultableLocale(context, (DefaultableLocale) semanticObject); 
 					return; 
 				}
 				else break;
@@ -115,17 +115,10 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     lang=LOCALE
+	 *     (isDefault?='default'? lang=LOCALE)
 	 */
-	protected void sequence_DefaultLocale(EObject context, DefaultLocale semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PropertySLPackage.Literals.DEFAULT_LOCALE__LANG) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PropertySLPackage.Literals.DEFAULT_LOCALE__LANG));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDefaultLocaleAccess().getLangLOCALETerminalRuleCall_2_0(), semanticObject.getLang());
-		feeder.finish();
+	protected void sequence_DefaultableLocale(EObject context, DefaultableLocale semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -140,7 +133,7 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=FQN supportedLocales=SupportedLocales? defaultLocale=DefaultLocale? (packages+=Package | properties+=Property)*)
+	 *     (name=FQN supportedLocales=SupportedLocales? (packages+=Package | properties+=Property)*)
 	 */
 	protected void sequence_Package(EObject context, com.github.fbrx.propertysl.propertySL.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -184,7 +177,7 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (locales+=LOCALE locales+=LOCALE*)
+	 *     (locales+=DefaultableLocale locales+=DefaultableLocale*)
 	 */
 	protected void sequence_SupportedLocales(EObject context, SupportedLocales semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

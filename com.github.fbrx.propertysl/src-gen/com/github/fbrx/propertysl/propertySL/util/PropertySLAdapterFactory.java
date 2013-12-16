@@ -5,7 +5,7 @@ package com.github.fbrx.propertysl.propertySL.util;
 import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
-import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale;
 import com.github.fbrx.propertysl.propertySL.Model;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
@@ -123,9 +123,9 @@ public class PropertySLAdapterFactory extends AdapterFactoryImpl
         return createComplexPropertyValueItemAdapter();
       }
       @Override
-      public Adapter caseDefaultLocale(DefaultLocale object)
+      public Adapter caseDefaultableLocale(DefaultableLocale object)
       {
-        return createDefaultLocaleAdapter();
+        return createDefaultableLocaleAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -270,16 +270,16 @@ public class PropertySLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.DefaultLocale <em>Default Locale</em>}'.
+   * Creates a new adapter for an object of class '{@link com.github.fbrx.propertysl.propertySL.DefaultableLocale <em>Defaultable Locale</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see com.github.fbrx.propertysl.propertySL.DefaultLocale
+   * @see com.github.fbrx.propertysl.propertySL.DefaultableLocale
    * @generated
    */
-  public Adapter createDefaultLocaleAdapter()
+  public Adapter createDefaultableLocaleAdapter()
   {
     return null;
   }

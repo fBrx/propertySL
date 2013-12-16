@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getName <em>Name</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getSupportedLocales <em>Supported Locales</em>}</li>
- *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getDefaultLocale <em>Default Locale</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getPackages <em>Packages</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getProperties <em>Properties</em>}</li>
  * </ul>
@@ -79,32 +78,6 @@ public interface Package extends EObject
    * @generated
    */
   void setSupportedLocales(SupportedLocales value);
-
-  /**
-   * Returns the value of the '<em><b>Default Locale</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Default Locale</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Default Locale</em>' containment reference.
-   * @see #setDefaultLocale(DefaultLocale)
-   * @see com.github.fbrx.propertysl.propertySL.PropertySLPackage#getPackage_DefaultLocale()
-   * @model containment="true"
-   * @generated
-   */
-  DefaultLocale getDefaultLocale();
-
-  /**
-   * Sets the value of the '{@link com.github.fbrx.propertysl.propertySL.Package#getDefaultLocale <em>Default Locale</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Default Locale</em>' containment reference.
-   * @see #getDefaultLocale()
-   * @generated
-   */
-  void setDefaultLocale(DefaultLocale value);
 
   /**
    * Returns the value of the '<em><b>Packages</b></em>' containment reference list.

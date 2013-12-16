@@ -3,17 +3,17 @@
 */
 package com.github.fbrx.propertysl.ui.labeling
 
-import com.github.fbrx.propertysl.propertySL.DefaultLocale
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale
 import com.github.fbrx.propertysl.propertySL.Package
 import com.github.fbrx.propertysl.propertySL.Property
 import com.github.fbrx.propertysl.propertySL.SimplePropertyValue
+import com.github.fbrx.propertysl.propertySL.SupportedLocales
 import com.google.inject.Inject
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider
 import org.eclipse.xtext.ui.PluginImageHelper
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider
-import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
-import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
-import com.github.fbrx.propertysl.propertySL.SupportedLocales
 
 /**
  * Provides labels for a EObjects.
@@ -38,14 +38,10 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 		item.lang + " : " + item.value.value
 	}
 	
-	def text(DefaultLocale dl){
-		'DEFAULT_LOCALE' + " : " + dl.lang 
-	}
-	
-	def text(SupportedLocales sl){
+ 	def text(SupportedLocales sl){
 			var languages = ""
-			for(String s : sl.locales){ 
-				languages = languages + s + ", "
+			for(DefaultableLocale dl : sl.locales){ 
+				languages = languages + dl.lang + ", "
 			}
 			
 			'SUPPORTED_LOCALES' + " : [" + languages.substring(0, languages.length-2) + "]"
@@ -64,10 +60,6 @@ class PropertySLLabelProvider extends DefaultEObjectLabelProvider {
 			prop.key + " : [" + languages.substring(0, languages.length-2) + "]"
 			
 		}
-	}
-	
-	def image(DefaultLocale dl){
-		return imgHelper.getImage("cog.png");
 	}
 	
 	def image(SupportedLocales sl){

@@ -5,7 +5,7 @@ package com.github.fbrx.propertysl.propertySL.util;
 import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
-import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale;
 import com.github.fbrx.propertysl.propertySL.Model;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
@@ -138,10 +138,10 @@ public class PropertySLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case PropertySLPackage.DEFAULT_LOCALE:
+      case PropertySLPackage.DEFAULTABLE_LOCALE:
       {
-        DefaultLocale defaultLocale = (DefaultLocale)theEObject;
-        T result = caseDefaultLocale(defaultLocale);
+        DefaultableLocale defaultableLocale = (DefaultableLocale)theEObject;
+        T result = caseDefaultableLocale(defaultableLocale);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -278,17 +278,17 @@ public class PropertySLSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Default Locale</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Defaultable Locale</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Default Locale</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Defaultable Locale</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDefaultLocale(DefaultLocale object)
+  public T caseDefaultableLocale(DefaultableLocale object)
   {
     return null;
   }

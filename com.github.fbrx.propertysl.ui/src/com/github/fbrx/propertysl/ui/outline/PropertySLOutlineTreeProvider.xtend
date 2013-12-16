@@ -12,6 +12,7 @@ import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
 import com.github.fbrx.propertysl.propertySL.SimplePropertyValue
+import com.github.fbrx.propertysl.propertySL.SupportedLocales
 
 /**
  * Customization of the default outline structure.
@@ -37,6 +38,10 @@ class PropertySLOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	}
 	
 	def protected _isLeaf(ComplexPropertyValueItem valueItem) {
+		true
+	}
+	
+	def protected _isLeaf(SupportedLocales valueItem) {
 		true
 	}
 	

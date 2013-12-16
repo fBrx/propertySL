@@ -160,37 +160,19 @@ rulePackage returns [EObject current=null]
 	    }
 
 )
-)?(
-(
-		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getDefaultLocaleDefaultLocaleParserRuleCall_4_0()); 
-	    }
-		lv_defaultLocale_4_0=ruleDefaultLocale		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getPackageRule());
-	        }
-       		set(
-       			$current, 
-       			"defaultLocale",
-        		lv_defaultLocale_4_0, 
-        		"DefaultLocale");
-	        afterParserOrEnumRuleCall();
-	    }
-
-)
 )?((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_5_0_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_4_0_0()); 
 	    }
-		lv_packages_5_0=rulePackage		{
+		lv_packages_4_0=rulePackage		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		add(
        			$current, 
        			"packages",
-        		lv_packages_5_0, 
+        		lv_packages_4_0, 
         		"Package");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -200,24 +182,24 @@ rulePackage returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getPropertiesPropertyParserRuleCall_5_1_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getPropertiesPropertyParserRuleCall_4_1_0()); 
 	    }
-		lv_properties_6_0=ruleProperty		{
+		lv_properties_5_0=ruleProperty		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		add(
        			$current, 
        			"properties",
-        		lv_properties_6_0, 
+        		lv_properties_5_0, 
         		"Property");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_7='}' 
+))*	otherlv_6='}' 
     {
-    	newLeafNode(otherlv_7, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_6());
+    	newLeafNode(otherlv_6, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_5());
     }
 )
 ;
@@ -254,19 +236,19 @@ ruleSupportedLocales returns [EObject current=null]
     }
 (
 (
-		lv_locales_3_0=RULE_LOCALE
-		{
-			newLeafNode(lv_locales_3_0, grammarAccess.getSupportedLocalesAccess().getLocalesLOCALETerminalRuleCall_3_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getSupportedLocalesAccess().getLocalesDefaultableLocaleParserRuleCall_3_0()); 
+	    }
+		lv_locales_3_0=ruleDefaultableLocale		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSupportedLocalesRule());
+	            $current = createModelElementForParent(grammarAccess.getSupportedLocalesRule());
 	        }
-       		addWithLastConsumed(
+       		add(
        			$current, 
        			"locales",
         		lv_locales_3_0, 
-        		"LOCALE");
+        		"DefaultableLocale");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -276,19 +258,19 @@ ruleSupportedLocales returns [EObject current=null]
     }
 (
 (
-		lv_locales_5_0=RULE_LOCALE
-		{
-			newLeafNode(lv_locales_5_0, grammarAccess.getSupportedLocalesAccess().getLocalesLOCALETerminalRuleCall_4_1_0()); 
-		}
-		{
+		{ 
+	        newCompositeNode(grammarAccess.getSupportedLocalesAccess().getLocalesDefaultableLocaleParserRuleCall_4_1_0()); 
+	    }
+		lv_locales_5_0=ruleDefaultableLocale		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSupportedLocalesRule());
+	            $current = createModelElementForParent(grammarAccess.getSupportedLocalesRule());
 	        }
-       		addWithLastConsumed(
+       		add(
        			$current, 
        			"locales",
         		lv_locales_5_0, 
-        		"LOCALE");
+        		"DefaultableLocale");
+	        afterParserOrEnumRuleCall();
 	    }
 
 )
@@ -620,42 +602,49 @@ ruleComplexPropertyValueItem returns [EObject current=null]
 
 
 
-// Entry rule entryRuleDefaultLocale
-entryRuleDefaultLocale returns [EObject current=null] 
+// Entry rule entryRuleDefaultableLocale
+entryRuleDefaultableLocale returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getDefaultLocaleRule()); }
-	 iv_ruleDefaultLocale=ruleDefaultLocale 
-	 { $current=$iv_ruleDefaultLocale.current; } 
+	{ newCompositeNode(grammarAccess.getDefaultableLocaleRule()); }
+	 iv_ruleDefaultableLocale=ruleDefaultableLocale 
+	 { $current=$iv_ruleDefaultableLocale.current; } 
 	 EOF 
 ;
 
-// Rule DefaultLocale
-ruleDefaultLocale returns [EObject current=null] 
+// Rule DefaultableLocale
+ruleDefaultableLocale returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='DEFAULT_LOCALE' 
-    {
-    	newLeafNode(otherlv_0, grammarAccess.getDefaultLocaleAccess().getDEFAULT_LOCALEKeyword_0());
-    }
-	otherlv_1='=' 
-    {
-    	newLeafNode(otherlv_1, grammarAccess.getDefaultLocaleAccess().getEqualsSignKeyword_1());
-    }
+((
 (
+		lv_isDefault_0_0=	'default' 
+    {
+        newLeafNode(lv_isDefault_0_0, grammarAccess.getDefaultableLocaleAccess().getIsDefaultDefaultKeyword_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getDefaultableLocaleRule());
+	        }
+       		setWithLastConsumed($current, "isDefault", true, "default");
+	    }
+
+)
+)?(
 (
-		lv_lang_2_0=RULE_LOCALE
+		lv_lang_1_0=RULE_LOCALE
 		{
-			newLeafNode(lv_lang_2_0, grammarAccess.getDefaultLocaleAccess().getLangLOCALETerminalRuleCall_2_0()); 
+			newLeafNode(lv_lang_1_0, grammarAccess.getDefaultableLocaleAccess().getLangLOCALETerminalRuleCall_1_0()); 
 		}
 		{
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getDefaultLocaleRule());
+	            $current = createModelElement(grammarAccess.getDefaultableLocaleRule());
 	        }
        		setWithLastConsumed(
        			$current, 
        			"lang",
-        		lv_lang_2_0, 
+        		lv_lang_1_0, 
         		"LOCALE");
 	    }
 

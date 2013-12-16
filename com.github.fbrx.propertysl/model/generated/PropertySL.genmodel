@@ -13,12 +13,11 @@
     <genClasses ecoreClass="PropertySL.ecore#//Package">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//Package/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Package/supportedLocales"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Package/defaultLocale"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Package/packages"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//Package/properties"/>
     </genClasses>
     <genClasses ecoreClass="PropertySL.ecore#//SupportedLocales">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//SupportedLocales/locales"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//SupportedLocales/locales"/>
     </genClasses>
     <genClasses ecoreClass="PropertySL.ecore#//Property">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//Property/key"/>
@@ -35,8 +34,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//ComplexPropertyValueItem/lang"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PropertySL.ecore#//ComplexPropertyValueItem/value"/>
     </genClasses>
-    <genClasses ecoreClass="PropertySL.ecore#//DefaultLocale">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//DefaultLocale/lang"/>
+    <genClasses ecoreClass="PropertySL.ecore#//DefaultableLocale">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//DefaultableLocale/isDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PropertySL.ecore#//DefaultableLocale/lang"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

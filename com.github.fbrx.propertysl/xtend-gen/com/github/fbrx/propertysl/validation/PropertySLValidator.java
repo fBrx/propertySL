@@ -3,14 +3,11 @@
  */
 package com.github.fbrx.propertysl.validation;
 
-import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
-import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage.Literals;
 import com.github.fbrx.propertysl.propertySL.SupportedLocales;
 import com.github.fbrx.propertysl.validation.AbstractPropertySLValidator;
-import com.google.common.base.Objects;
-import java.util.ArrayList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.validation.Check;
@@ -24,27 +21,27 @@ import org.eclipse.xtext.validation.Check;
 public class PropertySLValidator extends AbstractPropertySLValidator {
   public final static String MISSING_LOCALES = "MISSING_LOCALES";
   
-  public final static String UNDEFINED_LOCALE = "UNDEFINED_LOCALE";
+  public final static String DEFAULT_LOCALE_NOT_SET = "DEFAULT_LOCALE_NOT_SET";
+  
+  public final static String LOCALE_NOT_SUPPORTED = "UNDEFINED_LOCALE";
   
   @Check
-  public void checkIfDefaultLocaleIsSupported(final com.github.fbrx.propertysl.propertySL.Package pkg) {
-    DefaultLocale _defaultLocale = pkg.getDefaultLocale();
-    boolean _notEquals = (!Objects.equal(_defaultLocale, null));
-    if (_notEquals) {
-      SupportedLocales _supportedLocales = pkg.getSupportedLocales();
-      boolean _notEquals_1 = (!Objects.equal(_supportedLocales, null));
-      if (_notEquals_1) {
-        SupportedLocales _supportedLocales_1 = pkg.getSupportedLocales();
-        EList<String> _locales = _supportedLocales_1.getLocales();
-        DefaultLocale _defaultLocale_1 = pkg.getDefaultLocale();
-        String _lang = _defaultLocale_1.getLang();
-        boolean _contains = _locales.contains(_lang);
-        boolean _not = (!_contains);
-        if (_not) {
-          this.error("default locale must be one of supported locales", Literals.PACKAGE__DEFAULT_LOCALE);
+  public void checkIfDefaultLocaleIsSet(final SupportedLocales sl) {
+    EList<DefaultableLocale> _locales = sl.getLocales();
+    int _size = _locales.size();
+    boolean _greaterThan = (_size > 1);
+    if (_greaterThan) {
+      boolean defaultSet = false;
+      EList<DefaultableLocale> _locales_1 = sl.getLocales();
+      for (final DefaultableLocale dl : _locales_1) {
+        boolean _isIsDefault = dl.isIsDefault();
+        if (_isIsDefault) {
+          defaultSet = true;
         }
-      } else {
-        this.warning("supported locales are not defined", Literals.PACKAGE__DEFAULT_LOCALE);
+      }
+      boolean _not = (!defaultSet);
+      if (_not) {
+        this.warning("Default locale should be specified.", Literals.SUPPORTED_LOCALES__LOCALES, PropertySLValidator.DEFAULT_LOCALE_NOT_SET);
       }
     }
   }
@@ -55,44 +52,24 @@ public class PropertySLValidator extends AbstractPropertySLValidator {
     EObject _eContainer_1 = _eContainer.eContainer();
     EObject _eContainer_2 = _eContainer_1.eContainer();
     final com.github.fbrx.propertysl.propertySL.Package pkg = ((com.github.fbrx.propertysl.propertySL.Package) _eContainer_2);
+    boolean foundLocale = false;
     SupportedLocales _supportedLocales = pkg.getSupportedLocales();
-    EList<String> _locales = _supportedLocales.getLocales();
-    String _lang = item.getLang();
-    boolean _contains = _locales.contains(_lang);
-    boolean _not = (!_contains);
-    if (_not) {
+    EList<DefaultableLocale> _locales = _supportedLocales.getLocales();
+    for (final DefaultableLocale dl : _locales) {
+      String _lang = dl.getLang();
       String _lang_1 = item.getLang();
-      String _plus = ("locale is not defined: " + _lang_1);
-      String _lang_2 = item.getLang();
-      this.warning(_plus, Literals.COMPLEX_PROPERTY_VALUE_ITEM__LANG, PropertySLValidator.UNDEFINED_LOCALE, _lang_2);
-    }
-  }
-  
-  @Check
-  public void checkItemsOfComplexPropertyValue(final ComplexPropertyValue prop) {
-    EObject _eContainer = prop.eContainer();
-    EObject _eContainer_1 = _eContainer.eContainer();
-    final com.github.fbrx.propertysl.propertySL.Package pkg = ((com.github.fbrx.propertysl.propertySL.Package) _eContainer_1);
-    ArrayList<String> _arrayList = new ArrayList<String>();
-    ArrayList<String> languages = _arrayList;
-    EList<ComplexPropertyValueItem> _items = prop.getItems();
-    for (final ComplexPropertyValueItem item : _items) {
-      String _lang = item.getLang();
-      languages.add(_lang);
-    }
-    SupportedLocales _supportedLocales = pkg.getSupportedLocales();
-    EList<String> _locales = _supportedLocales.getLocales();
-    ArrayList<String> _arrayList_1 = new ArrayList<String>(_locales);
-    ArrayList<String> tmp = _arrayList_1;
-    tmp.removeAll(languages);
-    int _size = tmp.size();
-    boolean _greaterThan = (_size > 0);
-    if (_greaterThan) {
-      for (final String s : tmp) {
-        String _plus = ("missing locale definition (" + s);
-        String _plus_1 = (_plus + ")");
-        this.error(_plus_1, Literals.COMPLEX_PROPERTY_VALUE__ITEMS, PropertySLValidator.MISSING_LOCALES, s);
+      boolean _equals = _lang.equals(_lang_1);
+      if (_equals) {
+        foundLocale = true;
       }
+    }
+    boolean _not = (!foundLocale);
+    if (_not) {
+      String _lang_2 = item.getLang();
+      String _plus = ("Locale \"" + _lang_2);
+      String _plus_1 = (_plus + "\" is not supported.");
+      String _lang_3 = item.getLang();
+      this.warning(_plus_1, Literals.COMPLEX_PROPERTY_VALUE_ITEM__LANG, PropertySLValidator.LOCALE_NOT_SUPPORTED, _lang_3);
     }
   }
 }

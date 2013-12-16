@@ -5,7 +5,7 @@ package com.github.fbrx.propertysl.propertySL.impl;
 import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
-import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale;
 import com.github.fbrx.propertysl.propertySL.Model;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLFactory;
@@ -81,7 +81,7 @@ public class PropertySLFactoryImpl extends EFactoryImpl implements PropertySLFac
       case PropertySLPackage.SIMPLE_PROPERTY_VALUE: return createSimplePropertyValue();
       case PropertySLPackage.COMPLEX_PROPERTY_VALUE: return createComplexPropertyValue();
       case PropertySLPackage.COMPLEX_PROPERTY_VALUE_ITEM: return createComplexPropertyValueItem();
-      case PropertySLPackage.DEFAULT_LOCALE: return createDefaultLocale();
+      case PropertySLPackage.DEFAULTABLE_LOCALE: return createDefaultableLocale();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -180,10 +180,10 @@ public class PropertySLFactoryImpl extends EFactoryImpl implements PropertySLFac
    * <!-- end-user-doc -->
    * @generated
    */
-  public DefaultLocale createDefaultLocale()
+  public DefaultableLocale createDefaultableLocale()
   {
-    DefaultLocaleImpl defaultLocale = new DefaultLocaleImpl();
-    return defaultLocale;
+    DefaultableLocaleImpl defaultableLocale = new DefaultableLocaleImpl();
+    return defaultableLocale;
   }
 
   /**

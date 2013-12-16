@@ -5,7 +5,7 @@ package com.github.fbrx.propertysl.propertySL.impl;
 import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
-import com.github.fbrx.propertysl.propertySL.DefaultLocale;
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale;
 import com.github.fbrx.propertysl.propertySL.Model;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLFactory;
@@ -89,7 +89,7 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass defaultLocaleEClass = null;
+  private EClass defaultableLocaleEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -209,7 +209,7 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackage_DefaultLocale()
+  public EReference getPackage_Packages()
   {
     return (EReference)packageEClass.getEStructuralFeatures().get(2);
   }
@@ -219,19 +219,9 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPackage_Packages()
-  {
-    return (EReference)packageEClass.getEStructuralFeatures().get(3);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EReference getPackage_Properties()
   {
-    return (EReference)packageEClass.getEStructuralFeatures().get(4);
+    return (EReference)packageEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -249,9 +239,9 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSupportedLocales_Locales()
+  public EReference getSupportedLocales_Locales()
   {
-    return (EAttribute)supportedLocalesEClass.getEStructuralFeatures().get(0);
+    return (EReference)supportedLocalesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -369,9 +359,9 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getDefaultLocale()
+  public EClass getDefaultableLocale()
   {
-    return defaultLocaleEClass;
+    return defaultableLocaleEClass;
   }
 
   /**
@@ -379,9 +369,19 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDefaultLocale_Lang()
+  public EAttribute getDefaultableLocale_IsDefault()
   {
-    return (EAttribute)defaultLocaleEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)defaultableLocaleEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDefaultableLocale_Lang()
+  {
+    return (EAttribute)defaultableLocaleEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -420,12 +420,11 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
     packageEClass = createEClass(PACKAGE);
     createEAttribute(packageEClass, PACKAGE__NAME);
     createEReference(packageEClass, PACKAGE__SUPPORTED_LOCALES);
-    createEReference(packageEClass, PACKAGE__DEFAULT_LOCALE);
     createEReference(packageEClass, PACKAGE__PACKAGES);
     createEReference(packageEClass, PACKAGE__PROPERTIES);
 
     supportedLocalesEClass = createEClass(SUPPORTED_LOCALES);
-    createEAttribute(supportedLocalesEClass, SUPPORTED_LOCALES__LOCALES);
+    createEReference(supportedLocalesEClass, SUPPORTED_LOCALES__LOCALES);
 
     propertyEClass = createEClass(PROPERTY);
     createEAttribute(propertyEClass, PROPERTY__KEY);
@@ -443,8 +442,9 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
     createEAttribute(complexPropertyValueItemEClass, COMPLEX_PROPERTY_VALUE_ITEM__LANG);
     createEReference(complexPropertyValueItemEClass, COMPLEX_PROPERTY_VALUE_ITEM__VALUE);
 
-    defaultLocaleEClass = createEClass(DEFAULT_LOCALE);
-    createEAttribute(defaultLocaleEClass, DEFAULT_LOCALE__LANG);
+    defaultableLocaleEClass = createEClass(DEFAULTABLE_LOCALE);
+    createEAttribute(defaultableLocaleEClass, DEFAULTABLE_LOCALE__IS_DEFAULT);
+    createEAttribute(defaultableLocaleEClass, DEFAULTABLE_LOCALE__LANG);
   }
 
   /**
@@ -486,12 +486,11 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
     initEClass(packageEClass, com.github.fbrx.propertysl.propertySL.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 0, 1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_SupportedLocales(), this.getSupportedLocales(), null, "supportedLocales", null, 0, 1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getPackage_DefaultLocale(), this.getDefaultLocale(), null, "defaultLocale", null, 0, 1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_Packages(), this.getPackage(), null, "packages", null, 0, -1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPackage_Properties(), this.getProperty(), null, "properties", null, 0, -1, com.github.fbrx.propertysl.propertySL.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(supportedLocalesEClass, SupportedLocales.class, "SupportedLocales", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSupportedLocales_Locales(), ecorePackage.getEString(), "locales", null, 0, -1, SupportedLocales.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSupportedLocales_Locales(), this.getDefaultableLocale(), null, "locales", null, 0, -1, SupportedLocales.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getProperty_Key(), ecorePackage.getEString(), "key", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -509,8 +508,9 @@ public class PropertySLPackageImpl extends EPackageImpl implements PropertySLPac
     initEAttribute(getComplexPropertyValueItem_Lang(), ecorePackage.getEString(), "lang", null, 0, 1, ComplexPropertyValueItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getComplexPropertyValueItem_Value(), this.getSimplePropertyValue(), null, "value", null, 0, 1, ComplexPropertyValueItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(defaultLocaleEClass, DefaultLocale.class, "DefaultLocale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDefaultLocale_Lang(), ecorePackage.getEString(), "lang", null, 0, 1, DefaultLocale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(defaultableLocaleEClass, DefaultableLocale.class, "DefaultableLocale", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDefaultableLocale_IsDefault(), ecorePackage.getEBoolean(), "isDefault", null, 0, 1, DefaultableLocale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDefaultableLocale_Lang(), ecorePackage.getEString(), "lang", null, 0, 1, DefaultableLocale.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

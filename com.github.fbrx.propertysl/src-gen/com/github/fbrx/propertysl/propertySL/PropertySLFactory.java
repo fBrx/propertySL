@@ -95,13 +95,13 @@ public interface PropertySLFactory extends EFactory
   ComplexPropertyValueItem createComplexPropertyValueItem();
 
   /**
-   * Returns a new object of class '<em>Default Locale</em>'.
+   * Returns a new object of class '<em>Defaultable Locale</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Default Locale</em>'.
+   * @return a new object of class '<em>Defaultable Locale</em>'.
    * @generated
    */
-  DefaultLocale createDefaultLocale();
+  DefaultableLocale createDefaultableLocale();
 
   /**
    * Returns the package supported by this factory.
