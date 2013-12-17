@@ -116,45 +116,63 @@ rulePackage returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-(	otherlv_0='package' 
+((
+(
+		lv_commentlines_0_0=RULE_COMMENT
+		{
+			newLeafNode(lv_commentlines_0_0, grammarAccess.getPackageAccess().getCommentlinesCOMMENTTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPackageRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"commentlines",
+        		lv_commentlines_0_0, 
+        		"COMMENT");
+	    }
+
+)
+)*	otherlv_1='package' 
     {
-    	newLeafNode(otherlv_0, grammarAccess.getPackageAccess().getPackageKeyword_0());
+    	newLeafNode(otherlv_1, grammarAccess.getPackageAccess().getPackageKeyword_1());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getNameFQNParserRuleCall_1_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getNameFQNParserRuleCall_2_0()); 
 	    }
-		lv_name_1_0=ruleFQN		{
+		lv_name_2_0=ruleFQN		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		set(
        			$current, 
        			"name",
-        		lv_name_1_0, 
+        		lv_name_2_0, 
         		"FQN");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_2='{' 
+)	otherlv_3='{' 
     {
-    	newLeafNode(otherlv_2, grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_2());
+    	newLeafNode(otherlv_3, grammarAccess.getPackageAccess().getLeftCurlyBracketKeyword_3());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getSupportedLocalesSupportedLocalesParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getSupportedLocalesSupportedLocalesParserRuleCall_4_0()); 
 	    }
-		lv_supportedLocales_3_0=ruleSupportedLocales		{
+		lv_supportedLocales_4_0=ruleSupportedLocales		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		set(
        			$current, 
        			"supportedLocales",
-        		lv_supportedLocales_3_0, 
+        		lv_supportedLocales_4_0, 
         		"SupportedLocales");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -163,16 +181,16 @@ rulePackage returns [EObject current=null]
 )?((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_4_0_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getPackagesPackageParserRuleCall_5_0_0()); 
 	    }
-		lv_packages_4_0=rulePackage		{
+		lv_packages_5_0=rulePackage		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		add(
        			$current, 
        			"packages",
-        		lv_packages_4_0, 
+        		lv_packages_5_0, 
         		"Package");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -182,24 +200,24 @@ rulePackage returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPackageAccess().getPropertiesPropertyParserRuleCall_4_1_0()); 
+	        newCompositeNode(grammarAccess.getPackageAccess().getPropertiesPropertyParserRuleCall_5_1_0()); 
 	    }
-		lv_properties_5_0=ruleProperty		{
+		lv_properties_6_0=ruleProperty		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPackageRule());
 	        }
        		add(
        			$current, 
        			"properties",
-        		lv_properties_5_0, 
+        		lv_properties_6_0, 
         		"Property");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-))*	otherlv_6='}' 
+))*	otherlv_7='}' 
     {
-    	newLeafNode(otherlv_6, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_5());
+    	newLeafNode(otherlv_7, grammarAccess.getPackageAccess().getRightCurlyBracketKeyword_6());
     }
 )
 ;
@@ -342,39 +360,57 @@ ruleProperty returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		{ 
-	        newCompositeNode(grammarAccess.getPropertyAccess().getKeyPropertyKeyParserRuleCall_0_0()); 
+		lv_commentlines_0_0=RULE_COMMENT
+		{
+			newLeafNode(lv_commentlines_0_0, grammarAccess.getPropertyAccess().getCommentlinesCOMMENTTerminalRuleCall_0_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getPropertyRule());
+	        }
+       		addWithLastConsumed(
+       			$current, 
+       			"commentlines",
+        		lv_commentlines_0_0, 
+        		"COMMENT");
 	    }
-		lv_key_0_0=rulePropertyKey		{
+
+)
+)*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getPropertyAccess().getKeyPropertyKeyParserRuleCall_1_0()); 
+	    }
+		lv_key_1_0=rulePropertyKey		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPropertyRule());
 	        }
        		set(
        			$current, 
        			"key",
-        		lv_key_0_0, 
+        		lv_key_1_0, 
         		"PropertyKey");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_1='=' 
+)	otherlv_2='=' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getPropertyAccess().getEqualsSignKeyword_1());
+    	newLeafNode(otherlv_2, grammarAccess.getPropertyAccess().getEqualsSignKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getPropertyAccess().getValueAbstractPropertyValueParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getPropertyAccess().getValueAbstractPropertyValueParserRuleCall_3_0()); 
 	    }
-		lv_value_2_0=ruleAbstractPropertyValue		{
+		lv_value_3_0=ruleAbstractPropertyValue		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getPropertyRule());
 	        }
        		set(
        			$current, 
        			"value",
-        		lv_value_2_0, 
+        		lv_value_3_0, 
         		"AbstractPropertyValue");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -655,6 +691,8 @@ ruleDefaultableLocale returns [EObject current=null]
 
 
 
+
+RULE_COMMENT : '#' ~('\n')*;
 
 RULE_LOCALE : 'a'..'z' 'a'..'z' ('_' 'A'..'Z' 'A'..'Z')?;
 

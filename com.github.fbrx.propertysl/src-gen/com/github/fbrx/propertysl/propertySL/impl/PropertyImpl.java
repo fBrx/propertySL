@@ -6,14 +6,20 @@ import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
 import com.github.fbrx.propertysl.propertySL.Property;
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage;
 
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +28,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PropertyImpl#getCommentlines <em>Commentlines</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PropertyImpl#getKey <em>Key</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PropertyImpl#getValue <em>Value</em>}</li>
  * </ul>
@@ -31,6 +38,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class PropertyImpl extends MinimalEObjectImpl.Container implements Property
 {
+  /**
+   * The cached value of the '{@link #getCommentlines() <em>Commentlines</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCommentlines()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> commentlines;
+
   /**
    * The default value of the '{@link #getKey() <em>Key</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -80,6 +97,20 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
   protected EClass eStaticClass()
   {
     return PropertySLPackage.Literals.PROPERTY;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getCommentlines()
+  {
+    if (commentlines == null)
+    {
+      commentlines = new EDataTypeEList<String>(String.class, this, PropertySLPackage.PROPERTY__COMMENTLINES);
+    }
+    return commentlines;
   }
 
   /**
@@ -179,6 +210,8 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
   {
     switch (featureID)
     {
+      case PropertySLPackage.PROPERTY__COMMENTLINES:
+        return getCommentlines();
       case PropertySLPackage.PROPERTY__KEY:
         return getKey();
       case PropertySLPackage.PROPERTY__VALUE:
@@ -192,11 +225,16 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
+      case PropertySLPackage.PROPERTY__COMMENTLINES:
+        getCommentlines().clear();
+        getCommentlines().addAll((Collection<? extends String>)newValue);
+        return;
       case PropertySLPackage.PROPERTY__KEY:
         setKey((String)newValue);
         return;
@@ -217,6 +255,9 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
   {
     switch (featureID)
     {
+      case PropertySLPackage.PROPERTY__COMMENTLINES:
+        getCommentlines().clear();
+        return;
       case PropertySLPackage.PROPERTY__KEY:
         setKey(KEY_EDEFAULT);
         return;
@@ -237,6 +278,8 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
   {
     switch (featureID)
     {
+      case PropertySLPackage.PROPERTY__COMMENTLINES:
+        return commentlines != null && !commentlines.isEmpty();
       case PropertySLPackage.PROPERTY__KEY:
         return KEY_EDEFAULT == null ? key != null : !KEY_EDEFAULT.equals(key);
       case PropertySLPackage.PROPERTY__VALUE:
@@ -256,7 +299,9 @@ public class PropertyImpl extends MinimalEObjectImpl.Container implements Proper
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (key: ");
+    result.append(" (commentlines: ");
+    result.append(commentlines);
+    result.append(", key: ");
     result.append(key);
     result.append(')');
     return result.toString();

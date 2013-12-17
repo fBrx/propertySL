@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
+ *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getCommentlines <em>Commentlines</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getName <em>Name</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getSupportedLocales <em>Supported Locales</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.Package#getPackages <em>Packages</em>}</li>
@@ -27,6 +28,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Package extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Commentlines</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Commentlines</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Commentlines</em>' attribute list.
+   * @see com.github.fbrx.propertysl.propertySL.PropertySLPackage#getPackage_Commentlines()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getCommentlines();
+
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->

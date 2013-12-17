@@ -37,7 +37,7 @@ public class PropertySLParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getPackageAccess().getAlternatives_4(), "rule__Package__Alternatives_4");
+					put(grammarAccess.getPackageAccess().getAlternatives_5(), "rule__Package__Alternatives_5");
 					put(grammarAccess.getAbstractPropertyValueAccess().getAlternatives(), "rule__AbstractPropertyValue__Alternatives");
 					put(grammarAccess.getPackageAccess().getGroup(), "rule__Package__Group__0");
 					put(grammarAccess.getSupportedLocalesAccess().getGroup(), "rule__SupportedLocales__Group__0");
@@ -49,14 +49,16 @@ public class PropertySLParser extends AbstractContentAssistParser {
 					put(grammarAccess.getComplexPropertyValueItemAccess().getGroup(), "rule__ComplexPropertyValueItem__Group__0");
 					put(grammarAccess.getDefaultableLocaleAccess().getGroup(), "rule__DefaultableLocale__Group__0");
 					put(grammarAccess.getModelAccess().getPackagesAssignment(), "rule__Model__PackagesAssignment");
-					put(grammarAccess.getPackageAccess().getNameAssignment_1(), "rule__Package__NameAssignment_1");
-					put(grammarAccess.getPackageAccess().getSupportedLocalesAssignment_3(), "rule__Package__SupportedLocalesAssignment_3");
-					put(grammarAccess.getPackageAccess().getPackagesAssignment_4_0(), "rule__Package__PackagesAssignment_4_0");
-					put(grammarAccess.getPackageAccess().getPropertiesAssignment_4_1(), "rule__Package__PropertiesAssignment_4_1");
+					put(grammarAccess.getPackageAccess().getCommentlinesAssignment_0(), "rule__Package__CommentlinesAssignment_0");
+					put(grammarAccess.getPackageAccess().getNameAssignment_2(), "rule__Package__NameAssignment_2");
+					put(grammarAccess.getPackageAccess().getSupportedLocalesAssignment_4(), "rule__Package__SupportedLocalesAssignment_4");
+					put(grammarAccess.getPackageAccess().getPackagesAssignment_5_0(), "rule__Package__PackagesAssignment_5_0");
+					put(grammarAccess.getPackageAccess().getPropertiesAssignment_5_1(), "rule__Package__PropertiesAssignment_5_1");
 					put(grammarAccess.getSupportedLocalesAccess().getLocalesAssignment_3(), "rule__SupportedLocales__LocalesAssignment_3");
 					put(grammarAccess.getSupportedLocalesAccess().getLocalesAssignment_4_1(), "rule__SupportedLocales__LocalesAssignment_4_1");
-					put(grammarAccess.getPropertyAccess().getKeyAssignment_0(), "rule__Property__KeyAssignment_0");
-					put(grammarAccess.getPropertyAccess().getValueAssignment_2(), "rule__Property__ValueAssignment_2");
+					put(grammarAccess.getPropertyAccess().getCommentlinesAssignment_0(), "rule__Property__CommentlinesAssignment_0");
+					put(grammarAccess.getPropertyAccess().getKeyAssignment_1(), "rule__Property__KeyAssignment_1");
+					put(grammarAccess.getPropertyAccess().getValueAssignment_3(), "rule__Property__ValueAssignment_3");
 					put(grammarAccess.getSimplePropertyValueAccess().getValueAssignment(), "rule__SimplePropertyValue__ValueAssignment");
 					put(grammarAccess.getComplexPropertyValueAccess().getItemsAssignment_1(), "rule__ComplexPropertyValue__ItemsAssignment_1");
 					put(grammarAccess.getComplexPropertyValueItemAccess().getLangAssignment_0(), "rule__ComplexPropertyValueItem__LangAssignment_0");

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -29,6 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getCommentlines <em>Commentlines</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getSupportedLocales <em>Supported Locales</em>}</li>
  *   <li>{@link com.github.fbrx.propertysl.propertySL.impl.PackageImpl#getPackages <em>Packages</em>}</li>
@@ -40,6 +42,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PackageImpl extends MinimalEObjectImpl.Container implements com.github.fbrx.propertysl.propertySL.Package
 {
+  /**
+   * The cached value of the '{@link #getCommentlines() <em>Commentlines</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCommentlines()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> commentlines;
+
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -109,6 +121,20 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
   protected EClass eStaticClass()
   {
     return PropertySLPackage.Literals.PACKAGE;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<String> getCommentlines()
+  {
+    if (commentlines == null)
+    {
+      commentlines = new EDataTypeEList<String>(String.class, this, PropertySLPackage.PACKAGE__COMMENTLINES);
+    }
+    return commentlines;
   }
 
   /**
@@ -240,6 +266,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
   {
     switch (featureID)
     {
+      case PropertySLPackage.PACKAGE__COMMENTLINES:
+        return getCommentlines();
       case PropertySLPackage.PACKAGE__NAME:
         return getName();
       case PropertySLPackage.PACKAGE__SUPPORTED_LOCALES:
@@ -263,6 +291,10 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
   {
     switch (featureID)
     {
+      case PropertySLPackage.PACKAGE__COMMENTLINES:
+        getCommentlines().clear();
+        getCommentlines().addAll((Collection<? extends String>)newValue);
+        return;
       case PropertySLPackage.PACKAGE__NAME:
         setName((String)newValue);
         return;
@@ -291,6 +323,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
   {
     switch (featureID)
     {
+      case PropertySLPackage.PACKAGE__COMMENTLINES:
+        getCommentlines().clear();
+        return;
       case PropertySLPackage.PACKAGE__NAME:
         setName(NAME_EDEFAULT);
         return;
@@ -317,6 +352,8 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
   {
     switch (featureID)
     {
+      case PropertySLPackage.PACKAGE__COMMENTLINES:
+        return commentlines != null && !commentlines.isEmpty();
       case PropertySLPackage.PACKAGE__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
       case PropertySLPackage.PACKAGE__SUPPORTED_LOCALES:
@@ -340,7 +377,9 @@ public class PackageImpl extends MinimalEObjectImpl.Container implements com.git
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (name: ");
+    result.append(" (commentlines: ");
+    result.append(commentlines);
+    result.append(", name: ");
     result.append(name);
     result.append(')');
     return result.toString();

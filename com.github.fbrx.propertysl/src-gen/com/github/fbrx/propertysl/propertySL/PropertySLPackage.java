@@ -95,13 +95,22 @@ public interface PropertySLPackage extends EPackage
   int PACKAGE = 1;
 
   /**
+   * The feature id for the '<em><b>Commentlines</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PACKAGE__COMMENTLINES = 0;
+
+  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PACKAGE__NAME = 0;
+  int PACKAGE__NAME = 1;
 
   /**
    * The feature id for the '<em><b>Supported Locales</b></em>' containment reference.
@@ -110,7 +119,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__SUPPORTED_LOCALES = 1;
+  int PACKAGE__SUPPORTED_LOCALES = 2;
 
   /**
    * The feature id for the '<em><b>Packages</b></em>' containment reference list.
@@ -119,7 +128,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__PACKAGES = 2;
+  int PACKAGE__PACKAGES = 3;
 
   /**
    * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -128,7 +137,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE__PROPERTIES = 3;
+  int PACKAGE__PROPERTIES = 4;
 
   /**
    * The number of structural features of the '<em>Package</em>' class.
@@ -137,7 +146,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PACKAGE_FEATURE_COUNT = 4;
+  int PACKAGE_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link com.github.fbrx.propertysl.propertySL.impl.SupportedLocalesImpl <em>Supported Locales</em>}' class.
@@ -178,13 +187,22 @@ public interface PropertySLPackage extends EPackage
   int PROPERTY = 3;
 
   /**
+   * The feature id for the '<em><b>Commentlines</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PROPERTY__COMMENTLINES = 0;
+
+  /**
    * The feature id for the '<em><b>Key</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PROPERTY__KEY = 0;
+  int PROPERTY__KEY = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -193,7 +211,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY__VALUE = 1;
+  int PROPERTY__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Property</em>' class.
@@ -202,7 +220,7 @@ public interface PropertySLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_FEATURE_COUNT = 2;
+  int PROPERTY_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link com.github.fbrx.propertysl.propertySL.impl.AbstractPropertyValueImpl <em>Abstract Property Value</em>}' class.
@@ -386,6 +404,17 @@ public interface PropertySLPackage extends EPackage
   EClass getPackage();
 
   /**
+   * Returns the meta object for the attribute list '{@link com.github.fbrx.propertysl.propertySL.Package#getCommentlines <em>Commentlines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Commentlines</em>'.
+   * @see com.github.fbrx.propertysl.propertySL.Package#getCommentlines()
+   * @see #getPackage()
+   * @generated
+   */
+  EAttribute getPackage_Commentlines();
+
+  /**
    * Returns the meta object for the attribute '{@link com.github.fbrx.propertysl.propertySL.Package#getName <em>Name</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -459,6 +488,17 @@ public interface PropertySLPackage extends EPackage
    * @generated
    */
   EClass getProperty();
+
+  /**
+   * Returns the meta object for the attribute list '{@link com.github.fbrx.propertysl.propertySL.Property#getCommentlines <em>Commentlines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Commentlines</em>'.
+   * @see com.github.fbrx.propertysl.propertySL.Property#getCommentlines()
+   * @see #getProperty()
+   * @generated
+   */
+  EAttribute getProperty_Commentlines();
 
   /**
    * Returns the meta object for the attribute '{@link com.github.fbrx.propertysl.propertySL.Property#getKey <em>Key</em>}'.
@@ -650,6 +690,14 @@ public interface PropertySLPackage extends EPackage
     EClass PACKAGE = eINSTANCE.getPackage();
 
     /**
+     * The meta object literal for the '<em><b>Commentlines</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PACKAGE__COMMENTLINES = eINSTANCE.getPackage_Commentlines();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -708,6 +756,14 @@ public interface PropertySLPackage extends EPackage
      * @generated
      */
     EClass PROPERTY = eINSTANCE.getProperty();
+
+    /**
+     * The meta object literal for the '<em><b>Commentlines</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PROPERTY__COMMENTLINES = eINSTANCE.getProperty_Commentlines();
 
     /**
      * The meta object literal for the '<em><b>Key</b></em>' attribute feature.

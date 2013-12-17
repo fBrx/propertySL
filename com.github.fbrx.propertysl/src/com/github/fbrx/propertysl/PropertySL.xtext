@@ -8,12 +8,17 @@ Model:
 	packages += Package*;
 
 Package:
+	(commentlines += COMMENT)*
 	'package' name = FQN '{'
 		supportedLocales = SupportedLocales?
 		
 		(packages += Package |
 		properties += Property)*
 	'}'
+;
+
+terminal COMMENT:
+	'#' !('\n')*
 ;
 
 SupportedLocales:
@@ -28,6 +33,7 @@ FQN:
 ;
 
 Property:
+	(commentlines += COMMENT)*
 	key = PropertyKey '=' value = AbstractPropertyValue
 ;
 

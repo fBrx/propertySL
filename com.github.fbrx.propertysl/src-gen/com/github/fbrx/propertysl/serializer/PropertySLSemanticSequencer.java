@@ -133,7 +133,7 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (name=FQN supportedLocales=SupportedLocales? (packages+=Package | properties+=Property)*)
+	 *     (commentlines+=COMMENT* name=FQN supportedLocales=SupportedLocales? (packages+=Package | properties+=Property)*)
 	 */
 	protected void sequence_Package(EObject context, com.github.fbrx.propertysl.propertySL.Package semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -142,20 +142,10 @@ public class PropertySLSemanticSequencer extends AbstractDelegatingSemanticSeque
 	
 	/**
 	 * Constraint:
-	 *     (key=PropertyKey value=AbstractPropertyValue)
+	 *     (commentlines+=COMMENT* key=PropertyKey value=AbstractPropertyValue)
 	 */
 	protected void sequence_Property(EObject context, Property semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, PropertySLPackage.Literals.PROPERTY__KEY) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PropertySLPackage.Literals.PROPERTY__KEY));
-			if(transientValues.isValueTransient(semanticObject, PropertySLPackage.Literals.PROPERTY__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, PropertySLPackage.Literals.PROPERTY__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getPropertyAccess().getKeyPropertyKeyParserRuleCall_0_0(), semanticObject.getKey());
-		feeder.accept(grammarAccess.getPropertyAccess().getValueAbstractPropertyValueParserRuleCall_2_0(), semanticObject.getValue());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

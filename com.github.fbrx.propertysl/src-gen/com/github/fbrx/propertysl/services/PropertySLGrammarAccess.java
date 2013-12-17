@@ -37,61 +37,71 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	public class PackageElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Package");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPackageKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameFQNParserRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Assignment cSupportedLocalesAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cSupportedLocalesSupportedLocalesParserRuleCall_3_0 = (RuleCall)cSupportedLocalesAssignment_3.eContents().get(0);
-		private final Alternatives cAlternatives_4 = (Alternatives)cGroup.eContents().get(4);
-		private final Assignment cPackagesAssignment_4_0 = (Assignment)cAlternatives_4.eContents().get(0);
-		private final RuleCall cPackagesPackageParserRuleCall_4_0_0 = (RuleCall)cPackagesAssignment_4_0.eContents().get(0);
-		private final Assignment cPropertiesAssignment_4_1 = (Assignment)cAlternatives_4.eContents().get(1);
-		private final RuleCall cPropertiesPropertyParserRuleCall_4_1_0 = (RuleCall)cPropertiesAssignment_4_1.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cCommentlinesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cCommentlinesCOMMENTTerminalRuleCall_0_0 = (RuleCall)cCommentlinesAssignment_0.eContents().get(0);
+		private final Keyword cPackageKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameFQNParserRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cSupportedLocalesAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cSupportedLocalesSupportedLocalesParserRuleCall_4_0 = (RuleCall)cSupportedLocalesAssignment_4.eContents().get(0);
+		private final Alternatives cAlternatives_5 = (Alternatives)cGroup.eContents().get(5);
+		private final Assignment cPackagesAssignment_5_0 = (Assignment)cAlternatives_5.eContents().get(0);
+		private final RuleCall cPackagesPackageParserRuleCall_5_0_0 = (RuleCall)cPackagesAssignment_5_0.eContents().get(0);
+		private final Assignment cPropertiesAssignment_5_1 = (Assignment)cAlternatives_5.eContents().get(1);
+		private final RuleCall cPropertiesPropertyParserRuleCall_5_1_0 = (RuleCall)cPropertiesAssignment_5_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Package:
-		//	"package" name=FQN "{" supportedLocales=SupportedLocales? (packages+=Package | properties+=Property)* "}";
+		//	commentlines+=COMMENT* "package" name=FQN "{" supportedLocales=SupportedLocales? (packages+=Package |
+		//	properties+=Property)* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"package" name=FQN "{" supportedLocales=SupportedLocales? (packages+=Package | properties+=Property)* "}"
+		//commentlines+=COMMENT* "package" name=FQN "{" supportedLocales=SupportedLocales? (packages+=Package |
+		//properties+=Property)* "}"
 		public Group getGroup() { return cGroup; }
 
+		//commentlines+=COMMENT*
+		public Assignment getCommentlinesAssignment_0() { return cCommentlinesAssignment_0; }
+
+		//COMMENT
+		public RuleCall getCommentlinesCOMMENTTerminalRuleCall_0_0() { return cCommentlinesCOMMENTTerminalRuleCall_0_0; }
+
 		//"package"
-		public Keyword getPackageKeyword_0() { return cPackageKeyword_0; }
+		public Keyword getPackageKeyword_1() { return cPackageKeyword_1; }
 
 		//name=FQN
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
 
 		//FQN
-		public RuleCall getNameFQNParserRuleCall_1_0() { return cNameFQNParserRuleCall_1_0; }
+		public RuleCall getNameFQNParserRuleCall_2_0() { return cNameFQNParserRuleCall_2_0; }
 
 		//"{"
-		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
 		//supportedLocales=SupportedLocales?
-		public Assignment getSupportedLocalesAssignment_3() { return cSupportedLocalesAssignment_3; }
+		public Assignment getSupportedLocalesAssignment_4() { return cSupportedLocalesAssignment_4; }
 
 		//SupportedLocales
-		public RuleCall getSupportedLocalesSupportedLocalesParserRuleCall_3_0() { return cSupportedLocalesSupportedLocalesParserRuleCall_3_0; }
+		public RuleCall getSupportedLocalesSupportedLocalesParserRuleCall_4_0() { return cSupportedLocalesSupportedLocalesParserRuleCall_4_0; }
 
 		//(packages+=Package | properties+=Property)*
-		public Alternatives getAlternatives_4() { return cAlternatives_4; }
+		public Alternatives getAlternatives_5() { return cAlternatives_5; }
 
 		//packages+=Package
-		public Assignment getPackagesAssignment_4_0() { return cPackagesAssignment_4_0; }
+		public Assignment getPackagesAssignment_5_0() { return cPackagesAssignment_5_0; }
 
 		//Package
-		public RuleCall getPackagesPackageParserRuleCall_4_0_0() { return cPackagesPackageParserRuleCall_4_0_0; }
+		public RuleCall getPackagesPackageParserRuleCall_5_0_0() { return cPackagesPackageParserRuleCall_5_0_0; }
 
 		//properties+=Property
-		public Assignment getPropertiesAssignment_4_1() { return cPropertiesAssignment_4_1; }
+		public Assignment getPropertiesAssignment_5_1() { return cPropertiesAssignment_5_1; }
 
 		//Property
-		public RuleCall getPropertiesPropertyParserRuleCall_4_1_0() { return cPropertiesPropertyParserRuleCall_4_1_0; }
+		public RuleCall getPropertiesPropertyParserRuleCall_5_1_0() { return cPropertiesPropertyParserRuleCall_5_1_0; }
 
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class SupportedLocalesElements extends AbstractParserRuleElementFinder {
@@ -177,33 +187,41 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	public class PropertyElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Property");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cKeyAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cKeyPropertyKeyParserRuleCall_0_0 = (RuleCall)cKeyAssignment_0.eContents().get(0);
-		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cValueAbstractPropertyValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
+		private final Assignment cCommentlinesAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cCommentlinesCOMMENTTerminalRuleCall_0_0 = (RuleCall)cCommentlinesAssignment_0.eContents().get(0);
+		private final Assignment cKeyAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cKeyPropertyKeyParserRuleCall_1_0 = (RuleCall)cKeyAssignment_1.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueAbstractPropertyValueParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
 		//Property:
-		//	key=PropertyKey "=" value=AbstractPropertyValue;
+		//	commentlines+=COMMENT* key=PropertyKey "=" value=AbstractPropertyValue;
 		public ParserRule getRule() { return rule; }
 
-		//key=PropertyKey "=" value=AbstractPropertyValue
+		//commentlines+=COMMENT* key=PropertyKey "=" value=AbstractPropertyValue
 		public Group getGroup() { return cGroup; }
 
+		//commentlines+=COMMENT*
+		public Assignment getCommentlinesAssignment_0() { return cCommentlinesAssignment_0; }
+
+		//COMMENT
+		public RuleCall getCommentlinesCOMMENTTerminalRuleCall_0_0() { return cCommentlinesCOMMENTTerminalRuleCall_0_0; }
+
 		//key=PropertyKey
-		public Assignment getKeyAssignment_0() { return cKeyAssignment_0; }
+		public Assignment getKeyAssignment_1() { return cKeyAssignment_1; }
 
 		//PropertyKey
-		public RuleCall getKeyPropertyKeyParserRuleCall_0_0() { return cKeyPropertyKeyParserRuleCall_0_0; }
+		public RuleCall getKeyPropertyKeyParserRuleCall_1_0() { return cKeyPropertyKeyParserRuleCall_1_0; }
 
 		//"="
-		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
+		public Keyword getEqualsSignKeyword_2() { return cEqualsSignKeyword_2; }
 
 		//value=AbstractPropertyValue
-		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
 
 		//AbstractPropertyValue
-		public RuleCall getValueAbstractPropertyValueParserRuleCall_2_0() { return cValueAbstractPropertyValueParserRuleCall_2_0; }
+		public RuleCall getValueAbstractPropertyValueParserRuleCall_3_0() { return cValueAbstractPropertyValueParserRuleCall_3_0; }
 	}
 
 	public class PropertyKeyElements extends AbstractParserRuleElementFinder {
@@ -345,6 +363,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	
 	private ModelElements pModel;
 	private PackageElements pPackage;
+	private TerminalRule tCOMMENT;
 	private SupportedLocalesElements pSupportedLocales;
 	private FQNElements pFQN;
 	private PropertyElements pProperty;
@@ -405,7 +424,8 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Package:
-	//	"package" name=FQN "{" supportedLocales=SupportedLocales? (packages+=Package | properties+=Property)* "}";
+	//	commentlines+=COMMENT* "package" name=FQN "{" supportedLocales=SupportedLocales? (packages+=Package |
+	//	properties+=Property)* "}";
 	public PackageElements getPackageAccess() {
 		return (pPackage != null) ? pPackage : (pPackage = new PackageElements());
 	}
@@ -413,6 +433,12 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	public ParserRule getPackageRule() {
 		return getPackageAccess().getRule();
 	}
+
+	//terminal COMMENT:
+	//	"#" !"\n"*;
+	public TerminalRule getCOMMENTRule() {
+		return (tCOMMENT != null) ? tCOMMENT : (tCOMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "COMMENT"));
+	} 
 
 	//SupportedLocales:
 	//	"SUPPORTED_LOCALES" "=" "{" locales+=DefaultableLocale ("," locales+=DefaultableLocale)* "}";
@@ -435,7 +461,7 @@ public class PropertySLGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Property:
-	//	key=PropertyKey "=" value=AbstractPropertyValue;
+	//	commentlines+=COMMENT* key=PropertyKey "=" value=AbstractPropertyValue;
 	public PropertyElements getPropertyAccess() {
 		return (pProperty != null) ? pProperty : (pProperty = new PropertyElements());
 	}
