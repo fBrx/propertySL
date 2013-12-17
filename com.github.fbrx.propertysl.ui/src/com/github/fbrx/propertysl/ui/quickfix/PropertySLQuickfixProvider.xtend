@@ -5,6 +5,7 @@ package com.github.fbrx.propertysl.ui.quickfix
 
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
 import com.github.fbrx.propertysl.propertySL.Package
+import com.github.fbrx.propertysl.propertySL.PropertySLFactory
 import com.github.fbrx.propertysl.propertySL.SupportedLocales
 import com.github.fbrx.propertysl.validation.PropertySLValidator
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
@@ -30,8 +31,12 @@ class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 	@Fix(PropertySLValidator.LOCALE_NOT_SUPPORTED)
 	def addSupportedLocale(Issue issue, IssueResolutionAcceptor ira){
 		ira.accept(issue, 'Add supported locale definition', 'Add entry to the list of supported locales.', 'plus.png', [element, context |
+			var newDl = PropertySLFactory.eINSTANCE.createDefaultableLocale
+			newDl.setIsDefault(false)
+			newDl.setLang(issue.data.get(0))
+			
 			val pkg = element.eContainer.eContainer.eContainer as Package
-//TODO			pkg.supportedLocales.locales.add(new DefaultableLocaleImpl())
+			pkg.supportedLocales.locales.add(newDl)
 		]) 
 	}
 	
@@ -39,7 +44,14 @@ class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 	def addSupportedLocaleItem(Issue issue, IssueResolutionAcceptor ira){
 		ira.accept(issue, 'Add locale entry for "' + issue.data.get(0) + '"', 'Add a locale entry to the property definition.', 'plus.png', [element, context |
 			val cpv = element as ComplexPropertyValue
-//TODO			cpv.items.add(new ComplexPropertyValueItemImpl())
+			
+			var newCpvi = PropertySLFactory.eINSTANCE.createComplexPropertyValueItem
+			var newSpv = PropertySLFactory.eINSTANCE.createSimplePropertyValue
+			newSpv.setValue("")
+			newCpvi.setLang(issue.data.get(0))
+			newCpvi.setValue(newSpv)			
+			
+			cpv.items.add(newCpvi)
 		])
 	}
 	
