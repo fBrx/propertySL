@@ -4,13 +4,16 @@ This repository contains a domain specific language for editing java property fi
 
 # PropertySL
 
-The defined DSL - PropertySL - let's you define properties and resource bundles in a concise way. It has support for namespaces, nesting and internationalization. The syntax is pretty straight forward to read and lets you define everything you need in one file.
+The defined domain specific language - named _PropertySL_ - let's you define properties and resource bundles in a concise way. It has support for namespaces, nesting and internationalization. The syntax is pretty straight forward to read and lets you define everything you need in one file.
 
 ## Syntax
 
 ```java
 package com.github.fbrx.propertysl.demo{
-	DEFAULT_LOCALE = en
+	
+	SUPPORTED_LOCALES = {
+		de, default en, es 
+	}
 	
 	package subpackage {
 		simpleProp = "Howdy, partner!"
@@ -26,7 +29,7 @@ package com.github.fbrx.propertysl.demo{
 
 ## Editor support
 
-The PropertySL was defined by means of the [Eclipse Xtext](http://www.eclipse.org/Xtext/) technology. Thus there is also first class (Eclipse based) editor support built-in.
+The PropertySL was defined by means of the [Eclipse Xtext](http://www.eclipse.org/Xtext/) and [Eclipse Xtend](http://www.eclipse.org/Xtend/) technologies. Thus there is also first class (Eclipse based) editor support built-in.
 ![PropertySL Editor](https://raw.github.com/fBrx/propertySL/master/editor.png)
 
 # Attributions
