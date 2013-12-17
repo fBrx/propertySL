@@ -3,12 +3,29 @@
  */
 package com.github.fbrx.propertysl.generator;
 
+import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue;
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem;
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale;
+import com.github.fbrx.propertysl.propertySL.Property;
+import com.github.fbrx.propertysl.propertySL.SimplePropertyValue;
+import com.github.fbrx.propertysl.propertySL.SupportedLocales;
+import com.google.common.base.Objects;
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 
 /**
  * Generates code from your model files on save.
@@ -22,5 +39,199 @@ public class PropertySLGenerator implements IGenerator {
   private IQualifiedNameProvider _iQualifiedNameProvider;
   
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
+    Iterable<com.github.fbrx.propertysl.propertySL.Package> _filter = Iterables.<com.github.fbrx.propertysl.propertySL.Package>filter(_iterable, com.github.fbrx.propertysl.propertySL.Package.class);
+    for (final com.github.fbrx.propertysl.propertySL.Package pkg : _filter) {
+      SupportedLocales _supportedLocales = pkg.getSupportedLocales();
+      boolean _notEquals = (!Objects.equal(_supportedLocales, null));
+      if (_notEquals) {
+        SupportedLocales _supportedLocales_1 = pkg.getSupportedLocales();
+        EList<DefaultableLocale> _locales = _supportedLocales_1.getLocales();
+        for (final DefaultableLocale locale : _locales) {
+          {
+            QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+            String _string = _fullyQualifiedName.toString(".");
+            String _plus = (_string + "_");
+            String _lang = locale.getLang();
+            String _plus_1 = (_plus + _lang);
+            String _plus_2 = (_plus_1 + ".properties");
+            CharSequence _compile = this.compile(pkg, locale);
+            fsa.generateFile(_plus_2, _compile);
+            boolean _isIsDefault = locale.isIsDefault();
+            if (_isIsDefault) {
+              QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+              String _string_1 = _fullyQualifiedName_1.toString(".");
+              String _plus_3 = (_string_1 + ".properties");
+              CharSequence _compile_1 = this.compile(pkg, locale);
+              fsa.generateFile(_plus_3, _compile_1);
+            }
+          }
+        }
+      } else {
+        QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+        String _string = _fullyQualifiedName.toString(".");
+        String _plus = (_string + ".properties");
+        CharSequence _compile = this.compile(pkg, null);
+        fsa.generateFile(_plus, _compile);
+      }
+    }
+  }
+  
+  public CharSequence compile(final com.github.fbrx.propertysl.propertySL.Package pkg, final DefaultableLocale locale) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _equals = Objects.equal(locale, null);
+      if (_equals) {
+        _builder.append("# properties for package ");
+        QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+        _builder.append(_fullyQualifiedName, "");
+        _builder.append(" and default locale");
+        _builder.newLineIfNotEmpty();
+      } else {
+        boolean _isIsDefault = locale.isIsDefault();
+        if (_isIsDefault) {
+          _builder.append("# properties for package ");
+          QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+          _builder.append(_fullyQualifiedName_1, "");
+          _builder.append(" and locale ");
+          String _lang = locale.getLang();
+          _builder.append(_lang, "");
+          _builder.append(" (default)");
+          _builder.newLineIfNotEmpty();
+        } else {
+          _builder.append("# properties for package ");
+          QualifiedName _fullyQualifiedName_2 = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+          _builder.append(_fullyQualifiedName_2, "");
+          _builder.append(" and locale ");
+          String _lang_1 = locale.getLang();
+          _builder.append(_lang_1, "");
+          _builder.newLineIfNotEmpty();
+        }
+      }
+    }
+    _builder.newLine();
+    {
+      EList<Property> _properties = pkg.getProperties();
+      for(final Property p : _properties) {
+        CharSequence _compile = this.compile(p, locale);
+        _builder.append(_compile, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final Property prop, final DefaultableLocale dl) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      boolean _checkIfValueExistsForLang = this.checkIfValueExistsForLang(prop, dl);
+      if (_checkIfValueExistsForLang) {
+        EObject _eContainer = prop.eContainer();
+        QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(_eContainer);
+        _builder.append(_fullyQualifiedName, "");
+        _builder.append(".");
+        String _key = prop.getKey();
+        _builder.append(_key, "");
+        _builder.append(" = ");
+        AbstractPropertyValue _value = prop.getValue();
+        CharSequence _compile = this.compile(_value, dl);
+        _builder.append(_compile, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compile(final AbstractPropertyValue pv, final DefaultableLocale dl) {
+    CharSequence _xifexpression = null;
+    if ((pv instanceof SimplePropertyValue)) {
+      CharSequence _compile = this.compile(((SimplePropertyValue) pv), dl);
+      _xifexpression = _compile;
+    } else {
+      CharSequence _xifexpression_1 = null;
+      if ((pv instanceof ComplexPropertyValue)) {
+        CharSequence _compile_1 = this.compile(((ComplexPropertyValue) pv), dl);
+        _xifexpression_1 = _compile_1;
+      }
+      _xifexpression = _xifexpression_1;
+    }
+    return _xifexpression;
+  }
+  
+  public CharSequence compile(final SimplePropertyValue spv, final DefaultableLocale dl) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _value = spv.getValue();
+    _builder.append(_value, "");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence compile(final ComplexPropertyValue spv, final DefaultableLocale dl) {
+    StringConcatenation _builder = new StringConcatenation();
+    EList<ComplexPropertyValueItem> _items = spv.getItems();
+    final Function1<ComplexPropertyValueItem,Boolean> _function = new Function1<ComplexPropertyValueItem,Boolean>() {
+      public Boolean apply(final ComplexPropertyValueItem it) {
+        String _lang = it.getLang();
+        String _lang_1 = dl.getLang();
+        boolean _equals = _lang.equals(_lang_1);
+        return Boolean.valueOf(_equals);
+      }
+    };
+    Iterable<ComplexPropertyValueItem> _filter = IterableExtensions.<ComplexPropertyValueItem>filter(_items, _function);
+    final ComplexPropertyValueItem item = IterableExtensions.<ComplexPropertyValueItem>head(_filter);
+    _builder.newLineIfNotEmpty();
+    {
+      boolean _notEquals = (!Objects.equal(item, null));
+      if (_notEquals) {
+        SimplePropertyValue _value = item.getValue();
+        String _value_1 = _value.getValue();
+        _builder.append(_value_1, "");
+        _builder.append("\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public boolean checkIfValueExistsForLang(final Property prop, final DefaultableLocale locale) {
+    boolean _and = false;
+    AbstractPropertyValue _value = prop.getValue();
+    if (!(_value instanceof SimplePropertyValue)) {
+      _and = false;
+    } else {
+      boolean _or = false;
+      boolean _equals = Objects.equal(locale, null);
+      if (_equals) {
+        _or = true;
+      } else {
+        boolean _isIsDefault = locale.isIsDefault();
+        _or = (_equals || _isIsDefault);
+      }
+      _and = ((_value instanceof SimplePropertyValue) && _or);
+    }
+    if (_and) {
+      return true;
+    } else {
+      AbstractPropertyValue _value_1 = prop.getValue();
+      if ((_value_1 instanceof ComplexPropertyValue)) {
+        boolean _equals_1 = Objects.equal(locale, null);
+        if (_equals_1) {
+          return false;
+        } else {
+          AbstractPropertyValue _value_2 = prop.getValue();
+          EList<ComplexPropertyValueItem> _items = ((ComplexPropertyValue) _value_2).getItems();
+          for (final ComplexPropertyValueItem item : _items) {
+            String _lang = item.getLang();
+            String _lang_1 = locale.getLang();
+            boolean _equals_2 = _lang.equals(_lang_1);
+            if (_equals_2) {
+              return true;
+            }
+          }
+        }
+      }
+    }
+    return false;
   }
 }
