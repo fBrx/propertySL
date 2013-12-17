@@ -46,13 +46,16 @@
 <h1>
 <a name="propertysl" class="anchor" href="#propertysl"><span class="octicon octicon-link"></span></a>PropertySL</h1>
 
-<p>The defined DSL - PropertySL - let's you define properties and resource bundles in a concise way. It has support for namespaces, nesting and internationalization. The syntax is pretty straight forward to read and lets you define everything you need in one file.</p>
+<p>The defined domain specific language - named <em>PropertySL</em> - let's you define properties and resource bundles in a concise way. It has support for namespaces, nesting and internationalization. The syntax is pretty straight forward to read and lets you define everything you need in one file.</p>
 
 <h2>
 <a name="syntax" class="anchor" href="#syntax"><span class="octicon octicon-link"></span></a>Syntax</h2>
 
 <div class="highlight highlight-java"><pre><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">github</span><span class="o">.</span><span class="na">fbrx</span><span class="o">.</span><span class="na">propertysl</span><span class="o">.</span><span class="na">demo</span><span class="o">{</span>
-    <span class="n">DEFAULT_LOCALE</span> <span class="o">=</span> <span class="n">en</span>
+
+    <span class="n">SUPPORTED_LOCALES</span> <span class="o">=</span> <span class="o">{</span>
+        <span class="n">de</span><span class="o">,</span> <span class="k">default</span> <span class="n">en</span><span class="o">,</span> <span class="n">es</span> 
+    <span class="o">}</span>
 
     <span class="kn">package</span> <span class="n">subpackage</span> <span class="o">{</span>
         <span class="n">simpleProp</span> <span class="o">=</span> <span class="s">"Howdy, partner!"</span>
@@ -69,7 +72,7 @@
 <h2>
 <a name="editor-support" class="anchor" href="#editor-support"><span class="octicon octicon-link"></span></a>Editor support</h2>
 
-<p>The PropertySL was defined by means of the <a href="http://www.eclipse.org/Xtext/">Eclipse Xtext</a> technology. Thus there is also first class (Eclipse based) editor support built-in.
+<p>The PropertySL was defined by means of the <a href="http://www.eclipse.org/Xtext/">Eclipse Xtext</a> and <a href="http://www.eclipse.org/Xtend/">Eclipse Xtend</a> technologies. Thus there is also first class (Eclipse based) editor support built-in.
 <img src="https://raw.github.com/fBrx/propertySL/master/editor.png" alt="PropertySL Editor"></p>
 
 <h1>
