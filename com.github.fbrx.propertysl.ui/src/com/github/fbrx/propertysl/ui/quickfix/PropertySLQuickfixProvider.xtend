@@ -3,12 +3,14 @@
 */
 package com.github.fbrx.propertysl.ui.quickfix
 
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
+import com.github.fbrx.propertysl.propertySL.Package
+import com.github.fbrx.propertysl.propertySL.SupportedLocales
+import com.github.fbrx.propertysl.validation.PropertySLValidator
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider
 import org.eclipse.xtext.ui.editor.quickfix.Fix
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
 import org.eclipse.xtext.validation.Issue
-import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
-import com.github.fbrx.propertysl.validation.PropertySLValidator
 
 /**
  * Custom quickfixes.
@@ -18,8 +20,8 @@ import com.github.fbrx.propertysl.validation.PropertySLValidator
 class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 
 	@Fix(PropertySLValidator.LOCALE_NOT_SUPPORTED)
-	def removeComplexPropertyValueItem(Issue issue, IssueResolutionAcceptor ira){
-		ira.accept(issue, 'remove entry', 'remove entry from list', 'minus.png', [element, context |
+	def removeUnsupportedLocaleItem(Issue issue, IssueResolutionAcceptor ira){
+		ira.accept(issue, 'Remove unsupported entry', 'Remove unsupported locale entry from property definition.', 'minus.png', [element, context |
 			val cpv = element.eContainer as ComplexPropertyValue
 			cpv.items.remove(element)
 		]) 
@@ -27,9 +29,35 @@ class PropertySLQuickfixProvider extends DefaultQuickfixProvider {
 	
 	@Fix(PropertySLValidator.LOCALE_NOT_SUPPORTED)
 	def addSupportedLocale(Issue issue, IssueResolutionAcceptor ira){
-		ira.accept(issue, 'add supported locale', 'add entry to supported locales', 'plus.png', [element, context |
-			val pkg = element.eContainer.eContainer.eContainer as com.github.fbrx.propertysl.propertySL.Package
-//			pkg.supportedLocales.locales.add(issue.data.get(0))
+		ira.accept(issue, 'Add supported locale definition', 'Add entry to the list of supported locales.', 'plus.png', [element, context |
+			val pkg = element.eContainer.eContainer.eContainer as Package
+//TODO			pkg.supportedLocales.locales.add(new DefaultableLocaleImpl())
 		]) 
+	}
+	
+	@Fix(PropertySLValidator.MISSING_LOCALE_DEFINITION)
+	def addSupportedLocaleItem(Issue issue, IssueResolutionAcceptor ira){
+		ira.accept(issue, 'Add locale entry for "' + issue.data.get(0) + '"', 'Add a locale entry to the property definition.', 'plus.png', [element, context |
+			val cpv = element as ComplexPropertyValue
+//TODO			cpv.items.add(new ComplexPropertyValueItemImpl())
+		])
+	}
+	
+	@Fix(PropertySLValidator.MISSING_LOCALE_DEFINITION)
+	def removeSupportedLocale(Issue issue, IssueResolutionAcceptor ira){
+		ira.accept(issue, 'Remove supported locale definition for ' + issue.data.get(0), 'Remove entry '+ issue.data.get(0) +' from the list of supported locales.', 'minus.png', [element, context |
+			val pkg = element.eContainer.eContainer as Package
+			pkg.supportedLocales.locales.removeAll(pkg.supportedLocales.locales.filter[it.lang.equals(issue.data.get(0))])
+		]) 
+	}
+	
+	@Fix(PropertySLValidator.DEFAULT_LOCALE_NOT_SET)
+	def addDefaultLocaleDefinition(Issue issue, IssueResolutionAcceptor ira){
+		for(String l : issue.data){
+			ira.accept(issue, "Make locale \""+ l +"\" the default.", 'Make locale \""+ l +"\" the default locale.', 'minus.png', [element, context |
+				val sl = element as SupportedLocales
+				sl.locales.filter[it.lang.equals(l)].head.setIsDefault(true)
+			])			
+		}
 	}
 }

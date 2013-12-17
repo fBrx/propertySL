@@ -3,11 +3,13 @@
  */
 package com.github.fbrx.propertysl.validation
 
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
 import com.github.fbrx.propertysl.propertySL.DefaultableLocale
 import com.github.fbrx.propertysl.propertySL.Package
 import com.github.fbrx.propertysl.propertySL.PropertySLPackage
 import com.github.fbrx.propertysl.propertySL.SupportedLocales
+import java.util.ArrayList
 import org.eclipse.xtext.validation.Check
 
 /**
@@ -18,21 +20,28 @@ import org.eclipse.xtext.validation.Check
 class PropertySLValidator extends AbstractPropertySLValidator {
 
 
-	public static final String MISSING_LOCALES = "MISSING_LOCALES"
+	/** Generated if a complex property is missig an entry for a supported locale */
+	public static final String MISSING_LOCALE_DEFINITION = "MISSING_LOCALE_DEFINITION"
+	
+	/** Generated if none of the supported locales is marked as default */
 	public static final String DEFAULT_LOCALE_NOT_SET = "DEFAULT_LOCALE_NOT_SET"
-	public static final String LOCALE_NOT_SUPPORTED = "UNDEFINED_LOCALE"
+	
+	/** Generated if a complex property value has an item for a non supported locale */
+	public static final String LOCALE_NOT_SUPPORTED = "LOCALE_NOT_SUPPORTED"
 	
 	@Check
 	def checkIfDefaultLocaleIsSet(SupportedLocales sl){
 		if(sl.locales.size > 1){
 			var defaultSet = false
+			var dLangs = new ArrayList<String>()
 			for(DefaultableLocale dl : sl.locales){
+				dLangs.add(dl.lang)
 				if(dl.isDefault)
 					defaultSet = true
 			}
 			
 			if(!defaultSet){
-				warning("Default locale should be specified.", PropertySLPackage.Literals.SUPPORTED_LOCALES__LOCALES, DEFAULT_LOCALE_NOT_SET);
+				warning("Default locale should be specified.", PropertySLPackage.Literals.SUPPORTED_LOCALES__LOCALES, DEFAULT_LOCALE_NOT_SET, dLangs);
 			}
 		}
 	}
@@ -52,23 +61,26 @@ class PropertySLValidator extends AbstractPropertySLValidator {
 		}
 	}
 	
-//	@Check
-//	def checkItemsOfComplexPropertyValue(ComplexPropertyValue prop){
-//		val pkg = prop.eContainer.eContainer as Package
-//		var languages = new ArrayList<String>;
-//		
-//		for(ComplexPropertyValueItem item : prop.items){
-//			languages.add(item.lang)
-//		}
-//
-//		var tmp = new ArrayList(pkg.supportedLocales.locales)
-//		tmp.removeAll(languages)
-//		if(tmp.size > 0){
-//			for(String s : tmp){
-//				error("missing locale definition (" + s + ")", PropertySLPackage.Literals.COMPLEX_PROPERTY_VALUE__ITEMS, MISSING_LOCALES, s)
-//			}
-//			
-//		}
-//	}
+	@Check
+	def checkIfAllLocalesAreSpecifiedOnProperty(ComplexPropertyValue prop){
+		val pkg = prop.eContainer.eContainer as Package
+		var specifiedLanguages = new ArrayList<String>;
+		
+		for(ComplexPropertyValueItem item : prop.items){
+			specifiedLanguages.add(item.lang)
+		}
+
+		var supportedLocales = new ArrayList();
+		for(DefaultableLocale dl : pkg.supportedLocales.locales)
+			supportedLocales.add(dl.lang)
+		
+		supportedLocales.removeAll(specifiedLanguages)
+		if(supportedLocales.size > 0){
+			for(String s : supportedLocales){
+				warning("Supported locale \"" + s + "\" should be specified.", PropertySLPackage.Literals.COMPLEX_PROPERTY_VALUE__ITEMS, MISSING_LOCALE_DEFINITION, s)
+			}
+			
+		}
+	}
 	
 }
