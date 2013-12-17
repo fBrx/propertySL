@@ -26,25 +26,27 @@ class PropertySLGenerator implements IGenerator {
 	 
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
 		for(pkg : resource.allContents.toIterable.filter(Package)){
-			
-			if(pkg.supportedLocales != null){
-				for(locale : pkg.supportedLocales.locales){
-					fsa.generateFile(
-						pkg.fullyQualifiedName.toString(".") + "_" + locale.lang + ".properties",
-						pkg.compile(locale)
-					)
-					
-					if(locale.isDefault)
+			if(pkg.properties != null && pkg.properties.size > 0){
+				
+				if(pkg.supportedLocales != null){
+					for(locale : pkg.supportedLocales.locales){
 						fsa.generateFile(
-							pkg.fullyQualifiedName.toString(".") + ".properties",
+							pkg.fullyQualifiedName.toString(".") + "_" + locale.lang + ".properties",
 							pkg.compile(locale)
 						)
+						
+						if(locale.isDefault)
+							fsa.generateFile(
+								pkg.fullyQualifiedName.toString(".") + ".properties",
+								pkg.compile(locale)
+							)
+					}
+				}else{
+					fsa.generateFile(
+						pkg.fullyQualifiedName.toString(".") + ".properties",
+						pkg.compile(null)
+					)
 				}
-			}else{
-				fsa.generateFile(
-					pkg.fullyQualifiedName.toString(".") + ".properties",
-					pkg.compile(null)
-				)
 			}
 		}
 	}

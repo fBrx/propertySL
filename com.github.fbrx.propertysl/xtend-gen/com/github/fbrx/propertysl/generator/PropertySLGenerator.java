@@ -43,37 +43,50 @@ public class PropertySLGenerator implements IGenerator {
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
     Iterable<com.github.fbrx.propertysl.propertySL.Package> _filter = Iterables.<com.github.fbrx.propertysl.propertySL.Package>filter(_iterable, com.github.fbrx.propertysl.propertySL.Package.class);
     for (final com.github.fbrx.propertysl.propertySL.Package pkg : _filter) {
-      SupportedLocales _supportedLocales = pkg.getSupportedLocales();
-      boolean _notEquals = (!Objects.equal(_supportedLocales, null));
-      if (_notEquals) {
-        SupportedLocales _supportedLocales_1 = pkg.getSupportedLocales();
-        EList<DefaultableLocale> _locales = _supportedLocales_1.getLocales();
-        for (final DefaultableLocale locale : _locales) {
-          {
-            QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
-            String _string = _fullyQualifiedName.toString(".");
-            String _plus = (_string + "_");
-            String _lang = locale.getLang();
-            String _plus_1 = (_plus + _lang);
-            String _plus_2 = (_plus_1 + ".properties");
-            CharSequence _compile = this.compile(pkg, locale);
-            fsa.generateFile(_plus_2, _compile);
-            boolean _isIsDefault = locale.isIsDefault();
-            if (_isIsDefault) {
-              QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
-              String _string_1 = _fullyQualifiedName_1.toString(".");
-              String _plus_3 = (_string_1 + ".properties");
-              CharSequence _compile_1 = this.compile(pkg, locale);
-              fsa.generateFile(_plus_3, _compile_1);
+      boolean _and = false;
+      EList<Property> _properties = pkg.getProperties();
+      boolean _notEquals = (!Objects.equal(_properties, null));
+      if (!_notEquals) {
+        _and = false;
+      } else {
+        EList<Property> _properties_1 = pkg.getProperties();
+        int _size = _properties_1.size();
+        boolean _greaterThan = (_size > 0);
+        _and = (_notEquals && _greaterThan);
+      }
+      if (_and) {
+        SupportedLocales _supportedLocales = pkg.getSupportedLocales();
+        boolean _notEquals_1 = (!Objects.equal(_supportedLocales, null));
+        if (_notEquals_1) {
+          SupportedLocales _supportedLocales_1 = pkg.getSupportedLocales();
+          EList<DefaultableLocale> _locales = _supportedLocales_1.getLocales();
+          for (final DefaultableLocale locale : _locales) {
+            {
+              QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+              String _string = _fullyQualifiedName.toString(".");
+              String _plus = (_string + "_");
+              String _lang = locale.getLang();
+              String _plus_1 = (_plus + _lang);
+              String _plus_2 = (_plus_1 + ".properties");
+              CharSequence _compile = this.compile(pkg, locale);
+              fsa.generateFile(_plus_2, _compile);
+              boolean _isIsDefault = locale.isIsDefault();
+              if (_isIsDefault) {
+                QualifiedName _fullyQualifiedName_1 = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+                String _string_1 = _fullyQualifiedName_1.toString(".");
+                String _plus_3 = (_string_1 + ".properties");
+                CharSequence _compile_1 = this.compile(pkg, locale);
+                fsa.generateFile(_plus_3, _compile_1);
+              }
             }
           }
+        } else {
+          QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
+          String _string = _fullyQualifiedName.toString(".");
+          String _plus = (_string + ".properties");
+          CharSequence _compile = this.compile(pkg, null);
+          fsa.generateFile(_plus, _compile);
         }
-      } else {
-        QualifiedName _fullyQualifiedName = this._iQualifiedNameProvider.getFullyQualifiedName(pkg);
-        String _string = _fullyQualifiedName.toString(".");
-        String _plus = (_string + ".properties");
-        CharSequence _compile = this.compile(pkg, null);
-        fsa.generateFile(_plus, _compile);
       }
     }
   }
