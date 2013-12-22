@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<relativePath>../com.github.fbrx.propertysl.build/pom.xml</relativePath>
+		<groupId>com.github.fbrx.propertysl</groupId>
+		<artifactId>com.github.fbrx.propertysl.build</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>com.github.fbrx.propertysl</artifactId>
+	<packaging>eclipse-plugin</packaging>
+
+	<name>PropertySL Language Core</name>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>${basedir}/src-gen</directory>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/xtend-gen</directory>
+						</fileset>
+						<!-- clean ui plugin as well -->
+						<fileset>
+							<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
+						</fileset>
+						<!-- clean test fragment as well -->
+						<fileset>
+							<directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
+						</fileset>
+						<fileset>
+							<directory>${basedir}/../${project.artifactId}.tests/xtend-gen</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>java</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<includeProjectDependencies>false</includeProjectDependencies>
+					<includePluginDependencies>true</includePluginDependencies>
+					<mainClass>org.eclipse.emf.mwe2.launch.runtime.Mwe2Launcher</mainClass>
+					<arguments>
+						<argument>file://${project.basedir}/src/com/github/fbrx/propertysl/GeneratePropertySL.mwe2</argument>
+					</arguments>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.xtext</artifactId>
+						<version>${version.xtext}</version>
+					</dependency>
+					<dependency>
+						<groupId>org.eclipse.xtext</groupId>
+						<artifactId>org.eclipse.xtext.xbase</artifactId>
+						<version>${version.xtext}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.xtend</groupId>
+				<artifactId>xtend-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

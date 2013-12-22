@@ -6,6 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: com.github.fbrx.propertysl.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: com.github.fbrx.propertysl,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
  com.github.fbrx.propertysl.ui,
  org.eclipse.core.runtime,
  org.eclipse.xtext.junit4,
