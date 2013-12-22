@@ -3,7 +3,6 @@
  */
 package com.github.fbrx.propertysl.generator
 
-import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
 import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
 import com.github.fbrx.propertysl.propertySL.DefaultableLocale
@@ -17,6 +16,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.naming.IQualifiedNameProvider
+import org.eclipse.emf.ecore.EObject
 
 /**
  * Generates code from your model files on save.
@@ -54,7 +54,7 @@ class PropertySLGenerator implements IGenerator {
 		}
 	}
 
-	def compile(Package pkg, DefaultableLocale locale)'''
+	def dispatch compile(Package pkg, DefaultableLocale locale)'''
 		####
 		##  package : «pkg.fullyQualifiedName»
 		«IF locale == null»
@@ -76,12 +76,12 @@ class PropertySLGenerator implements IGenerator {
 «««			####
 «««		«ENDIF»
 «««		
-«««		«FOR p:pkg.properties»
-«««			«p.compile(locale)»
-«««		«ENDFOR»
+		«FOR p:pkg.properties»
+			«p.compile(locale)»
+		«ENDFOR»
 	'''
 	
-	def compile(Property prop, DefaultableLocale dl)'''
+	def dispatch compile(Property prop, DefaultableLocale dl)'''
 		«IF checkIfValueExistsForLang(prop, dl)»
 «««			«IF prop.commentlines != null && prop.commentlines.size > 0»
 «««				«FOR l : prop.commentlines»
@@ -92,23 +92,19 @@ class PropertySLGenerator implements IGenerator {
 		«ENDIF»
 	'''
 	
-	def compile(AbstractPropertyValue pv, DefaultableLocale dl){
-		if(pv instanceof SimplePropertyValue){
-			(pv as SimplePropertyValue).compile(dl)
-		}else if(pv instanceof ComplexPropertyValue){
-			(pv as ComplexPropertyValue).compile(dl)
-		}
-	}
-
-	def compile(SimplePropertyValue spv, DefaultableLocale dl)'''
+	def dispatch compile(SimplePropertyValue spv, DefaultableLocale dl)'''
 		«spv.value»
 	'''
 
-	def compile(ComplexPropertyValue spv, DefaultableLocale dl)'''
-		«val item = spv.items.filter[it.lang.equals(dl.lang)].head»
+	def dispatch compile(ComplexPropertyValue cpv, DefaultableLocale dl)'''
+		«val item = cpv.items.filter[it.lang.equals(dl.lang)].head»
 		«IF item != null»
 			«item.value.value»		
 		«ENDIF»
+	'''
+	
+	def dispatch compile(EObject o, DefaultableLocale dl)'''
+		«o.toString»
 	'''
 	
 	def boolean checkIfValueExistsForLang(Property prop, DefaultableLocale locale){
