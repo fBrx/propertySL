@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/fBrx/propertySL.png)](https://travis-ci.org/fBrx/propertySL)
 
+[<img align="right" src="https://travis-ci.org/fBrx/propertySL.png">](https://travis-ci.org/fBrx/propertySL)
 # Overview
 
 This repository contains a domain specific language for editing java property files and multi-language resource bundles. The project started initially as a sample project for exploring domain specific languages and the [Eclipse Xtext](http://www.eclipse.org/Xtext/) technology.
