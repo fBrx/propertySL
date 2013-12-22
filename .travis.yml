@@ -1,3 +1,5 @@
+#set language
 language: java
 
+#change to subfolder where parent maven project is located
 before_script: cd com.github.fbrx.propertysl.build
