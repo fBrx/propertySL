@@ -10,6 +10,7 @@
 		<module>../com.github.fbrx.propertysl.ui</module>
 		<module>../com.github.fbrx.propertysl.tests</module>
 		<module>../com.github.fbrx.propertysl.sdk</module>
+		<module>../com.github.fbrx.propertysl.updatesite</module>
 	</modules>
 
 	<name>PropertySL Parent Project</name>
