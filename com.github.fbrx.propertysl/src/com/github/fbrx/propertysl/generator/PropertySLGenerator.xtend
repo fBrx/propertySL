@@ -3,20 +3,20 @@
  */
 package com.github.fbrx.propertysl.generator
 
+import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
+import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
+import com.github.fbrx.propertysl.propertySL.DefaultableLocale
+import com.github.fbrx.propertysl.propertySL.Package
+import com.github.fbrx.propertysl.propertySL.Property
+import com.github.fbrx.propertysl.propertySL.SimplePropertyValue
 import com.google.inject.Inject
+import java.text.SimpleDateFormat
+import java.util.Date
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import org.eclipse.xtext.naming.IQualifiedNameProvider
-import com.github.fbrx.propertysl.propertySL.Package
-import com.github.fbrx.propertysl.propertySL.SimplePropertyValue
-import com.github.fbrx.propertysl.propertySL.ComplexPropertyValue
-import com.github.fbrx.propertysl.propertySL.DefaultableLocale
-import com.github.fbrx.propertysl.propertySL.AbstractPropertyValue
-import com.github.fbrx.propertysl.propertySL.ComplexPropertyValueItem
-import java.text.SimpleDateFormat
-import java.text.DateFormat
-import java.util.Date
 
 /**
  * Generates code from your model files on save.
@@ -81,7 +81,7 @@ class PropertySLGenerator implements IGenerator {
 «««		«ENDFOR»
 	'''
 	
-	def compile(com.github.fbrx.propertysl.propertySL.Property prop, DefaultableLocale dl)'''
+	def compile(Property prop, DefaultableLocale dl)'''
 		«IF checkIfValueExistsForLang(prop, dl)»
 «««			«IF prop.commentlines != null && prop.commentlines.size > 0»
 «««				«FOR l : prop.commentlines»
@@ -111,7 +111,7 @@ class PropertySLGenerator implements IGenerator {
 		«ENDIF»
 	'''
 	
-	def boolean checkIfValueExistsForLang(com.github.fbrx.propertysl.propertySL.Property prop, DefaultableLocale locale){
+	def boolean checkIfValueExistsForLang(Property prop, DefaultableLocale locale){
 		if(prop.value instanceof SimplePropertyValue && (locale == null || locale.isDefault))
 			return true
 			
