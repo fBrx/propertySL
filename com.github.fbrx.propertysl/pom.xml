@@ -23,24 +23,24 @@
 				<configuration>
 					<filesets>
 						<fileset>
-							<directory>${basedir}/src-gen</directory>
+							<directory>${project.basedir}/src-gen</directory>
 						</fileset>
 						<fileset>
-							<directory>${basedir}/xtend-gen</directory>
+							<directory>${project.basedir}/xtend-gen</directory>
 						</fileset>
 						<!-- clean ui plugin as well -->
 						<fileset>
-							<directory>${basedir}/../${project.artifactId}.ui/src-gen</directory>
+							<directory>${project.basedir}/../${project.artifactId}.ui/src-gen</directory>
 						</fileset>
 						<fileset>
-							<directory>${basedir}/../${project.artifactId}.ui/xtend-gen</directory>
+							<directory>${project.basedir}/../${project.artifactId}.ui/xtend-gen</directory>
 						</fileset>
 						<!-- clean test fragment as well -->
 						<fileset>
-							<directory>${basedir}/../${project.artifactId}.tests/src-gen</directory>
+							<directory>${project.basedir}/../${project.artifactId}.tests/src-gen</directory>
 						</fileset>
 						<fileset>
-							<directory>${basedir}/../${project.artifactId}.tests/xtend-gen</directory>
+							<directory>${project.basedir}/../${project.artifactId}.tests/xtend-gen</directory>
 						</fileset>
 					</filesets>
 				</configuration>
