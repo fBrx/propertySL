@@ -22,14 +22,28 @@
 				<version>1.8</version>
 				<executions>
 					<execution>
+						<id>add-resources</id>
 						<goals>
-							<goal>add-source</goal>
+							<goal>add-resource</goal>
 						</goals>
 						<configuration>
-							<sources>
-								<source>gen/main/resources/</source>
-								<source>gen/test/resources/</source>
-							</sources>
+							<resources>
+								<resource>
+									<directory>gen/main/resources</directory>
+								</resource>
+							</resources>
+						</configuration>
+					</execution>
+					<execution>
+						<id>add-test-resources</id><goals>
+							<goal>add-test-resource</goal>
+						</goals>
+						<configuration>
+							<resources>
+								<resource>
+									<directory>gen/test/resources</directory>
+								</resource>
+							</resources>
 						</configuration>
 					</execution>
 				</executions>
@@ -88,7 +102,7 @@
 									</outputConfigurations>
 								</language>
 							</languages>
-						</configuration>						
+						</configuration>
 					</execution>
 					<execution>
 						<id>generate-test</id>
@@ -124,7 +138,8 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -148,7 +163,7 @@
 										</goals>
 									</pluginExecutionFilter>
 									<action>
-<!-- 										<execute></execute> -->
+										<!-- <execute></execute> -->
 										<ignore></ignore>
 									</action>
 								</pluginExecution>
@@ -164,7 +179,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
+			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

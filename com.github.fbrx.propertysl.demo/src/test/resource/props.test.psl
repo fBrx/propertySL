@@ -1,7 +1,9 @@
-/** Test Package */
-package test{
+/** Main Package */
+package com.github.fbrx.propertysl.demo {
 
 	/** Sample Property */
 	greeting = "Howdy, partner! This is a test!"
+	
+	env = "test"
 	
 }
