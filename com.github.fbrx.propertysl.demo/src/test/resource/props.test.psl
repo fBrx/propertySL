@@ -1,0 +1,7 @@
+/** Test Package */
+package test{
+
+	/** Sample Property */
+	greeting = "Howdy, partner! This is a test!"
+	
+}

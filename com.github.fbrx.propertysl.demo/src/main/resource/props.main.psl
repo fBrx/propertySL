@@ -1,0 +1,7 @@
+/** Main Package */
+package main{
+
+	/** Sample Property */
+	greeting = "Howdy, partner! This is the real deal!"
+	
+}
